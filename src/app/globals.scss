@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    @apply h-full w-full overflow-x-hidden
+}
+
+.onClick_onHover {
+    @apply transition duration-300 hover:opacity-75 active:opacity-100
+}
+
+.onClick_onHover_transparent {
+    @apply transition duration-300 hover:bg-greenish active:bg-transparent hover:text-secondary
+}
+
+.onHover {
+    @apply transition duration-300 hover:scale-105
+}
+
+.onInvertHover {
+    @apply transition duration-300 hover:invert
+}
+
+
+::-webkit-scrollbar {
+    @apply w-[1px] lg:w-[3px] bg-primary
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-secondary
+}
+
+/*! Firefox */
+html {
+    scrollbar-color: #0a0908 #f2f4f3 1px;
+}
+
+ul, p, li, h1,h2,h3,h4,h5,h6 {
+   @apply cursor-default
+}
