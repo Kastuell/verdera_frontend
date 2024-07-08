@@ -1,3 +1,4 @@
+import UnderlineText from "@/components/text/UnderlineText";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div></div>
+        <div>
+            <UnderlineText children={<div>qwe</div>} />
+        </div>
     )
 }

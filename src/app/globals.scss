@@ -37,6 +37,15 @@ html {
     scrollbar-color: #0a0908 #f2f4f3 1px;
 }
 
-ul, p, li, h1,h2,h3,h4,h5,h6 {
-   @apply cursor-default
+ul,
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+    @apply cursor-default
 }

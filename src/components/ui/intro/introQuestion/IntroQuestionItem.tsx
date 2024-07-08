@@ -12,7 +12,7 @@ export default function IntroQuestionItem(props: IIntroQuestionItem) {
     const { className, src, title } = props
 
     return (
-        <div className="flex justify-center items-center gap-5 h-24">
+        <div className={`flex justify-center items-center gap-5 h-24 ${className}`}>
             <Image className={clsx({
                 ["invert"]: src.includes('vk')
             })} src={src} width={80} height={80} alt="" />

@@ -1,5 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
+import Icon from "../Icon";
+import Logo from "../Logo";
 import NavItem from "../NavItem";
 
 export default function Footer() {
@@ -11,22 +12,17 @@ export default function Footer() {
             { title: "ИП Петухов А.И" },
         ],
         right: [
-            { src: "/images/svg/media/vk.svg", title: "VK", href: "" },
-            { src: "/images/svg/media/whatsapp.svg", title: "What's App", href: "" },
-            { src: "/images/svg/media/tg.svg", title: "TG", href: "" },
+            { src: "/images/svg/media/vk.svg", alt: "VK", href: "" },
+            { src: "/images/svg/media/whatsapp.svg", alt: "What's App", href: "" },
+            { src: "/images/svg/media/tg.svg", alt: "TG", href: "" },
         ]
     }
 
     return (
         <footer className="bg-primary text-secondary text-4xl mt-32">
             <div className="container flex justify-between py-20">
-                <Link href="/" className="onClick_onHover border">
-                    <Image
-                        src={'/images/svg/logo.svg'}
-                        alt=""
-                        width={245}
-                        height={100}
-                    />
+                <Link href="/" className="onClick_onHover self-start">
+                    <Logo />
                 </Link>
                 <div className="flex flex-col gap-16 items-center">
                     {footerItems.center.map(item => <a className="cursor-pointer onClick_onHover" key={item.title}>{item.title}</a>)}
@@ -38,12 +34,12 @@ export default function Footer() {
                             className=" onClick_onHover"
                             key={item.href}
                             href={item.href}
-                            children={<Image
+                            children={<Icon
                                 src={item.src}
-                                width={70}
-                                height={70}
-                                alt={item.title}
-                                title={item.title} />}
+                                isHeader={false}
+                                alt={item.alt}
+                                title={item.alt}
+                                size={70} />}
                         />)}
                     </ul>
                 </div>

@@ -24,7 +24,7 @@ export default function NavItem(props: INavItem) {
             key={href}
             id={href}
             className={clsx({
-                [`flex gap-14 ${className}`]: true,
+                [`${className}`]: true,
                 ['group transition duration-300']: underline
             })}>
             <Link href={href}>
