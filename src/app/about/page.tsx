@@ -1,5 +1,5 @@
-import AboutItem from "@/components/ui/about/AboutItem";
 import { Metadata } from "next";
+import AboutItem from "./_components/AboutItem";
 import { AboutItems } from "./about-items";
 
 export const metadata: Metadata = {

@@ -1,16 +1,18 @@
-import IntroCourse from "@/components/ui/intro/introCourse/IntroCourse";
-import IntroForm from "@/components/ui/intro/introForm/IntroForm";
-import IntroImage from "@/components/ui/intro/introImage/IntroImage";
-import IntroProduct from "@/components/ui/intro/IntroProduct/IntroProduct";
-import IntroQuestion from "@/components/ui/intro/introQuestion/IntroQuestion";
-import IntroTeahers from "@/components/ui/intro/introTeachers/IntroTeachers";
-import IntroVideo from "@/components/ui/intro/introVideo/introVideo";
+import IntroCourse from "./_components/intro/introCourse/IntroCourse";
+import IntroForm from "./_components/intro/introForm/IntroForm";
+import IntroGallery from "./_components/intro/IntroGallery/IntroGallery";
+import IntroImage from "./_components/intro/introImage/IntroImage";
+import IntroProduct from "./_components/intro/IntroProduct/IntroProduct";
+import IntroQuestion from "./_components/intro/introQuestion/IntroQuestion";
+import IntroTeahers from "./_components/intro/introTeachers/IntroTeachers";
+import IntroVideo from "./_components/intro/introVideo/introVideo";
 
 export default function Home() {
   return (
     <main>
       <IntroImage />
       <IntroProduct />
+      <IntroGallery />
       <IntroCourse />
       <IntroQuestion />
       <IntroTeahers />

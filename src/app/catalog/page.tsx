@@ -1,4 +1,4 @@
-import UnderlineText from "@/components/text/UnderlineText";
+import CatalogWrapper from "@/app/catalog/_components/CatalogWrapper";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,10 +7,14 @@ export const metadata: Metadata = {
 };
 
 
+
 export default function Page() {
+
+
+
     return (
-        <div>
-            <UnderlineText children={<div>qwe</div>} />
+        <div className="container">
+            <CatalogWrapper />
         </div>
     )
 }

@@ -1,5 +1,5 @@
+import CustomButton from "@/components/ui/buttons/CustomButton";
 import Image from "next/image";
-import CustomButton from "../../global/buttons/CustomButton";
 import IntroProductItem from "./IntroProductItem";
 
 export default function IntroProduct() {

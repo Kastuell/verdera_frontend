@@ -1,10 +1,10 @@
 "use client"
+import UnderlineText from "@/components/text/UnderlineText"
 import clsx from "clsx"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import Icon from "../Icon"
 import Logo from "../Logo"
-import NavItem from "../NavItem"
 
 export default function header() {
 
@@ -33,21 +33,21 @@ export default function header() {
                     </Link>
                     <ul className="flex gap-14 text-3xl">
                         {navItems.center.map(item =>
-                            <NavItem
-                                children={item.title}
-                                href={item.href}
-                                underline />)}
+                            <UnderlineText
+                                key={item.href}
+                                children={<Link href={item.href}>{item.title}</Link>}
+                                color={pathName === "/" ? "bg-secondary" : "bg-primary"} />
+                        )}
                     </ul>
                     <ul className="flex gap-14 ">
                         {navItems.right.map(item =>
-                            <NavItem
-                                href={item.href}
-                                children={<Icon
-                                    pathName={pathName}
-                                    isHeader={true}
-                                    src={item.src}
-                                    alt={item.alt}
-                                    title={item.alt} />} />
+                            <Icon
+                                key={item.href}
+                                pathName={pathName}
+                                isHeader={true}
+                                src={item.src}
+                                alt={item.alt}
+                                title={item.alt} />
                         )}
                     </ul>
                 </nav>

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Icon from "../Icon";
 import Logo from "../Logo";
-import NavItem from "../NavItem";
 
 export default function Footer() {
 
@@ -30,17 +29,15 @@ export default function Footer() {
                 <div className="flex flex-col gap-16 items-center">
                     <p>©Verdera2024</p>
                     <ul className="flex gap-12 items-center">
-                        {footerItems.right.map(item => <NavItem
-                            className=" onClick_onHover"
-                            key={item.href}
-                            href={item.href}
-                            children={<Icon
+                        {footerItems.right.map(item =>
+                            <Icon
+                                key={item.href}
                                 src={item.src}
                                 isHeader={false}
                                 alt={item.alt}
                                 title={item.alt}
-                                size={70} />}
-                        />)}
+                                size={70} />
+                        )}
                     </ul>
                 </div>
             </div>

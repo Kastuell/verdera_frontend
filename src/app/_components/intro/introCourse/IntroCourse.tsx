@@ -1,4 +1,4 @@
-import CustomButton from "../../global/buttons/CustomButton";
+import CustomButton from "@/components/ui/buttons/CustomButton";
 import IntroHead from "../IntroHead";
 import IntroCourseItem from "./IntroCourseItem";
 

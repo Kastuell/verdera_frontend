@@ -1,7 +1,7 @@
+import CustomButton from "@/components/ui/buttons/CustomButton";
+import Head from "@/components/ui/Head";
+import CustomInput from "@/components/ui/inputs/CustomInput";
 import Image from "next/image";
-import CustomButton from "../../global/buttons/CustomButton";
-import Head from "../../global/Head";
-import CustomInput from "../../global/inputs/CustomInput";
 
 export default function IntroForm() {
     return (
