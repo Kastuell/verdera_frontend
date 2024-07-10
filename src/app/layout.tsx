@@ -4,7 +4,6 @@ import Footer from "./_components/layout-components/footer/Footer";
 import Header from "./_components/layout-components/header/Header";
 import "./globals.scss";
 
-
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -13,16 +12,17 @@ export const metadata: Metadata = {
 };
 
 interface Ilayout {
-  children: Readonly<React.ReactNode>
+  children: Readonly<React.ReactNode>;
 }
 
 export default function RootLayout(props: Ilayout) {
-
-  const { children } = props
+  const { children } = props;
 
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${montserrat.className} flex flex-col justify-between bg-secondary`}>
+      <body
+        className={`${montserrat.className} flex flex-col justify-between bg-secondary`}
+      >
         <Header />
         <main>{children}</main>
         <Footer />

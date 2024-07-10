@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function IntroImage() {
-    // return <div className="bg-introDesktop min-w-full min-h- bg-cover bg-no-repeat" />
+    // return <div className="bg-introDesktop h-full bg-cover bg-no-repeat" />
     return <Image
         className="w-full"
         src={"/images/jpg/intro.jpg"}
