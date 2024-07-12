@@ -1,21 +1,18 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import CatalogNavbar from "./CatalogNavbar"
+import { useState } from "react";
+import CatalogNavbar from "./CatalogNavbar";
 
-interface ICatalogWrapper {
-}
+interface ICatalogWrapper {}
 
 export default function CatalogWrapper(props: ICatalogWrapper) {
+  const {} = props;
 
-    const { } = props
+  const [selected, setSelected] = useState("Курсы");
 
-    const [selected, setSelected] = useState("Курсы")
-
-    return (
-        <>
-            <CatalogNavbar selected={selected} setSelected={setSelected} />
-
-        </>
-    )
+  return (
+    <>
+      <CatalogNavbar selected={selected} setSelected={setSelected} />
+    </>
+  );
 }

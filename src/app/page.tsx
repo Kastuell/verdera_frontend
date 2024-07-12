@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import IntroCourse from "./_components/intro/introCourse/IntroCourse";
 import IntroForm from "./_components/intro/introForm/IntroForm";
 import IntroGallery from "./_components/intro/IntroGallery/IntroGallery";
@@ -7,16 +8,20 @@ import IntroQuestion from "./_components/intro/introQuestion/IntroQuestion";
 import IntroTeahers from "./_components/intro/introTeachers/IntroTeachers";
 import IntroVideo from "./_components/intro/introVideo/introVideo";
 
+export const metadata: Metadata = {
+  title: "Главная",
+};
+
 export default function Home() {
   return (
     <main>
       <IntroImage />
       <IntroProduct />
-      <IntroGallery />
+      <IntroVideo />
       <IntroCourse />
       <IntroQuestion />
       <IntroTeahers />
-      <IntroVideo />
+      <IntroGallery />
       <IntroForm />
     </main>
   );

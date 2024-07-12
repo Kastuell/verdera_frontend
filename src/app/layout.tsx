@@ -1,3 +1,4 @@
+import { SITE_NAME } from "@/constants/seo.constants";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Footer from "./_components/layout-components/footer/Footer";
@@ -6,8 +7,16 @@ import "./globals.scss";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
+// export const metadata: Metadata = {
+//   title: "Verdera | Главная",
+//   description: "Стираем вероятность ошибки",
+// };
+
 export const metadata: Metadata = {
-  title: "Verdera | Главная",
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
   description: "Стираем вероятность ошибки",
 };
 

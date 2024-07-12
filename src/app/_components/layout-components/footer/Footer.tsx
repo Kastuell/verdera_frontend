@@ -21,7 +21,7 @@ export default function Footer() {
         <footer className="bg-primary text-secondary text-4xl mt-32">
             <div className="container flex justify-between py-20">
                 <Link href="/" className="onClick_onHover self-start">
-                    <Logo />
+                    <Logo isFooter={true} />
                 </Link>
                 <div className="flex flex-col gap-16 items-center">
                     {footerItems.center.map(item => <a className="cursor-pointer onClick_onHover" key={item.title}>{item.title}</a>)}
