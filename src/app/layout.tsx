@@ -30,7 +30,7 @@ export default function RootLayout(props: Ilayout) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${montserrat.className} flex flex-col justify-between bg-secondary`}
+        className={`${montserrat.className} flex flex-col justify-between bg-secondary select-none`}
       >
         <Header />
         <main>{children}</main>
