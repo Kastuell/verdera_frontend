@@ -3,12 +3,17 @@
 import { useState } from "react";
 import CatalogNavbar from "./CatalogNavbar";
 
-interface ICatalogWrapper {}
+export type SelectedT = {
+  name: string
+  slug: string
+}
+
+interface ICatalogWrapper { }
 
 export default function CatalogWrapper(props: ICatalogWrapper) {
-  const {} = props;
+  const { } = props;
 
-  const [selected, setSelected] = useState("Курсы");
+  const [selected, setSelected] = useState<SelectedT>({ name: "Курсы", slug: "kursy" });
 
   return (
     <>

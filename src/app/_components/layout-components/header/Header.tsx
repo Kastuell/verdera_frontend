@@ -59,6 +59,7 @@ export default function header() {
                   />
                 }
                 href={item.href}
+                key={item.href}
               />
             ))}
           </ul>

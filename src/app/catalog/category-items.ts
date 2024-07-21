@@ -1,5 +1,5 @@
 export const categoryItems = [
-    { name: "Курсы", category: "Course" },
-    { name: "Тренажеры", category: "Simulator" },
-    { name: "Расходники", category: "Suply" },
+    { name: "Курсы", slug: "kursy" },
+    { name: "Тренажеры", slug: "trenazhery" },
+    { name: "Расходники", slug: "rashodniki" },
 ]

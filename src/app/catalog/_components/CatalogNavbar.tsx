@@ -2,25 +2,27 @@ import { categoryItems } from "@/app/catalog/category-items";
 import UnderlineText from "@/components/text/UnderlineText";
 import clsx from "clsx";
 import { Dispatch, SetStateAction } from "react";
+import { SelectedT } from "./CatalogWrapper";
 
 interface ICatalogNavbar {
-  selected: string;
-  setSelected: Dispatch<SetStateAction<string>>;
+  selected: SelectedT
+  setSelected: Dispatch<SetStateAction<SelectedT>>;
 }
 
 export default function CatalogNavbar(props: ICatalogNavbar) {
   const { selected, setSelected } = props;
 
-  console.log(selected);
-
   return (
     <ul className="flex gap-16 font-thin">
       {categoryItems.map((item) => (
         <li
-          onClick={() => setSelected(item.name)}
+          onClick={() => setSelected({
+            name: item.name,
+            slug: item.slug
+          })}
           className={clsx({
             ["text-5xl"]: true,
-            ["font-medium"]: selected === item.name,
+            ["font-medium"]: selected.name === item.name,
           })}
           key={item.name}
         >

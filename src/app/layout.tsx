@@ -1,4 +1,5 @@
 import { SITE_NAME } from "@/constants/seo.constants";
+import { TanstackProvider } from "@/utils/TanstackProvider";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Footer from "./_components/layout-components/footer/Footer";
@@ -32,9 +33,12 @@ export default function RootLayout(props: Ilayout) {
       <body
         className={`${montserrat.className} flex flex-col justify-between bg-secondary select-none`}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <TanstackProvider>
+
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </TanstackProvider>
       </body>
     </html>
   );
