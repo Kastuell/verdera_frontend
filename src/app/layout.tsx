@@ -1,11 +1,9 @@
-import { Toaster } from "@/components/ui/toaster";
+import { Footer, Header, Toaster } from "@/components";
 import { SITE_NAME } from "@/constants/seo.constants";
 import { cn } from "@/lib/utils";
 import { TanstackProvider } from "@/utils/TanstackProvider";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import Footer from "./_components/layout-components/footer/Footer";
-import Header from "./_components/layout-components/header/Header";
 import "./globals.scss";
 
 const montserrat = Montserrat({ subsets: ["latin"] });

@@ -1,0 +1,2 @@
+export { AboutItem } from "./AboutItem";
+

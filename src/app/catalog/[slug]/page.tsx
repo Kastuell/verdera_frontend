@@ -1,9 +1,7 @@
-import IntroHead from "@/app/_components/intro/IntroHead";
-import Container from "@/components/ui/Container";
+import { CatalogCard, Container, ProductTile } from "@/components";
+import { IntroHead } from "@/components/intro/IntroHead";
 import { productService } from "@/services/product.service";
 import Image from "next/image";
-import CatalogCard from "../_components/CatalogCard";
-import ProductTile from "./_components/ProductTile";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const product = await productService.getBySlug(params.slug);

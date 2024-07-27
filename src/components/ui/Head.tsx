@@ -6,7 +6,7 @@ interface IHead {
   className?: string;
 }
 
-export default function Head(props: IHead) {
+export const Head = (props: IHead) => {
   const { children, className, center = true } = props;
 
   return (
@@ -20,4 +20,4 @@ export default function Head(props: IHead) {
       {children}
     </h3>
   );
-}
+};
