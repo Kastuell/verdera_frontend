@@ -1,12 +1,19 @@
-import CustomButton from "@/components/ui/buttons/CustomButton";
+import { Button } from "@/components/ui";
 import Head from "@/components/ui/Head";
+import Link from "next/link";
 
 export default function EmptyCart() {
   return (
-    <div className="flex justify-center flex-col items-center">
+    <div className="space-y-12 text-center">
       <Head>Корзина пуста</Head>
       <p>Самое время её запонить ;)</p>
-      <CustomButton className="w-1/6">Перейти в каталог</CustomButton>
+      <div>
+        <Link href={"/catalog"}>
+          <Button variant={"transparent"} className="w-1/2">
+            Перейти в каталог
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }

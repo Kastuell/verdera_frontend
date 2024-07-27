@@ -51,8 +51,10 @@ export default function IntroGallery() {
   //   );
   return (
     <div ref={sliderRef} className="keen-slider mt-32">
-      {galleryItems.map((item, index) => (
-        <div className="relative">
+      {galleryItems.map((item, index) =>
+        <div
+          key={index}
+          className="relative">
           <Image
             className="keen-slider__slide number-slide6"
             key={index}
@@ -62,7 +64,7 @@ export default function IntroGallery() {
             height={0}
           />
         </div>
-      ))}
+      )}
     </div>
   );
 }

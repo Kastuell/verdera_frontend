@@ -1,6 +1,6 @@
 import { NO_INDEX_PAGE } from "@/constants/seo.constants";
 import { Metadata } from "next";
-import EmptyCart from "./_components/EmptyCart";
+import Cart from "./_components/Cart";
 
 export const metadata: Metadata = {
   title: "Корзина",
@@ -8,9 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return (
-    <div>
-      <EmptyCart />
-    </div>
-  );
+  return <Cart />;
 }

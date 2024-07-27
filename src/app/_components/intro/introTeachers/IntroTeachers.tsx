@@ -1,3 +1,4 @@
+import Container from "@/components/ui/Container";
 import IntroHead from "../IntroHead";
 import IntroTeacherItem from "./IntroTeacherItem";
 
@@ -16,9 +17,9 @@ export default function IntroTeahers() {
   ];
 
   return (
-    <div>
+    <div className="mt-20">
       <IntroHead title="Преподаватели" />
-      <div className="container mt-32">
+      <Container>
         <ul className="flex justify-between">
           {IntroTeacherItems.map((item) => (
             <IntroTeacherItem
@@ -29,7 +30,7 @@ export default function IntroTeahers() {
             />
           ))}
         </ul>
-      </div>
+      </Container>
     </div>
   );
 }

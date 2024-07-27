@@ -1,5 +1,6 @@
-import CustomButton from "@/components/ui/buttons/CustomButton";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function IntroProduct() {
   return (
@@ -7,7 +8,7 @@ export default function IntroProduct() {
       <div className="flex gap-6">
         <div className="relative basis-[45%]">
           <Image
-            src={"/images/jpg/simulator1.jpg"}
+            src={"/images/jpg/catalog/simulator_1.jpg"}
             alt=""
             width={700}
             height={561}
@@ -23,7 +24,9 @@ export default function IntroProduct() {
             инъекционные манипуляции с введением филлера непосредственно в
             тренажер губ благодаря инновационной технологии производства
           </p>
-          <CustomButton children="Подробнее о товаре" />
+          <Link href={"catalog/trenazher_s_polnocennoy_imitaciey_gub"}>
+            <Button size={"lg"}>Подробнее о товаре</Button>
+          </Link>
         </div>
       </div>
     </div>

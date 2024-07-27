@@ -1,18 +1,19 @@
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 interface ILogo {
   pathName?: string;
   isFooter?: boolean;
+  className?: string;
 }
 
 export default function Logo(props: ILogo) {
-  const { pathName = "/", isFooter = false } = props;
+  const { pathName = "/", isFooter = false, className } = props;
 
   return (
     <Image
-      className={clsx({
-        ["invert"]: true,
+      className={cn({
+        [`invert ${className}`]: true,
         ["invert-0"]: pathName === "/",
       })}
       src={

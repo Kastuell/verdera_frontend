@@ -1,26 +1,28 @@
+import Container from "@/components/ui/Container";
 import { Metadata } from "next";
 import AboutItem from "./_components/AboutItem";
 import { AboutItems } from "./about-items";
 
 export const metadata: Metadata = {
-    title: "Verdera | О нас",
-    description: "Стираем вероятность ошибки",
+  title: "О нас",
+  description: "Стираем вероятность ошибки",
 };
 
-
 export default function Page() {
-
-    return (
-        <div className="container grid grid-cols-2 gap-2 justify-between mt-32">
-            {AboutItems.map((item, index) => <AboutItem
-                title={item.title}
-                description={item.description}
-                className={item.className}
-                key={index}
-                number={item.number}
-                numberCn={item.numberCn}
-                titleCn={item.titleCn}
-                src={item.src} />)}
-        </div>
-    )
+  return (
+    <Container>
+      <h1 className="font-medium text-7xl">У Verdera есть</h1>
+      <div className="grid grid-cols-2 gap-10 mt-20">
+        {AboutItems.map((item) => (
+          <AboutItem
+            number={item.number ? item.number : 0}
+            description={item.description}
+            img={item.img}
+            title={item.title}
+            key={item.description}
+          />
+        ))}
+      </div>
+    </Container>
+  );
 }

@@ -1,11 +1,10 @@
 import { Metadata } from "next";
-import Auth from "./_components/Auth";
+import Profile from "../_components/Profile";
 
 export const metadata: Metadata = {
-	title: 'Авторизация',
-}
-
+  title: "Профиль",
+};
 
 export default function Page() {
-    return <Auth />
+  return <Profile />;
 }

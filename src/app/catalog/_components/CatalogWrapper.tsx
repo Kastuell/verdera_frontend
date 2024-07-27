@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import CatalogBody from "./CatalogBody";
 import CatalogNavbar from "./CatalogNavbar";
 
 export type SelectedT = {
@@ -8,16 +9,14 @@ export type SelectedT = {
   slug: string
 }
 
-interface ICatalogWrapper { }
+export default function CatalogWrapper() {
 
-export default function CatalogWrapper(props: ICatalogWrapper) {
-  const { } = props;
-
-  const [selected, setSelected] = useState<SelectedT>({ name: "Курсы", slug: "kursy" });
+  const [selected, setSelected] = useState<SelectedT>({ name: "Курсы", slug: "kursy" })
 
   return (
     <>
       <CatalogNavbar selected={selected} setSelected={setSelected} />
+      <CatalogBody slug={selected.slug} />
     </>
   );
 }

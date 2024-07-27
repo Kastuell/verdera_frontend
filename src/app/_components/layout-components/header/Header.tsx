@@ -3,8 +3,9 @@ import UnderlineText from "@/components/text/UnderlineText";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Icon from "../Icon";
 import Logo from "../Logo";
+import CartIcon from "./CartIcon";
+import ProfileIcon from "./ProfileIcon";
 
 export default function header() {
   const pathName = usePathname();
@@ -15,11 +16,11 @@ export default function header() {
       { title: "О нас", href: "/about" },
     ],
     right: [
-      { src: "/images/svg/header/cart.svg", alt: "Корзина", href: "cart" },
+      { src: "/images/svg/header/cart.svg", alt: "Корзина", href: "/cart" },
       {
         src: "/images/svg/header/profile.svg",
         alt: "Профиль",
-        href: "profile",
+        href: "/profile",
       },
     ],
   };
@@ -27,43 +28,30 @@ export default function header() {
   return (
     <header className="relative container">
       <div
+        suppressHydrationWarning
         className={clsx({
           ["w-full py-5 text-primary"]: true,
           ["absolute text-secondary"]: pathName == "/",
         })}
       >
-        <nav className="grid grid-cols-3 items-center">
-          <Link href="/">
+        <div className="grid grid-cols-3 items-center">
+          <Link href="/" className="inline-block">
             <Logo pathName={pathName} />
           </Link>
           <ul className="flex gap-14 text-3xl justify-self-center">
             {navItems.center.map((item) => (
               <UnderlineText
-                key={item.href}
+                key={`${item.href} dassdadas`}
                 children={<Link href={item.href}>{item.title}</Link>}
                 color={pathName === "/" ? "bg-secondary" : "bg-primary"}
               />
             ))}
           </ul>
-          <ul className="flex gap-14 justify-self-end">
-            {navItems.right.map((item) => (
-              <Link
-                children={
-                  <Icon
-                    key={item.href}
-                    pathName={pathName}
-                    isHeader={true}
-                    src={item.src}
-                    alt={item.alt}
-                    title={item.alt}
-                  />
-                }
-                href={item.href}
-                key={item.href}
-              />
-            ))}
-          </ul>
-        </nav>
+          <div className="flex gap-14 justify-self-end items-center">
+            <CartIcon />
+            <ProfileIcon />
+          </div>
+        </div>
       </div>
     </header>
   );

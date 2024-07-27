@@ -1,20 +1,23 @@
-import clsx from "clsx"
+import { cn } from "@/lib/utils";
 
 interface IHead {
-    children: string,
-    center?: boolean
+  children: string | undefined;
+  center?: boolean;
+  className?: string;
 }
 
 export default function Head(props: IHead) {
+  const { children, className, center = true } = props;
 
-    const { children, center = true } = props
-
-    return (
-        <h3 className={clsx({
-            ["font-bold text-5xl"]: true,
-            ['text-center']: center
-        })}>
-            {children}
-        </h3>
-    )
+  return (
+    <h3
+      className={cn({
+        ["font-bold text-5xl"]: true,
+        ["text-center"]: center,
+        [`${className}`]: className,
+      })}
+    >
+      {children}
+    </h3>
+  );
 }

@@ -1,47 +1,43 @@
+import { axiosInst } from "@/api/interceptors";
 
-import { axiosClassic } from '@/api/interceptors'
-
-import { IAuthForm, IAuthResponse } from '@/types/auth.types'
-import { removeFromStorage, saveTokenStorage } from './auth-token.service'
+import { IAuthForm, IAuthResponse } from "@/types/auth.types";
+import { removeFromStorage, saveTokenStorage } from "./auth-token.service";
 
 export const authService = {
-	async login(data: IAuthForm) {
-		const response = await axiosClassic.post<IAuthResponse>(
-			`/auth/login`,
-			data
-		)
+  async login(data: IAuthForm) {
+    const response = await axiosInst.post<IAuthResponse>(`/auth/login`, data);
 
-		if (response.data.accessToken) saveTokenStorage(response.data.accessToken)
+    if (response.data.accessToken) saveTokenStorage(response.data.accessToken);
 
-		return response
-	},
+    return response.data;
+  },
 
-	async register(data: IAuthForm) {
-		const response = await axiosClassic.post<IAuthResponse>(
-			`/auth/register`,
-			data
-		)
+  async register(data: IAuthForm) {
+    const response = await axiosInst.post<IAuthResponse>(
+      `/auth/register`,
+      data
+    );
 
-		if (response.data.accessToken) saveTokenStorage(response.data.accessToken)
+    if (response.data.accessToken) saveTokenStorage(response.data.accessToken);
 
-		return response
-	},
+    return response.data;
+  },
 
-	async getNewTokens() {
-		const response = await axiosClassic.post<IAuthResponse>(
-			'/auth/login/access-token'
-		)
+  async getNewTokens() {
+    const response = await axiosInst.post<IAuthResponse>(
+      "/auth/login/access-token"
+    );
 
-		if (response.data.accessToken) saveTokenStorage(response.data.accessToken)
+    if (response.data.accessToken) saveTokenStorage(response.data.accessToken);
 
-		return response
-	},
+    return response.data;
+  },
 
-	async logout() {
-		const response = await axiosClassic.post<boolean>('/auth/logout')
+  async logout() {
+    const response = await axiosInst.post<boolean>("/auth/logout");
 
-		if (response.data) removeFromStorage()
+    if (response.data) removeFromStorage();
 
-		return response
-	}
-}
+    return response.data;
+  },
+};

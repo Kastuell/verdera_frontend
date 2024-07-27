@@ -1,4 +1,4 @@
-import CustomButton from "@/components/ui/buttons/CustomButton";
+import { Button } from "@/components/ui/button";
 import IntroHead from "../IntroHead";
 import IntroCourseItem from "./IntroCourseItem";
 
@@ -11,7 +11,7 @@ export default function IntroCourse() {
   ];
 
   return (
-    <div className="mt-32">
+    <div className="mt-20">
       <IntroHead title="Курс по обучению контурной пластики губ" />
       <div className="container mt-32">
         <ul className="flex justify-between py-16">
@@ -23,11 +23,9 @@ export default function IntroCourse() {
             />
           ))}
         </ul>
-        <CustomButton
-          className="mt-24"
-          theme="green"
-          children="Подробнее о курсе"
-        />
+        <Button className="mt-20" variant={"transparent"} size={"lg"}>
+          Подробнее о курсе
+        </Button>
       </div>
     </div>
   );

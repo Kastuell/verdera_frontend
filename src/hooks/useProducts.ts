@@ -1,13 +1,11 @@
-import { productService } from '@/services/product.service'
-import { useQuery } from '@tanstack/react-query'
+import { productService } from "@/services/product.service";
+import { useQuery } from "@tanstack/react-query";
 
+export function useProducts() {
+  const { data, error, isLoading } = useQuery({
+    queryKey: [`products`],
+    queryFn: () => productService.getAll(),
+  });
 
-export function useProductsByCatSlug(categorySlug: string) {
-
-    const { data, error, isLoading } = useQuery({
-        queryKey: ['productsBySlug'],
-        queryFn: () => productService.getByCategorySlug(categorySlug)
-    })
-
-    return { data, error, isLoading }
+  return { data, error, isLoading };
 }

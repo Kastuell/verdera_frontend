@@ -7,7 +7,8 @@ export function TanstackProvider({ children }: { children: React.ReactNode }) {
     const queryClient = new QueryClient({
         defaultOptions: {
             queries: {
-                refetchOnWindowFocus: false
+                refetchOnWindowFocus: false,
+                staleTime: 1000000
             }
         }
     })

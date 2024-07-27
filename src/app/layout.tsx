@@ -1,4 +1,6 @@
+import { Toaster } from "@/components/ui/toaster";
 import { SITE_NAME } from "@/constants/seo.constants";
+import { cn } from "@/lib/utils";
 import { TanstackProvider } from "@/utils/TanstackProvider";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
@@ -27,18 +29,20 @@ interface Ilayout {
 
 export default function RootLayout(props: Ilayout) {
   const { children } = props;
-
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${montserrat.className} flex flex-col justify-between bg-secondary select-none`}
+        className={cn(
+          `flex flex-col justify-between bg-secondary select-none `,
+          montserrat.className
+        )}
       >
         <TanstackProvider>
-
           <Header />
           <main>{children}</main>
           <Footer />
         </TanstackProvider>
+        <Toaster />
       </body>
     </html>
   );

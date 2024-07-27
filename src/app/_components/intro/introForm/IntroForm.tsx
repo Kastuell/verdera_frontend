@@ -1,6 +1,6 @@
-import CustomButton from "@/components/ui/buttons/CustomButton";
+import { Button } from "@/components/ui/button";
 import Head from "@/components/ui/Head";
-import CustomInput from "@/components/ui/inputs/CustomInput";
+import { Input } from "@/components/ui/input";
 import Image from "next/image";
 
 export default function IntroForm() {
@@ -12,8 +12,10 @@ export default function IntroForm() {
           Подпишитесь на рассылку и получите скидку 10% на покупку курса
         </p>
         <div className="flex gap-7">
-          <CustomInput placeholder="Ваш E-mail" />
-          <CustomButton className="basis-1/3" children="Отправить" />
+          <Input placeholder="Ваш E-mail" className="border-4" />
+          <Button variant={"transparent"} className="basis-2/3 border-4">
+            Отправить
+          </Button>
         </div>
       </div>
       <div>
