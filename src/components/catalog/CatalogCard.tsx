@@ -26,7 +26,7 @@ export const CatalogCard = (props: ICatalogCard) => {
   useEffect(() => setClient(true), []);
 
   return (
-    <div className="w-full flex flex-col xl:flex-row justify-between gap-6">
+    <div className="w-full grid grid-cols-1 xl:grid-cols-2 gap-6">
       <div className="relative mx-auto w-[290px] h-[290px] md:w-full md:h-[421px] xl:w-[600px] xl:h-[561px]">
         <Image
           alt={item.name}
