@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 title={item.title}
                 description={item.description}
                 number={index + 1}
-                key={item.description}
+                key={`${item.description} ${index}`}
               />
             ))}
           </div>
@@ -45,7 +45,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <div className="flex flex-col gap-16">
               {product.description.structure?.items.map((item, index) => (
                 <div
-                  key={item.description}
+                  key={`${item.description} ${index + 1000}`}
                   className="flex xl:gap-20 gap-5 text-center xl:text-start flex-col xl-flex-row items-center hover:bg-grayish p-3 rounded-2xl group transition duration-300"
                 >
                   <div className="xl:text-8xl text-7xl xl:basis-40 group-hover:invert">
@@ -59,13 +59,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </div>
           ) : (
             <div className="space-y-12">
-              {product.description.structure.items.map((item) => (
+              {product.description.structure.items.map((item, index) => (
                 <div className="text-center">
                   <div
-                    key={item.description}
+                    key={`${item.description} ${index + 100000}`}
                     className="inline-flex flex-col md:flex-row items-center justify-center gap-4 hover:bg-greenish p-3 rounded-2xl group transition duration-300"
                   >
-                    <p className="font-medium xl:text-2xl text-xl">{item.description}</p>
+                    <p className="font-medium xl:text-2xl text-xl">
+                      {item.description}
+                    </p>
                     <div className="py-1 px-4 text-xs bg-greenish text-secondary rounded-2xl group-hover:bg-secondary group-hover:text-greenish">
                       {item.quantity} шт
                     </div>

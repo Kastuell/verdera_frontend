@@ -14,9 +14,9 @@ export const Counter = (props: ICounter) => {
 
   return (
     <div className="flex gap-3">
-      <CounterItem onClick={() => deleteItem(item.product)} children="-" />
-      <CounterItem children={item.quantity} />
-      <CounterItem onClick={() => addItem(item.product)} children="+" />
+      <CounterItem onClick={() => deleteItem(item.product)}>-</CounterItem>
+      <CounterItem> {item.quantity}</CounterItem>
+      <CounterItem onClick={() => addItem(item.product)}>+</CounterItem>
     </div>
   );
 };

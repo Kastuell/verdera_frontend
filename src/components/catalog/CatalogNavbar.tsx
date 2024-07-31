@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { categoryItems } from "@/app/catalog/category-items";
 import clsx from "clsx";
 import { Dispatch, SetStateAction } from "react";
@@ -29,7 +29,7 @@ export const CatalogNavbar = (props: ICatalogNavbar) => {
           })}
           key={item.name}
         >
-          <UnderlineText color="bg-greenish" children={`${item.name}`} />
+          <UnderlineText color="bg-greenish">{item.name}</UnderlineText>
         </li>
       ))}
     </ul>

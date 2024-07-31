@@ -32,7 +32,7 @@ export const Header = () => {
   const { isOpen } = useBurgerMenuStore();
   const [isClient, setClient] = useState<boolean>(false);
 
-  useEffect(() => setClient(true));
+  useEffect(() => setClient(true), []);
 
   return (
     <>

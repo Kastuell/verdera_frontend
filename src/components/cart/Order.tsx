@@ -20,6 +20,7 @@ export const Order = () => {
       <div className="flex flex-wrap gap-5 mt-5">
         {items.map((item) => (
           <Image
+            key={item.product.slug}
             alt=""
             src={`/images/jpg/catalog/${item.product.img}.jpg`}
             width={180}

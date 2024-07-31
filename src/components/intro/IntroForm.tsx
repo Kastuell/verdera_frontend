@@ -7,10 +7,7 @@ export const IntroForm = () => {
   return (
     <form className="container xl:mt-32 mt-10 flex justify-between items-end">
       <div className="flex flex-col md:gap-10 gap-6 xl:basis-[70%] md:py-16">
-        <Head
-          className="text-center lg:text-start"
-          children="Будь среди первых!"
-        />
+        <Head className="text-center lg:text-start"> Будь среди первых!</Head>
         <p className="text-grayish md:text-2xl text-lg text-center lg:text-start">
           Подпишитесь на рассылку и получите скидку 10% на покупку курса
         </p>
