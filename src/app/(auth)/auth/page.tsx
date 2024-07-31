@@ -1,4 +1,4 @@
-import { Button, Container, Logo } from "@/components";
+import { Button, Container } from "@/components";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -9,8 +9,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <Container className="flex flex-col justify-center items-center gap-12">
-      <Logo pathName="" />
-      <div className="flex gap-32 mt-10">
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-32 mt-10">
         <Link href={"/auth/register"}>
           <Button variant={"black"}>Создать аккаунт</Button>
         </Link>

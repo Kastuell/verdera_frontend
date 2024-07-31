@@ -5,20 +5,23 @@ import { Head } from "../ui";
 
 export const IntroForm = () => {
   return (
-    <form className="container mt-32 flex justify-between items-end">
-      <div className="flex flex-col gap-10 basis-[70%] py-16">
-        <Head center={false} children="Будь среди первых!" />
-        <p className="text-grayish text-2xl">
+    <form className="container xl:mt-32 mt-10 flex justify-between items-end">
+      <div className="flex flex-col md:gap-10 gap-6 xl:basis-[70%] md:py-16">
+        <Head
+          className="text-center lg:text-start"
+          children="Будь среди первых!"
+        />
+        <p className="text-grayish md:text-2xl text-lg text-center lg:text-start">
           Подпишитесь на рассылку и получите скидку 10% на покупку курса
         </p>
-        <div className="flex gap-7">
+        <div className="flex gap-7 flex-col md:flex-row">
           <Input placeholder="Ваш E-mail" className="border-4" />
-          <Button variant={"transparent"} className="basis-2/3 border-4">
+          <Button variant={"transparent"} className="md:basis-2/3 border-4">
             Отправить
           </Button>
         </div>
       </div>
-      <div>
+      <div className="hidden xl:block">
         <Image
           src={"/images/svg/intro/discount.svg"}
           alt=""

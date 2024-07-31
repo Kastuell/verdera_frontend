@@ -1,6 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Icon } from "../Icon";
-import { Logo } from "../Logo";
 
 export const Footer = () => {
   const footerItems = {
@@ -23,30 +22,34 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-secondary text-4xl mt-32">
-      <div className="container flex justify-between py-20">
-        <Link href="/" className="onClick_onHover self-start">
-          <Logo isFooter={true} />
+    <footer className="bg-primary text-secondary text-lg xl:text-4xl xl:mt-32 mt-10">
+      <div className="container flex flex-col md:flex-row justify-between items-center xl:py-20 py-10">
+        <Link href="/" className="onClick_onHover xl:self-start">
+          {/* <Logo sizes="w-[150px] md:w-[250px] xl:w-[250px] h-[100px]" long /> */}
+          <Image
+            className=""
+            alt=""
+            src={"/images/svg/logo_height_white.svg"}
+            width={185}
+            height={180}
+          />
         </Link>
-        <div className="flex flex-col gap-12 items-center">
+        <div className="flex flex-col gap-12 items-center mt-10 md:mt-0">
           {footerItems.center.map((item) => (
             <p key={item.title}>
               <Link href={item.href}>{item.title}</Link>
             </p>
           ))}
         </div>
-        <div className="flex flex-col gap-16 items-center">
+        <div className="flex flex-col xl:gap-16 gap-7 items-center mt-10 md:mt-0">
           <p>©Verdera2024</p>
-          <ul className="flex gap-12 items-center">
+          <ul className="flex xl:gap-12 gap-6 items-center">
             {footerItems.right.map((item) => (
-              <Icon
-                key={item.href}
-                src={item.src}
-                isHeader={false}
-                alt={item.alt}
-                title={item.alt}
-                size={70}
-              />
+              <Link href={"/"}>
+                <div className="relative xl:w-[70px] w-[50px] h-[70px]">
+                  <Image fill src={item.src} alt={item.alt} />
+                </div>
+              </Link>
             ))}
           </ul>
         </div>

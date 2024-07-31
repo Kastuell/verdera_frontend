@@ -13,8 +13,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </Container>
       <div className="mt-20">
         <IntroHead title={product.description.about?.title} />
-        <Container className="grid grid-cols-3 gap-10">
-          <div className="col-span-2 grid grid-cols-2 gap-10">
+        <Container className="grid grid-cols-1 xl:grid-cols-3 gap-10">
+          <div className="xl:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-10">
             {product.description.about?.items.map((item, index) => (
               <ProductTile
                 title={item.title}
@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               />
             ))}
           </div>
-          <div className="relative">
+          <div className="relative hidden xl:block">
             <Image
               className="rounded-2xl"
               alt=""
@@ -46,12 +46,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
               {product.description.structure?.items.map((item, index) => (
                 <div
                   key={item.description}
-                  className="flex gap-20 items-center hover:bg-grayish p-3 rounded-2xl group transition duration-300"
+                  className="flex xl:gap-20 gap-5 text-center xl:text-start flex-col xl-flex-row items-center hover:bg-grayish p-3 rounded-2xl group transition duration-300"
                 >
-                  <div className="text-8xl basis-40 group-hover:invert">
+                  <div className="xl:text-8xl text-7xl xl:basis-40 group-hover:invert">
                     0{index + 1}
                   </div>
-                  <p className="text-4xl group-hover:invert">
+                  <p className="xl:text-4xl text-2xl group-hover:invert">
                     {item.description}
                   </p>
                 </div>
@@ -63,9 +63,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 <div className="text-center">
                   <div
                     key={item.description}
-                    className="inline-flex items-center justify-center gap-4 hover:bg-greenish p-3 rounded-2xl group transition duration-300"
+                    className="inline-flex flex-col md:flex-row items-center justify-center gap-4 hover:bg-greenish p-3 rounded-2xl group transition duration-300"
                   >
-                    <p className="font-medium text-2xl">{item.description}</p>
+                    <p className="font-medium xl:text-2xl text-xl">{item.description}</p>
                     <div className="py-1 px-4 text-xs bg-greenish text-secondary rounded-2xl group-hover:bg-secondary group-hover:text-greenish">
                       {item.quantity} шт
                     </div>

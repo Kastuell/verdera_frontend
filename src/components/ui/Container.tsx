@@ -6,7 +6,7 @@ interface IContainer {
 }
 export const Container = (props: IContainer) => {
   return (
-    <div className={cn("container mt-20", props.className)}>
+    <div className={cn("container xl:mt-20 mt-10", props.className)}>
       {props.children}
     </div>
   );

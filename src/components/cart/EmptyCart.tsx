@@ -8,7 +8,7 @@ export const EmptyCart = () => {
       <p>Самое время её запонить ;)</p>
       <div>
         <Link href={"/catalog"}>
-          <Button variant={"transparent"} className="w-1/2">
+          <Button variant={"transparent"} className="lg:w-1/2">
             Перейти в каталог
           </Button>
         </Link>

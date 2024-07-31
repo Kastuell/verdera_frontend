@@ -10,17 +10,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-greenish text-secondary text-3xl hover:opacity-70 active:opacity-100",
+          "bg-greenish text-secondary text-xl xl:text-3xl hover:opacity-70 active:opacity-100",
         transparent:
-          "bg-transparent text-primary text-3xl border-2 border-greenish hover:bg-greenish hover:text-secondary active:bg-transparent active:text-primary",
+          "bg-transparent text-primary text-xl xl:text-3xl border-2 border-greenish hover:bg-greenish hover:text-secondary active:bg-transparent active:text-primary",
         social_black:
-          "text-3xl gap-8 border-2 border-secondary text-secondary bg-primary font-thin",
+          "text-xl xl:text-3xl gap-8 border-2 border-secondary text-secondary bg-primary font-thin",
         social_white:
-          "text-3xl gap-8 border-2 border-secondary text-primary bg-secondary font-thin",
+          "text-xl xl:text-3xl gap-8 border-2 border-secondary text-primary bg-secondary font-thin",
         black:
-          "text-3xl bg-primary border-2 border-primary text-secondary hover:bg-secondary hover:text-primary hover:border-primary active:text-secondary active:bg-primary",
+          "text-xl xl:text-3xl bg-primary border-2 border-primary text-secondary hover:bg-secondary hover:text-primary hover:border-primary active:text-secondary active:bg-primary",
         white:
-          "text-3xl bg-secondary border-2 border-primary text-primary hover:bg-primary hover:text-secondary active:text-primary active:bg-secondary",
+          "text-xl xl:text-3xl bg-secondary border-2 border-primary text-primary hover:bg-primary hover:text-secondary active:text-primary active:bg-secondary",
         destructive:
           "bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90",
         outline:
@@ -34,7 +34,7 @@ const buttonVariants = cva(
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 px-3",
-        lg: "h-20 px-8",
+        lg: "xl:h-20 h-16 px-8",
         icon: "h-10 w-10",
       },
     },

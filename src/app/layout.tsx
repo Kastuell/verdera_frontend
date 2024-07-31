@@ -1,9 +1,10 @@
-import { Footer, Header, Toaster } from "@/components";
+import { Footer, Header } from "@/components";
 import { SITE_NAME } from "@/constants/seo.constants";
 import { cn } from "@/lib/utils";
 import { TanstackProvider } from "@/utils/TanstackProvider";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.scss";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -40,7 +41,7 @@ export default function RootLayout(props: Ilayout) {
           <main>{children}</main>
           <Footer />
         </TanstackProvider>
-        <Toaster />
+        <Toaster theme="dark" position="bottom-right" duration={1500} />
       </body>
     </html>
   );

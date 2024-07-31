@@ -10,7 +10,7 @@ export const CatalogBody = (props: ICatalogBody) => {
   const { data: products } = useProductsByCategorySlug(props.slug);
 
   return (
-    <div className="mt-20 flex flex-col gap-20">
+    <div className="lg:mt-20 mt-10 flex flex-col gap-20">
       {products?.map((item) => (
         <CatalogCard key={item.img} item={item} />
       ))}

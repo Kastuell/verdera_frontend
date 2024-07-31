@@ -1,16 +1,14 @@
 "use client";
 
 import { Back } from "../Back";
-import { Container, Head } from "../ui";
+import { Container } from "../ui";
+import { ComfirmingForm } from "./ConfirmingForm";
 
 export const Confirming = () => {
   return (
     <Container>
       <Back>В корзину</Back>
-      <Head center={false}>Оформление заказа</Head>
-      <div>
-        <div></div>
-      </div>
+      <ComfirmingForm />
     </Container>
   );
 };

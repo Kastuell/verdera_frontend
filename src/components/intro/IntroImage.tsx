@@ -14,8 +14,17 @@ export const IntroImage = () => {
         style={{ width: "100%", height: "auto" }}
       />
       <Image
-        className="w-full lg:hidden"
+        className="w-full md:hidden"
         src={"/images/jpg/intro_mobile.jpg"}
+        alt=""
+        width={0}
+        height={0}
+        sizes="100vw"
+        style={{ width: "100%", height: "auto" }}
+      />
+      <Image
+        className="w-full hidden md:block lg:hidden"
+        src={"/images/jpg/intro_tablet.jpg"}
         alt=""
         width={0}
         height={0}

@@ -9,12 +9,10 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+import { useLogin } from "@/hooks/useLogin";
 
-import { authService } from "@/services/auth.service";
-import { IAuthForm } from "@/types/auth.types";
 import { loginSchema } from "@/types/zod/login.shema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -31,16 +29,9 @@ export const Login = () => {
     },
   });
 
-  const { mutate } = useMutation({
-    mutationKey: ["auth"],
-    mutationFn: (data: IAuthForm) => authService.login(data),
-    onSuccess: () => {
-      push("/profile");
-    },
-  });
+  const { mutate, error } = useLogin();
 
   function onSubmit(data: z.infer<typeof loginSchema>) {
-    console.log("qwe");
     mutate(data);
   }
 
@@ -49,7 +40,7 @@ export const Login = () => {
       <Head>Авторизация</Head>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="w-1/2 mx-auto space-y-12 mt-20">
+          <div className="lg:w-1/2 mx-auto space-y-12 lg:mt-20 mt-10">
             <FormField
               control={form.control}
               name="email"
@@ -78,13 +69,13 @@ export const Login = () => {
           </div>
 
           <div className="flex justify-center">
-            <Button className="mt-20 w-1/2" type="submit">
+            <Button className="lg:mt-20 mt-10 lg:w-1/2" type="submit">
               Войти
             </Button>
           </div>
         </form>
       </Form>
-      <div className="text-center mt-16 text-lg">
+      <div className="text-center lg:mt-16 mt-8 text-lg">
         <p>У вас нет аккаунта?</p>
         <p className="text-greenish mt-4">
           <Link href={"/auth/register"} scroll>

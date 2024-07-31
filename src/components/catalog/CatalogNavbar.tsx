@@ -14,7 +14,7 @@ export const CatalogNavbar = (props: ICatalogNavbar) => {
   const { selected, setSelected } = props;
 
   return (
-    <ul className="flex gap-16 font-thin">
+    <ul className="flex justify-between lg:gap-16 gap-3 font-thin">
       {categoryItems.map((item) => (
         <li
           onClick={() =>
@@ -24,7 +24,7 @@ export const CatalogNavbar = (props: ICatalogNavbar) => {
             })
           }
           className={clsx({
-            ["text-5xl"]: true,
+            ["lg:text-5xl md:text-3xl text-base cursor-pointer"]: true,
             ["font-medium"]: selected.name === item.name,
           })}
           key={item.name}

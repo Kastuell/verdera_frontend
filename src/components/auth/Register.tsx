@@ -1,12 +1,16 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { authService } from "@/services/auth.service";
+import { IAuthRegisterForm } from "@/types/auth.types";
 import { registerSchema } from "@/types/zod/register.shema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { ru } from "date-fns/locale/ru";
 import { CalendarIcon } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import {
@@ -29,9 +33,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui";
-import { toast } from "../ui/use-toast";
 
 export const Register = () => {
+  const { push } = useRouter();
+
+  const { mutate } = useMutation({
+    mutationKey: ["auth"],
+    mutationFn: (data: IAuthRegisterForm) => authService.register(data),
+    onSuccess: () => {
+      push("/profile");
+    },
+  });
+
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -48,14 +61,9 @@ export const Register = () => {
   });
 
   function onSubmit(data: z.infer<typeof registerSchema>) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+    const { confirmPassword, ...rest } = data;
+
+    mutate(rest);
   }
 
   return (
@@ -63,7 +71,7 @@ export const Register = () => {
       <Head>Регистрация</Head>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="grid grid-cols-2 gap-12 mt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-20">
             <FormField
               control={form.control}
               name="family"
@@ -110,7 +118,7 @@ export const Register = () => {
                       <FormControl>
                         <Button
                           className={cn(
-                            "pl-3 text-left font-normal border-2 border-primary bg-white text-primary",
+                            "text-left font-normal border-2 border-primary bg-white text-primary",
                             !field.value && "text-muted-foreground"
                           )}
                         >
@@ -208,7 +216,8 @@ export const Register = () => {
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Напишите регион проживания"
+                      id="city"
+                      placeholder="Напишите город проживания"
                       {...field}
                     />
                   </FormControl>
@@ -247,13 +256,13 @@ export const Register = () => {
           </div>
 
           <div className="flex justify-center">
-            <Button className="mt-20 w-1/2" type="submit">
+            <Button className="lg:mt-20 mt-10 lg:w-1/2" type="submit">
               Зарегистрироваться
             </Button>
           </div>
         </form>
       </Form>
-      <div className="text-center mt-16 text-lg">
+      <div className="text-center lg:mt-16 mt-8 text-lg">
         <p>У вас уже есть аккаунт?</p>
         <p className="text-greenish mt-4">
           <Link href={"/auth/login"} scroll>

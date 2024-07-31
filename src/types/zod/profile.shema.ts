@@ -9,29 +9,35 @@ export const profileSchema = z.object({
       required_error: "Обязательное поле!",
     })
     .min(1, "Заполните поле!")
-    .max(30, "Максимум 30 символов!"),
+    .max(30, "Максимум 30 символов!")
+    .optional(),
   surname: z
     .string({
       required_error: "Обязательное поле!",
     })
     .min(1, "Заполните поле!")
-    .max(30, "Максимум 30 символов!"),
+    .max(30, "Максимум 30 символов!")
+    .optional(),
   family: z
     .string({
       required_error: "Обязательное поле!",
     })
     .min(1, "Заполните поле!")
-    .max(30, "Максимум 30 символов!"),
-  birthday: z
-    .date({ required_error: "Обязательное поле!" })
-    .min(new Date(new Date().setDate(new Date().getDate() - 100 * 365)))
-    .max(
-      new Date(new Date().setDate(new Date().getDate() - 18 * 365)),
-      "Вам нет 18!"
-    ),
+    .max(30, "Максимум 30 символов!")
+    .optional(),
   phone: z
     .string({ required_error: "Обязательное поле!" })
-    .regex(phoneRegex, "Некорректный номер!"),
+    .regex(phoneRegex, "Некорректный номер!")
+    .optional(),
+  // birthday: z
+  //   .date({ required_error: "Обязательное поле!" })
+  //   .min(new Date(new Date().setDate(new Date().getDate() - 100 * 365)))
+  //   .max(
+  //     new Date(new Date().setDate(new Date().getDate() - 18 * 365)),
+  //     "Вам нет 18!"
+  //   )
+  //   .optional(),
+
   // password: z
   //   .string({ required_error: "Обязательное поле!" })
   //   .min(6, "Минимум 6 символов!")

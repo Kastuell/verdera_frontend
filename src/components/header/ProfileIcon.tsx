@@ -1,13 +1,9 @@
 "use client"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+
 import { useProfile } from "@/hooks/useProfile";
 import { useRouter } from "next/navigation";
 import { Icon } from "../Icon";
+import { Avatar, AvatarFallback, AvatarImage, Popover, PopoverContent, PopoverTrigger } from "../ui";
 import { LogOutIcon } from "./LogOutIcon";
 
 const profileIconItems = [
@@ -28,7 +24,7 @@ export const ProfileIcon = () => {
         <Popover>
           <PopoverTrigger asChild className="cursor-pointer">
             <Avatar className="size-16">
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarImage src={data?.avatar ? data?.avatar : "/images/png/default_profile.png"} alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           </PopoverTrigger>

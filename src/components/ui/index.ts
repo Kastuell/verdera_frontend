@@ -1,4 +1,10 @@
 export { } from "./";
+export {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger
+} from "./accordion";
 export { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 export { Button } from "./button";
 export { Calendar } from "./calendar";
@@ -13,6 +19,7 @@ export {
     FormMessage,
     useFormField
 } from "./form";
+export { FormFieldComponent } from "./FormFieldComponent";
 export { Head } from "./Head";
 export { Input } from "./input";
 export { Label } from "./label";

@@ -26,6 +26,11 @@ export const IntroGallery = () => {
     breakpoints: {
       "(max-width: 500px)": {
         slides: {
+          perView: 1,
+        },
+      },
+      "(max-width: 768px)": {
+        slides: {
           perView: 2,
         },
       },
@@ -33,24 +38,8 @@ export const IntroGallery = () => {
   });
 
   const galleryItems = new Array(8).fill("/images/jpg/gallery/img");
-
-  //   return (
-  //     <div className="w-full grid grid-cols-4 mt-32">
-  //       {galleryItems.map((item, index) => (
-  //         <Image
-  //           key={index}
-  //           src={`${item}${index + 1}.jpg`}
-  //           alt="img"
-  //           width={0}
-  //           height={0}
-  //           sizes="100vw"
-  //           style={{ width: "100%", height: "auto" }}
-  //         />
-  //       ))}
-  //     </div>
-  //   );
   return (
-    <div ref={sliderRef} className="keen-slider mt-32">
+    <div ref={sliderRef} className="keen-slider xl:mt-32 mt-10">
       {galleryItems.map((item, index) => (
         <div key={index} className="relative">
           <Image

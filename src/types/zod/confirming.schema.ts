@@ -4,7 +4,7 @@ import { z } from "zod";
 import { phoneRegex } from "./phoneRegex";
 
 export const confirmingSchema = z.object({
-  city: z.string({ required_error: "Выберите город!" }),
+  city: z.string({ required_error: "Укажите город!" }).min(1, "Укажите город!"),
   delivery: z.string({ required_error: "Выберите способ доставки!" }),
   name: z
     .string({
