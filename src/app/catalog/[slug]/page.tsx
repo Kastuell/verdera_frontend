@@ -60,11 +60,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
           ) : (
             <div className="space-y-12">
               {product.description.structure.items.map((item, index) => (
-                <div className="text-center">
-                  <div
-                    key={`${item.description} ${index + 100000}`}
-                    className="inline-flex flex-col md:flex-row items-center justify-center gap-4 hover:bg-greenish p-3 rounded-2xl group transition duration-300"
-                  >
+                <div
+                  key={`${item.description} ${index + 100000}`}
+                  className="text-center"
+                >
+                  <div className="inline-flex flex-col md:flex-row items-center justify-center gap-4 hover:bg-greenish p-3 rounded-2xl group transition duration-300">
                     <p className="font-medium xl:text-2xl text-xl">
                       {item.description}
                     </p>
