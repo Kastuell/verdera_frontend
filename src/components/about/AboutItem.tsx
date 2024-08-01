@@ -17,7 +17,7 @@ export const AboutItem = (props: IAboutItem) => {
         ["lg:h-[450px] h-auto  relative bg-primary"]: true,
         ["rounded-2xl border-2 border-primary p-5"]: img == undefined,
         ["bg-secondary"]: number % 2 == 0,
-        ["hidden"]: img,
+        ["hidden lg:block"]: img,
       })}
     >
       {img?.length ? (
