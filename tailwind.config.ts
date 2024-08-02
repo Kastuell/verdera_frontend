@@ -12,6 +12,8 @@ const config: Config = {
       colors: COLORS,
       backgroundImage: {
         introDesktop: "url(/images/jpg/intro.jpg)",
+        introMobile: "url(/images/jpg/intro_mobile.jpg)",
+        introTablet: "url(/images/jpg/intro_tablet.jpg)",
       },
       container: {
         center: true,

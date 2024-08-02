@@ -20,9 +20,9 @@ export function useLogin() {
       push("/profile");
     },
     onError: () => {
-      // @ts-ignore
-      toast("Неправильный пароль")
-    }
+      console.log(error)
+      toast("Неправильный пароль");
+    },
   });
 
   return { mutate, isError, error };

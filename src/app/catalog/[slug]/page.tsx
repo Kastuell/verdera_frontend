@@ -1,9 +1,29 @@
 import { CatalogCard, Container, ProductTile } from "@/components";
 import { IntroHead } from "@/components/intro/IntroHead";
 import { productService } from "@/services/product.service";
+import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+type Props = {
+  params: { slug: string };
+  // searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const slug = params.slug;
+
+  const product = await productService.getBySlug(params.slug);
+
+  return {
+    title: product.name,
+    description: product.description.firstly,
+  };
+}
+
+export default async function Page({ params }: Props) {
   const product = await productService.getBySlug(params.slug);
 
   return (
