@@ -1,5 +1,4 @@
 "use client";
-import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
 import { cn } from "@/lib/utils";
 import clsx from "clsx";
 import Link from "next/link";
@@ -29,14 +28,13 @@ export const Header = () => {
       },
     ],
   };
-  const { isOpen } = useBurgerMenuStore();
   const [isClient, setClient] = useState<boolean>(false);
 
   useEffect(() => setClient(true), []);
 
   return (
     <>
-      {isOpen && <BurgerMenu />}
+      <BurgerMenu />
       {isClient && (
         <header
           className={clsx({

@@ -1,6 +1,5 @@
 "use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import { useProfile } from "@/hooks/useProfile";
 import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
 import Link from "next/link";
@@ -14,6 +13,7 @@ import {
 export const ProfileBurgerMenuIcon = () => {
   const { data } = useProfile();
   const { changeOpen } = useBurgerMenuStore();
+
 
   const burgerItems = [
     { title: "Аккаунт", href: "/profile" },
@@ -40,7 +40,7 @@ export const ProfileBurgerMenuIcon = () => {
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-6 text-xl">
               {burgerItems.map((item) => (
-                <Link key={item.href} onClick={changeOpen} href={item.href}>
+                <Link key={`${item.href} wqe`} onClick={changeOpen} href={item.href}>
                   {item.title}
                 </Link>
               ))}

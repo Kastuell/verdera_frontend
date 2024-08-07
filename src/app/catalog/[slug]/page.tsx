@@ -33,8 +33,8 @@ export default async function Page({ params }: Props) {
       </Container>
       <div className="mt-20">
         <IntroHead title={product.description.about?.title} />
-        <Container className="grid grid-cols-1 xl:grid-cols-3 gap-10">
-          <div className="xl:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-10">
+        <Container className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+          <div className="xl:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
             {product.description.about?.items.map((item, index) => (
               <ProductTile
                 title={item.title}
@@ -62,23 +62,23 @@ export default async function Page({ params }: Props) {
         <IntroHead title={product.description.structure?.title} />
         <Container>
           {product.description.structure?.items[0].quantity == undefined ? (
-            <div className="flex flex-col gap-16">
+            <div className="flex flex-col lg:gap-8 gap-5">
               {product.description.structure?.items.map((item, index) => (
                 <div
                   key={`${item.description} ${index + 1000}`}
-                  className="flex xl:gap-20 gap-5 text-center xl:text-start flex-col xl-flex-row items-center hover:bg-grayish p-3 rounded-2xl group transition duration-300"
+                  className="flex lg:gap-10 xl:gap-20 text-center xl:text-start flex-col lg:flex-row items-center hover:bg-grayish p-3 rounded-2xl group transition duration-300"
                 >
-                  <div className="xl:text-8xl text-7xl xl:basis-40 group-hover:invert">
+                  <div className="xl:text-7xl lg:text-6xl text-4xl xl:basis-40 group-hover:invert">
                     0{index + 1}
                   </div>
-                  <p className="xl:text-4xl text-2xl group-hover:invert">
+                  <p className="xl:text-3xl lg:text-2xl text-xl group-hover:invert">
                     {item.description}
                   </p>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="space-y-12">
+            <div className="flex flex-col lg:gap-8 gap-5">
               {product.description.structure.items.map((item, index) => (
                 <div
                   key={`${item.description} ${index + 100000}`}

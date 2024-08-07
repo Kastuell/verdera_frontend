@@ -1,3 +1,4 @@
+export { ButtonWrapper } from "./ButtonWrapper";
 export { CatalogBody } from "./CatalogBody";
 export { CatalogCard } from "./CatalogCard";
 export { CatalogNavbar } from "./CatalogNavbar";

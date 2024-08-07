@@ -1,6 +1,9 @@
+
 import stiraem_img from "@/../public/images/svg/intro/stiraem.svg";
 import verdera_img from "@/../public/images/svg/intro/verdera.svg";
 import Image from "next/image";
+
+
 
 export const IntroImage = () => {
   // return <div className="bg-introMobile h-full bg-cover bg-no-repeat" />

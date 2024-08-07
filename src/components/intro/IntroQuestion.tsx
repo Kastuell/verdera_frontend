@@ -3,13 +3,13 @@ import Image from "next/image";
 
 export const IntroQuestion = () => {
   return (
-    <div className="bg-primary md:py-20 py-10  text-secondary mt-32">
-      <div className="container flex md:flex-col xl:flex-row xl:justify-between flex-wrap">
-        <div className="flex flex-col xl:gap-16 gap-6 md:text-center xl:text-start xl:basis-2/3">
-          <h2 className="xl:text-7xl text-2xl font-bold md:text-5xl">У вас есть вопросы?</h2>
-          <p className="xl:text-2xl text-base md:text-2xl">Задавайте вопросы в нашем Telegram или VK</p>
+    <div className="bg-primary py-5 md:py-10 text-center lg:text-start mt-20">
+      <div className="container grid grid-cols-1 gap-5 lg:grid-cols-5">
+        <div className="text-secondary space-y-3 md:space-y-5 lg:self-center lg:col-span-3 xl:space-y-10">
+          <h2 className="font-bold text-2xl md:text-3xl lg:text-5xl xl:text-6xl">У вас есть вопросы?</h2>
+          <p className="text-xs md:text-lg xl:text-xl">Задавайте вопросы в нашем Telegram или VK</p>
         </div>
-        <div className="flex flex-1 flex-col md:flex-row xl:flex-col xl:basis-1/3 gap-8 mt-10 xl:mt-0">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-1 lg:col-span-2">
           <Button variant={"social_white"}>
             <Image
               width={60}
@@ -29,18 +29,8 @@ export const IntroQuestion = () => {
             />
             Telegram
           </Button>
-          {/* <IntroQuestionItem
-            src="/images/svg/media/vk.svg"
-            title="Vkontakte"
-            className="bg-secondary text-primary border-2 border-secondary"
-          />
-          <IntroQuestionItem
-            src="/images/svg/media/tg.svg"
-            title="Telegram"
-            className="border-2 border-secondary bg-primary"
-          /> */}
         </div>
       </div>
     </div>
   );
-}
+};

@@ -24,6 +24,7 @@ export { Head } from "./Head";
 export { Input } from "./input";
 export { Label } from "./label";
 export { Popover, PopoverContent, PopoverTrigger } from "./popover";
+export * from "./radio-group";
 export {
     Select,
     SelectContent,

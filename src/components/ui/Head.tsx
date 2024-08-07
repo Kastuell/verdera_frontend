@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 interface IHead {
-  children: string | undefined;
+  children?: string | undefined;
   center?: boolean;
   className?: string;
 }

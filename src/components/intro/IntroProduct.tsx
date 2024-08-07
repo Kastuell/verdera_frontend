@@ -4,30 +4,28 @@ import Link from "next/link";
 
 export const IntroProduct = () => {
   return (
-    <div className="container xl:mt-16">
-      <div className="xl:flex gap-6">
-        <div className="hidden xl:block relative basis-[45%]">
-          <Image
-            src={"/images/jpg/catalog/simulator_1.jpg"}
-            alt=""
-            width={700}
-            height={561}
-          />
-        </div>
-        <div className="order-1 md:basis-[55%] flex flex-col justify-between">
-          <h3 className="font-bold text-center text-xl md:text-3xl xl:text-5xl xl:leading-[60px] my-10">
+    <div className="container lg:mt-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 text-center lg:text-start lg:gap-10">
+        <h3 className="lg:hidden font-bold text-sm py-5 md:py-7 md:text-3xl">
+          Тренежер с полноценной имитацией губ
+        </h3>
+        <Image
+          src={"/images/jpg/catalog/simulator_1.jpg"}
+          alt=""
+          width={2000}
+          height={2000}
+        />
+        <div className="lg:self-center flex flex-col justify-between h-full">
+          <h3 className="hidden lg:block font-bold text-3xl xl:text-4xl 2xl:text-5xl">
             Тренежер с полноценной имитацией губ
           </h3>
-          <div className="block xl:hidden relative w-full h-[290px] md:h-[700px]">
-            <Image src={"/images/jpg/catalog/simulator_1.jpg"} alt="" fill />
-          </div>
-          <p className="text-lg md:text-xl xl:text-2xl leading-[40px] md:leading-[46px] text-grayish mt-6 px-3">
+          <p className="leading-9 py-5 xl:text-2xl xl:leading-10 xl:py-7 2xl:leading-[3.5rem] ">
             Рады представить Вам первый в мире симуляционный тренажер с
             полноценной имитацией губ и их содержимого, позволяющий проводить
             инъекционные манипуляции с введением филлера непосредственно в
             тренажер губ благодаря инновационной технологии производства
           </p>
-          <div className="px-3 mt-6">
+          <div>
             <Link href={"catalog/trenazher_s_polnocennoy_imitaciey_gub"}>
               <Button size={"lg"}>Подробнее о товаре</Button>
             </Link>

@@ -1,7 +1,6 @@
 import axios, { type CreateAxiosDefaults } from "axios";
 
-
-const options: CreateAxiosDefaults = {
+const clientOptions: CreateAxiosDefaults = {
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
     "Content-Type": "application/json",
@@ -9,18 +8,16 @@ const options: CreateAxiosDefaults = {
   withCredentials: true,
 };
 
-const axiosInst = axios.create(options);
+const axiosInst = axios.create(clientOptions);
 
 // axiosInst.interceptors.response.use(
 //   (config) => config,
 //   async (error) => {
 //     const originalRequest = error.config;
-//     console.log(errorCatch(error));
+
 //     if (
 //       (error?.response?.status === 401 ||
 //         errorCatch(error) === "jwt expired" ||
-//         errorCatch(error) === "Refresh token not passed" ||
-//         errorCatch(error) === "Unauthorized" ||
 //         errorCatch(error) === "jwt must be provided") &&
 //       error.config &&
 //       !error.config._isRetry

@@ -1,3 +1,5 @@
+import { OrderResponse } from "./order.types";
+
 export type UserT = {
   id: 1;
   email: string;
@@ -11,7 +13,7 @@ export type UserT = {
   role: string;
   region: string;
   social: string;
-  orders: [];
+  orders: OrderResponse[];
   supports: [];
   completeTests: [];
   completeCourseChapters: [];

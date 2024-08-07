@@ -10,7 +10,7 @@ export const IntroTeacherItem = (props: IIntroTeacherItem) => {
   const { src, name, description } = props;
 
   return (
-    <div className="flex flex-col xl:gap-6 gap-2 basis-1/2 items-center onHover text-center xl:text-start">
+    <div className="flex flex-col xl:gap-6 gap-2 basis-1/2 items-center text-center xl:text-start">
       <div className="relative">
         <Image src={src} alt={name} width={500} height={500} />
       </div>

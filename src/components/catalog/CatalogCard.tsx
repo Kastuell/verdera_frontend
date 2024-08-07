@@ -1,12 +1,7 @@
-"use client";
-
-import { Button } from "@/components/ui";
-import { useCartStore } from "@/lib/cart-store";
 import { ProductT } from "@/types/product.types";
 import { convertPrice } from "@/utils/convertPrice";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { ButtonWrapper } from "./ButtonWrapper";
 
 interface ICatalogCard {
   item: ProductT;
@@ -15,69 +10,35 @@ interface ICatalogCard {
 export const CatalogCard = (props: ICatalogCard) => {
   const { item } = props;
 
-  const { push } = useRouter();
-
-  const path = usePathname();
-
-  const { addItem, inCartItem, deleteItem } = useCartStore();
-
-  const [isClient, setClient] = useState<boolean>(false);
-
-  useEffect(() => setClient(true), []);
-
   return (
-    <div className="w-full grid grid-cols-1 xl:grid-cols-2 gap-6">
-      <div className="relative mx-auto w-[290px] h-[290px] md:w-full md:h-[421px] xl:w-[600px] xl:h-[561px]">
-        <Image
-          alt={item.name}
-          src={`/images/jpg/catalog/${item.img}.jpg`}
-          fill
-        />
-      </div>
+    <div>
+      <div className="grid grid-cols-1 text-center md:text-start md:grid-cols-2 md:gap-5 xl:grid-cols-9 xl:gap-5">
+        <div className="mx-auto xl:col-span-4">
+          <Image
+            alt={item.name}
+            src={`/images/jpg/catalog/${item.img}.jpg`}
+            width={1000}
+            height={1000}
+          />
+        </div>
 
-      <div className="flex flex-col justify-between text-center lg:text-start">
-        <div className="xl:text-5xl md:text-3xl text-lg font-bold">
-          <h2>{item.name}</h2>
-          {item.subName && (
-            <div className="text-greenish lg:mt-6 mt-2">+ {item.subName}</div>
-          )}
-        </div>
-        <div className="xl:text-2xl md:text-xl md:leading-10 text-base xl:leading-relaxed mt-8 lg:mt-0">
-          {item.description.firstly}
-        </div>
-        <div className="text-3xl font-medium mt-8 lg:mt-0">
-          {convertPrice(item.price)} &#x20bd;
-        </div>
-        {isClient && (
-          <div className="flex flex-col md:flex-row mt-8 xl:mt-0 justify-between gap-5">
-            {item.category.name !== "Расходники" &&
-            !path.includes("catalog/") ? (
-              <Button onClick={() => push(`catalog/${item.slug}`)}>
-                Подробнее
-              </Button>
-            ) : (
-              <Button>Купить</Button>
-            )}
-            {inCartItem(item) ? (
-              <Button
-                onClick={() => deleteItem(item)}
-                className="lg:basis-2/3"
-                variant={"black"}
-              >
-                Удалить
-              </Button>
-            ) : (
-              <Button
-                onClick={() => addItem(item)}
-                className="lg:basis-2/3"
-                variant={"black"}
-              >
-                В корзину
-              </Button>
+        <div className="flex flex-col justify-between xl:col-span-5 ">
+          <div className="font-bold py-3 md:py-0 text-lg md:text-xl lg:text-3xl xl:text-4xl xl:space-y-5">
+            <h2 className="">{item.name}</h2>
+            {item.subName && (
+              <div className="text-greenish">+ {item.subName}</div>
             )}
           </div>
-        )}
+          <div className="leading-8 text-sm lg:text-xl lg:leading-[2.5rem] xl:text-2xl xl:leading-[3rem] 2xl:leading-[3.5rem] ">
+            {item.description.firstly}
+          </div>
+          <div className="font-bold py-3 text-2xl xl:text-4xl">
+            {convertPrice(item.price)} &#x20bd;
+          </div>
+          <ButtonWrapper className="hidden xl:block" item={item} />
+        </div>
       </div>
+      <ButtonWrapper className="xl:hidden" item={item} />
     </div>
   );
 };

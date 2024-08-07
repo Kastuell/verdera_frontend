@@ -17,14 +17,18 @@ export const Footer = () => {
         href: "https://vk.com/verdera_cosmetology",
       },
       { src: "/images/svg/media/whatsapp.svg", alt: "What's App", href: "q" },
-      { src: "/images/svg/media/tg.svg", alt: "TG", href: "" },
+      {
+        src: "/images/svg/media/tg.svg",
+        alt: "TG",
+        href: "https://t.me/verdera_cosmetology",
+      },
     ],
   };
 
   return (
     <footer className="bg-primary text-secondary text-lg xl:text-4xl xl:mt-32 mt-10">
       <div className="container flex flex-col md:flex-row justify-between items-center xl:py-20 py-10">
-        <Link href="/" className="onClick_onHover xl:self-start">
+        <Link href="/" className="onClick_onHover ">
           {/* <Logo sizes="w-[150px] md:w-[250px] xl:w-[250px] h-[100px]" long /> */}
           <Image
             className=""
@@ -42,7 +46,7 @@ export const Footer = () => {
           ))}
         </div>
         <div className="flex flex-col xl:gap-16 gap-7 items-center mt-10 md:mt-0">
-          <p>©Verdera2024</p>
+          <p>© Verdera2024</p>
           <ul className="flex xl:gap-12 gap-6 items-center">
             {footerItems.right.map((item) => (
               <Link key={item.href} href={"/"}>

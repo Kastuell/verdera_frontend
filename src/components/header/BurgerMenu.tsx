@@ -1,7 +1,7 @@
 "use client";
 
-import { useProfile } from "@/hooks/useProfile";
 import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
+import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 import Link from "next/link";
 import { Logo } from "../Logo";
@@ -15,11 +15,19 @@ export const BurgerMenu = () => {
     { title: "О нас", href: "/about" },
   ];
 
-  const { data } = useProfile();
+  const { isOpen } = useBurgerMenuStore();
+
   const { changeOpen } = useBurgerMenuStore();
 
   return (
-    <div className="h-full absolute z-50 bg-primary top-0 w-full">
+    <div
+      className={cn(
+        "h-full absolute z-50 bg-primary top-0 w-full -translate-x-full transition duration-300",
+        {
+          ["translate-x-0"]: isOpen,
+        }
+      )}
+    >
       <div className="py-5 text-secondary container">
         <div className="flex justify-between items-center">
           <Logo sizes="w-[185px] lg:w-[250px] h-[100px]" long />
@@ -28,11 +36,15 @@ export const BurgerMenu = () => {
         <div className="flex flex-col gap-4 text-xl mt-6">
           {burger.map((item) =>
             item.href !== "/profile" ? (
-              <Link key={item.href} onClick={changeOpen} href={item.href}>
+              <Link
+                key={`${item.href} ${item.title}`}
+                onClick={changeOpen}
+                href={item.href}
+              >
                 {item.title}
               </Link>
             ) : (
-              <ProfileBurgerMenuIcon key={"qwert"} />
+              <ProfileBurgerMenuIcon key={"qwe"} />
             )
           )}
         </div>
