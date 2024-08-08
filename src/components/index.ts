@@ -9,6 +9,7 @@ export * from "./header";
 export * from "./Icon";
 export * from "./intro";
 export * from "./Logo";
+export * from "./test";
 export * from "./ui";
 export * from "./UnderlineText";
 export * from "./UpButton";

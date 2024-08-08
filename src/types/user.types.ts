@@ -15,7 +15,10 @@ export type UserT = {
   social: string;
   orders: OrderResponse[];
   supports: [];
-  completeTests: [];
+  completeTests: {
+    userId: number;
+    testId: number;
+  }[];
   completeCourseChapters: [];
   completeCourses: [];
   completeLection: [];

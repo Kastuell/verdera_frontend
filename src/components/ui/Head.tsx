@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 interface IHead {
-  children?: string | undefined;
+  children?: React.ReactNode;
   center?: boolean;
   className?: string;
 }

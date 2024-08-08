@@ -1,3 +1,6 @@
+import { LectionT } from "./lection.types";
+import { TestT } from "./test.types";
+
 export type CourseT = {
   name: string;
   slug: string;
@@ -25,16 +28,6 @@ export type CourseDescriptionT = {
 export type CourseChapterT = {
   id: number;
   name: string;
-  lection: null | {
-    id: number,
-    name: string,
-    slug: string,
-    materials: string[],
-    source: string,
-  }
-  test: null | {
-    id: number,
-    name: string,
-    slug: string,
-  };
+  lection: LectionT | undefined;
+  test: TestT | undefined;
 };

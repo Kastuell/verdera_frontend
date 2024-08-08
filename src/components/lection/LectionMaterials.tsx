@@ -3,13 +3,16 @@ import { Head } from "../ui";
 
 export const LectionMeterials = ({ materials }: { materials?: string[] }) => {
   return (
-    <div className="mt-20">
+    <div className="mt-10">
       <Head center={false}>Материалы к лекции</Head>
-      <div className="mt-10">
+      <div className="mt-10 inline-flex flex-col gap-5">
         {materials?.map((item, index) => (
-          <div key={index} className="inline-flex gap-5 hover:underline cursor-pointer">
+          <div
+            key={index}
+            className="inline-flex gap-5 hover:underline cursor-pointer text-xl "
+          >
             <div className="">
-              {index} {item}
+              {index + 1} {item}
             </div>
             <Image
               src={"/images/svg/lection/download.svg"}

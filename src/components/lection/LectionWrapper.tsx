@@ -15,7 +15,7 @@ export const LectionWrapper = ({ slug }: { slug: string }) => {
       <Head center={false} className="mt-10">
         {data?.name}
       </Head>
-      <div className="mt-20">
+      <div className="mt-10">
         <VideoPlayer
           source={{
             type: "video",

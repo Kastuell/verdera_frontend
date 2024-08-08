@@ -220,6 +220,7 @@ export const ComfirmingForm = () => {
                   href="/pdf/oferta.pdf"
                   className="text-greenish cursor-pointer"
                 >
+                  {" "}
                   Публичной оферты
                 </a>
               </p>
