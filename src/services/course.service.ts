@@ -1,5 +1,5 @@
 import { axiosInst } from "@/api/interceptors";
-import { CourseT } from "@/types/course.types";
+import { CourseChapterT, CourseT } from "@/types/course.types";
 import { AxiosResponse } from "axios";
 
 export const courseService = {
@@ -10,7 +10,15 @@ export const courseService = {
       any
     >(`/course/my-courses/get`, {});
 
-    if (response.status == 401) return [];
+    return response.data;
+  },
+
+  async useCourseChapters(courseSlug: string) {
+    const response = await axiosInst.get<
+      CourseChapterT[],
+      AxiosResponse<CourseChapterT[], any>,
+      any
+    >(`/course-chapter/course-slug/${courseSlug}`);
 
     return response.data;
   },

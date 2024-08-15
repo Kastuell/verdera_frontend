@@ -1,12 +1,18 @@
-import { courseService } from '@/services/course.service'
-import { useQuery } from '@tanstack/react-query'
-
+import { courseService } from "@/services/course.service";
+import { CourseT } from "@/types/course.types";
+import { useQuery } from "@tanstack/react-query";
+import { AxiosError } from "axios";
 
 export function useCourses() {
-    const { data, error, isLoading } = useQuery({
-        queryKey: [`courses`],
-        queryFn: () => courseService.getMyCourses()
-    })
+  const { data, error, isLoading } = useQuery<
+    CourseT[],
+    AxiosError,
+    CourseT[],
+    string[]
+  >({
+    queryKey: [`courses`],
+    queryFn: () => courseService.getMyCourses(),
+  });
 
-    return { data, error, isLoading }
+  return { data, error, isLoading };
 }

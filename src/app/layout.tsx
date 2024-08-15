@@ -1,12 +1,13 @@
-import { Footer, Header, UpButton } from "@/components";
+import { Footer, Header } from "@/components";
 import { SITE_NAME } from "@/constants/seo.constants";
 import { cn } from "@/lib/utils";
 import { TanstackProvider } from "@/utils/TanstackProvider";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { CustomProvider } from "rsuite";
+import "rsuite/dist/rsuite-no-reset.min.css";
 import { Toaster } from "sonner";
 import "./globals.scss";
-
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
@@ -38,10 +39,12 @@ export default function RootLayout(props: Ilayout) {
       >
         <TanstackProvider>
           <Header />
-          <main>{children}</main>
+          <main>
+            <CustomProvider>{children}</CustomProvider>
+          </main>
           <Footer />
         </TanstackProvider>
-        <UpButton />
+        {/* <UpButton /> */}
         <Toaster theme="dark" position="bottom-right" duration={1500} />
       </body>
     </html>

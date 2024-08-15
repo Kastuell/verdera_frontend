@@ -8,6 +8,7 @@ export {
 export { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 export { Button } from "./button";
 export { Calendar } from "./calendar";
+export { Checkbox } from "./checkbox";
 export { Container } from "./Container";
 export {
     Form,

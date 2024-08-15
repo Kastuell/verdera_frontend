@@ -10,6 +10,7 @@ export * from "./Icon";
 export * from "./intro";
 export * from "./Logo";
 export * from "./test";
+export * from "./Thanks";
 export * from "./ui";
 export * from "./UnderlineText";
 export * from "./UpButton";

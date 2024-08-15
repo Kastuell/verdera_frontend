@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Head } from "../ui";
 
 export const LectionMeterials = ({ materials }: { materials?: string[] }) => {
@@ -7,7 +8,8 @@ export const LectionMeterials = ({ materials }: { materials?: string[] }) => {
       <Head center={false}>Материалы к лекции</Head>
       <div className="mt-10 inline-flex flex-col gap-5">
         {materials?.map((item, index) => (
-          <div
+          <Link
+            href={"/word/lection1.docx"}
             key={index}
             className="inline-flex gap-5 hover:underline cursor-pointer text-xl "
           >
@@ -20,7 +22,7 @@ export const LectionMeterials = ({ materials }: { materials?: string[] }) => {
               width={18}
               height={18}
             />
-          </div>
+          </Link>
         ))}
       </div>
     </div>

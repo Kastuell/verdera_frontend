@@ -10,4 +10,17 @@ export const testService = {
 
     return response.data;
   },
+
+  async completeTest(data: any) {
+    const response = await axiosInst.post<
+      {
+        isCorrect: boolean;
+      },
+      AxiosResponse<TestT, any>,
+      any
+    >(`/course-test/check-test`, data);
+
+
+    return response.data;
+  },
 };

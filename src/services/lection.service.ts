@@ -12,4 +12,12 @@ export const lectionService = {
 
     return response.data;
   },
+
+  async completeLection(slug: string) {
+    const response = await axiosInst.post<any>(
+      `lection/complete-lection/${slug}`
+    );
+
+    return response.data;
+  },
 };

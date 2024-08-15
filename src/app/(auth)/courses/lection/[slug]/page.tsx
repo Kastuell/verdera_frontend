@@ -7,7 +7,6 @@ import { cookies } from "next/headers";
 
 type Props = {
   params: { slug: string };
-  // searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export async function generateMetadata(
@@ -26,7 +25,7 @@ export async function generateMetadata(
   ).then((res) => res.json());
 
   return {
-    title: lection.name,
+    title: lection.name ?? "Лекция",
     ...NO_INDEX_PAGE,
   };
 }

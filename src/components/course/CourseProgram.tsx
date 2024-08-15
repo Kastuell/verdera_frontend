@@ -1,3 +1,4 @@
+import { useCourseChapters } from "@/hooks/useCourseChapters";
 import { useProfile } from "@/hooks/useProfile";
 import { cn } from "@/lib/utils";
 import { CourseT } from "@/types/course.types";
@@ -7,44 +8,63 @@ import { Head } from "../ui";
 export const CourseProgram = ({ course }: { course: CourseT }) => {
   const { data } = useProfile();
 
+  const { data: chapters } = useCourseChapters(course.slug);
+
   return (
-    <div className="mt-20">
+    <div className=" xl:mt-20">
       <Head center={false}>Программа курса</Head>
-      <div className=" mt-20">
-        {course.chapters.map((item, index, arr) => (
+      <div className="mt-10 xl:mt-20">
+        {chapters?.map((item, index, arr) => (
           <div
             key={item.name}
             className={cn(
-              "grid grid-cols-[repeat(15,_minmax(0,_1fr))]  border-4 border-t-0 border-primary p-8 items-center",
+              "flex flex-col gap-5 md:grid md:grid-rows-1 grid-cols-[repeat(15,_minmax(0,_1fr))]  border-4 border-t-0 border-primary p-4 md:p-8 md:items-center",
               {
                 ["rounded-t-3xl border-t-4"]: index == 0,
                 ["rounded-b-3xl"]: index == arr.length - 1,
+                ["bg-slate-300"]: !item.unlocked,
               }
             )}
           >
             <div className="col-span-1 text-4xl font-bold">{index + 1}</div>
-            <div className="col-span-12 text-xl">{item.name}</div>
-            <div className="col-span-1 ">
-              <Link
-                href={`courses/lection/${item.lection?.slug}`}
-                className="font-bold cursor-pointer hover:underline"
-              >
-                {item.lection?.name && "Лекция"}
-              </Link>
+            <div className="col-span-12 md:col-span-10 xl:col-span-12 text-xl">
+              {item.name}
             </div>
-            <div className="col-span-1 font-bold">
-              {data?.completeTests.findIndex(
-                (i) => i.testId == item.test?.id
-              ) == -1 ? (
-                <Link
-                  href={`courses/test/${item.test?.slug}`}
-                  className="cursor-pointer hover:underline"
-                >
-                  {item.test?.name && "Тест"}
-                </Link>
-              ) : (
-                <p className="text-greenish">Тест</p>
-              )}
+            <div className="col-span-2 md:col-span-4 xl:col-span-2 flex gap-5 font-bold md:grid grid-cols-2">
+              <div className="col-span-1">
+                {item.unlocked ? (
+                  <Link
+                    href={`courses/lection/${item.lection?.slug}`}
+                    className={cn("cursor-pointer hover:underline", {
+                      ["text-greenish"]:
+                        data?.completeLection.findIndex(
+                          (i) => i.lectionId == item.lection?.id
+                        ) !== -1,
+                    })}
+                  >
+                    {item.lection?.name && "Лекция"}
+                  </Link>
+                ) : (
+                  <p>Лекция</p>
+                )}
+              </div>
+              <div className="col-span-1">
+                {item.unlocked ? (
+                  <Link
+                    href={`courses/test/${item.test?.slug}`}
+                    className={cn("cursor-pointer hover:underline", {
+                      ["text-greenish"]:
+                        data?.completeTests.findIndex(
+                          (i) => i.testId == item.test?.id
+                        ) !== -1,
+                    })}
+                  >
+                    {item.test?.name && "Тест"}
+                  </Link>
+                ) : (
+                  <p>{item.test?.name && "Тест"}</p>
+                )}
+              </div>
             </div>
           </div>
         ))}

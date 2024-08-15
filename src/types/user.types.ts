@@ -21,5 +21,8 @@ export type UserT = {
   }[];
   completeCourseChapters: [];
   completeCourses: [];
-  completeLection: [];
+  completeLection: {
+    userId: number;
+    lectionId: number;
+  }[];
 };

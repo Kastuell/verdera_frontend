@@ -1,3 +1,5 @@
+"use client"
+
 import { CourseT } from "@/types/course.types";
 import { CourseIntro } from "./CourseIntro";
 import { CourseProgram } from "./CourseProgram";

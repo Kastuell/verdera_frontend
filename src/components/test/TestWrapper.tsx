@@ -1,49 +1,74 @@
 "use client";
 
+import { useCompleteTest } from "@/hooks/useCompleteTest";
 import { useTest } from "@/hooks/useTest";
 import { useState } from "react";
 import { Button, Head } from "../ui";
 import { Question } from "./Question";
 
 export const TestWrapper = ({ slug }: { slug: string }) => {
-  const { data, isLoading } = useTest(slug);
+  const { data, isLoading, error } = useTest(slug);
+
+  const { mutate } = useCompleteTest();
 
   const [curQuest, setQuest] = useState<number>(0);
 
   const testLength = data?.questions.length;
 
-
   const [answers, setAnswers] = useState<
-    { questId: number; answerId: number }[]
+    { questId: number; answerId: number[] }[]
   >([]);
 
-  const validToNext = curQuest < (testLength ?? 0) - 1 && answers[curQuest] !== undefined
+  const validToNext =
+    curQuest < (testLength ?? 10) - 1 && answers[curQuest] !== undefined;
 
   const changeQuest = () => {
-    if (validToNext)
-      setQuest((prev) => prev + 1);
+    if (validToNext) setQuest((prev) => prev + 1);
   };
 
-  const changeAnswers = (answer: { questId: number; answerId: number }[]) => {
+  const handleClick = () => {
+    console.log(answers);
+    mutate({
+      testId: data?.id,
+      userTest: answers,
+    });
+  };
+
+  const changeAnswers = (answer: {
+    questId: number;
+    answerId: number[];
+    isMulti?: boolean;
+  }) => {
+    const { answerId, questId, isMulti } = answer;
     const inAnswersIndex = answers.findIndex(
-      (item) => item.questId == answer[0].questId
+      (item) => item.questId == answer.questId
     );
     if (inAnswersIndex !== -1) {
       const prevArr = answers;
-      prevArr.splice(inAnswersIndex, 1, {
-        answerId: answer[0].answerId,
-        questId: answer[0].questId,
-      });
-      setAnswers(prevArr);
+      if (isMulti) {
+        prevArr.splice(inAnswersIndex, 1, {
+          answerId: answerId,
+          questId: questId,
+        });
+      } else {
+        prevArr.splice(inAnswersIndex, 1, {
+          answerId: answerId,
+          questId: questId,
+        });
+      }
     } else {
-      setAnswers((prev) => prev.concat(answer));
+      setAnswers((prev) =>
+        prev.concat({ answerId: answerId, questId: questId })
+      );
     }
+    console.log(answers);
   };
 
   if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Вам сюда рановато)</div>;
 
   return (
-    <div className="w-1/2 mx-auto">
+    <div className="xl:w-1/2 mx-auto">
       <Head className="mt-5">
         Вопрос {curQuest + 1} / {testLength}
       </Head>
@@ -53,9 +78,16 @@ export const TestWrapper = ({ slug }: { slug: string }) => {
       />
       <div className="mt-10">
         {curQuest !== (testLength ?? 0) - 1 ? (
-          <Button disabled={!validToNext} onClick={changeQuest}>Далее</Button>
+          <Button disabled={!validToNext} onClick={changeQuest}>
+            Далее
+          </Button>
         ) : (
-          <Button disabled={answers[curQuest] == undefined} onClick={() => console.log(answers)}>Завершить тест</Button>
+          <Button
+            disabled={answers[curQuest] == undefined}
+            onClick={() => handleClick()}
+          >
+            Завершить тест
+          </Button>
         )}
       </div>
     </div>

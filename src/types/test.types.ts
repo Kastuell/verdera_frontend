@@ -6,9 +6,12 @@ export type TestT = {
 };
 
 export type QuestionT = {
-  id: number;
-  name: string;
-  answers: AnswersT[];
+  multi: boolean;
+  item: {
+    id: number;
+    name: string;
+    answers: AnswersT[];
+  };
 };
 
 export type AnswersT = {

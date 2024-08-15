@@ -30,4 +30,6 @@ export type CourseChapterT = {
   name: string;
   lection: LectionT | undefined;
   test: TestT | undefined;
+  completed: boolean;
+  unlocked: boolean;
 };

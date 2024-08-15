@@ -5,6 +5,6 @@ export const metadata: Metadata = {
   title: "Мои курсы",
 };
 
-export default async function Page() {
+export default function Page() {
   return <CourseWrapper />;
 }

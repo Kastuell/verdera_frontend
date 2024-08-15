@@ -33,6 +33,14 @@ export const authService = {
     return response.data;
   },
 
+  async getRole() {
+    const response = await axiosInst.post<boolean>("/auth/by-accesstoken");
+
+    if (response.data) removeFromStorage();
+
+    return response.data;
+  },
+
   async logout() {
     const response = await axiosInst.post<boolean>("/auth/logout");
 

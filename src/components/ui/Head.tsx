@@ -12,7 +12,7 @@ export const Head = (props: IHead) => {
   return (
     <h3
       className={cn({
-        ["font-bold text-xl xl:text-5xl"]: true,
+        ["font-bold text-xl md:text-2xl xl:text-5xl"]: true,
         ["text-center"]: center,
         [`${className}`]: className,
       })}

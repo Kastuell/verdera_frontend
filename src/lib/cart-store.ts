@@ -15,6 +15,7 @@ interface ICartStore {
   inCartItem: (product: ProductT) => boolean;
   findItemsIndex: (product: ProductT) => number;
   findSum: () => number;
+  clear: () => void;
 }
 
 export const useCartStore = create<ICartStore>()(
@@ -109,6 +110,10 @@ export const useCartStore = create<ICartStore>()(
 
             return sum;
           },
+          clear: () =>
+            set(() => ({
+              items: [],
+            })),
         }),
         {
           name: "cart-storage",

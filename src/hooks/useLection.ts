@@ -2,10 +2,10 @@ import { lectionService } from "@/services/lection.service";
 import { useQuery } from "@tanstack/react-query";
 
 export function useLectionBySlug(slug: string) {
-  const { data, error, isLoading } = useQuery({
+  const { data, error, isLoading, isError } = useQuery({
     queryKey: [`lection`],
     queryFn: () => lectionService.getBySlug(slug),
   });
 
-  return { data, error, isLoading };
+  return { data, error, isLoading, isError };
 }
