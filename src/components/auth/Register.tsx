@@ -7,7 +7,7 @@ import { registerSchema } from "@/types/zod/register.shema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { format } from "date-fns";
-import { ru } from "date-fns/locale/ru";
+import ru from "date-fns/locale/ru";
 import { CalendarIcon } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
