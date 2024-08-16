@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import IntroCourseItem from "./IntroCourseItem";
 import { IntroHead } from "./IntroHead";
 
@@ -23,9 +24,11 @@ export const IntroCourse = () => {
             />
           ))}
         </ul>
-        <Button className="mt-20" variant={"transparent"} size={"lg"}>
-          Подробнее о курсе
-        </Button>
+        <Link href={"catalog/konturnaya_plastika_gub"}>
+          <Button className="mt-20" variant={"transparent"} size={"lg"}>
+            Подробнее о курсе
+          </Button>
+        </Link>
       </div>
     </div>
   );
