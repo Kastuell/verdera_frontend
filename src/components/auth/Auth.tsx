@@ -6,8 +6,8 @@ import { useEffect } from "react";
 import { Button, Container } from "../ui";
 
 export const Auth = () => {
-  useEffect(() => {
     const { refresh } = useRouter();
+    useEffect(() => {
     refresh();
   }, []);
 

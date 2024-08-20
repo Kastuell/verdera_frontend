@@ -28,9 +28,9 @@ export const FullCart = () => {
       size: 60,
     },
   ];
+  const { refresh } = useRouter();
 
   useEffect(() => {
-    const { refresh } = useRouter();
     refresh();
   }, []);
 

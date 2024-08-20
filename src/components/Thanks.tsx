@@ -6,8 +6,8 @@ import { useEffect } from "react";
 import { Container } from "./ui";
 
 export const Thanks = () => {
-  useEffect(() => {
     const { clear } = useCartStore();
+    useEffect(() => {
     clear();
   }, []);
 
