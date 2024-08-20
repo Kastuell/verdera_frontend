@@ -1,9 +1,16 @@
-"use client"
+"use client";
 
 import { useProfile } from "@/hooks/useProfile";
 import { useRouter } from "next/navigation";
 import { Icon } from "../Icon";
-import { Avatar, AvatarFallback, AvatarImage, Popover, PopoverContent, PopoverTrigger } from "../ui";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "../ui";
 import { LogOutIcon } from "./LogOutIcon";
 
 const profileIconItems = [
@@ -14,9 +21,10 @@ const profileIconItems = [
 ];
 
 export const ProfileIcon = () => {
-  const { data } = useProfile();
+  const { data, error, isLoading } = useProfile();
 
   const { push } = useRouter();
+
 
   return (
     <>
@@ -24,7 +32,15 @@ export const ProfileIcon = () => {
         <Popover>
           <PopoverTrigger asChild className="cursor-pointer">
             <Avatar className="size-16">
-              <AvatarImage src={data?.avatar ? data?.avatar : "/images/png/default_profile.png"} alt="@shadcn" />
+              <AvatarImage
+                className="z-10"
+                src={
+                  data.avatarId
+                    ? `${process.env.NEXT_PUBLIC_API_URL}/local-file/${data.avatarId}`
+                    : "/images/png/default_profile.png"
+                }
+                alt="@shadcn"
+              />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
           </PopoverTrigger>

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 export function useLogin() {
-  const { push } = useRouter();
+  const { push, refresh } = useRouter();
 
   const { mutate, isError, error } = useMutation<
     IAuthResponse,
@@ -20,7 +20,7 @@ export function useLogin() {
       push("/profile");
     },
     onError: () => {
-      console.log(error)
+      console.log(error?.message);
       toast("Неправильный пароль");
     },
   });

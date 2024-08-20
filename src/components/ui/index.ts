@@ -38,6 +38,7 @@ export {
     SelectTrigger,
     SelectValue
 } from "./select";
+export { Textarea } from "./textarea";
 export {
     Toast,
     ToastAction,

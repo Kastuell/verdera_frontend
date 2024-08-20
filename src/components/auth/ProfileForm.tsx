@@ -1,3 +1,5 @@
+"use client";
+
 import { useProfileUpdate } from "@/hooks/useProfileUpdate";
 import { UserT } from "@/types/user.types";
 import { profileSchema } from "@/types/zod/profile.shema";
@@ -16,21 +18,15 @@ import {
   Label,
 } from "../ui";
 
-export const ProfileForm = ({ data }: { data: UserT | undefined }) => {
+export const ProfileForm = ({ data }: { data: UserT }) => {
   const form = useForm<z.infer<typeof profileSchema>>({
     resolver: zodResolver(profileSchema),
-    defaultValues: {
-      //   birthday: new Date(data !== undefined ? data?.birthday : 0),
-      name: data?.name,
-      phone: data?.phone,
-      family: data?.family,
-      surname: data?.surname,
-    },
+
   });
   const { mutate, isPending } = useProfileUpdate();
 
-  function onSubmit(data: z.infer<typeof profileSchema>) {
-    mutate(data);
+  function onSubmit(dat: z.infer<typeof profileSchema>) {
+    mutate(dat);
   }
 
   return (
@@ -46,7 +42,7 @@ export const ProfileForm = ({ data }: { data: UserT | undefined }) => {
                   <Label htmlFor="name">Имя</Label>
                   <FormControl>
                     <Input
-                      defaultValue={data?.name}
+                      defaultValue={data.name}
                       id="name"
                       isProfile
                       {...field}
@@ -64,7 +60,7 @@ export const ProfileForm = ({ data }: { data: UserT | undefined }) => {
                   <Label htmlFor="family">Фамилия</Label>
                   <FormControl>
                     <Input
-                      defaultValue={data?.family}
+                      defaultValue={data.family}
                       isProfile
                       id="family"
                       {...field}
@@ -82,7 +78,7 @@ export const ProfileForm = ({ data }: { data: UserT | undefined }) => {
                   <Label htmlFor="surname">Отчество</Label>
                   <FormControl>
                     <Input
-                      defaultValue={data?.surname}
+                      defaultValue={data.surname}
                       isProfile
                       id="surname"
                       {...field}
@@ -103,7 +99,7 @@ export const ProfileForm = ({ data }: { data: UserT | undefined }) => {
                   <FormControl>
                     <Input
                       type="tel"
-                      defaultValue={data?.phone}
+                      defaultValue={data.phone}
                       isProfile
                       id="phone"
                       autoComplete="new-password"

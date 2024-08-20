@@ -1,17 +1,22 @@
 import { CatalogWrapper, Container } from "@/components";
-import { productService } from "@/services/product.service";
+import { ProductT } from "@/types/product.types";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Каталог",
 };
-
+// axiosInst.get<ProductT[]>(`/product`);
 export default async function Page() {
-  const products = await productService.getAll();
+  const products: ProductT[] = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/product`,
+    {
+      cache: "force-cache",
+    }
+  ).then((res) => res.json());
 
   return (
     <Container>
-      <CatalogWrapper products={products ?? null} />
+      <CatalogWrapper products={products} />
     </Container>
   );
 }

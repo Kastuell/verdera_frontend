@@ -1,6 +1,7 @@
 import { axiosInst } from "@/api/interceptors";
 import { IProfileForm } from "@/types/auth.types";
 import { UserT } from "@/types/user.types";
+import { File } from "buffer";
 
 export const userService = {
   async getProfile() {
@@ -19,5 +20,11 @@ export const userService = {
     const response = await axiosInst.put<UserT>("user", data);
 
     return response.data;
+  },
+
+  async createAvatar(avatar: File) {
+    const response = await axiosInst.post(`user/avatar`, avatar);
+
+    console.log(response.data);
   },
 };

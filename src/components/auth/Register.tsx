@@ -9,6 +9,7 @@ import { useMutation } from "@tanstack/react-query";
 import { format } from "date-fns";
 import ru from "date-fns/locale/ru";
 import { CalendarIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -44,6 +45,12 @@ export const Register = () => {
       push("/profile");
     },
   });
+
+  const mediaInputs = [
+    { svg: "tg", name: "telegram" },
+    { svg: "vk", name: "vkontakte" },
+    { svg: "whatsapp", name: "whatsapp" },
+  ];
 
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
@@ -133,7 +140,7 @@ export const Register = () => {
                         </Button>
                       </FormControl>
                     </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
+                    <PopoverContent  className="w-auto p-0" align="start">
                       <Calendar
                         mode="single"
                         selected={field.value}
@@ -199,10 +206,20 @@ export const Register = () => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="viber">viber</SelectItem>
-                      <SelectItem value="telegram">telegram</SelectItem>
-                      <SelectItem value="vkontakte">vkontakte</SelectItem>
-                      <SelectItem value="whatsapp">whatsapp</SelectItem>
+                      {mediaInputs.map((item) => (
+                        <SelectItem value={item.name}>
+                          <div className="flex gap-4">
+                            <Image
+                              alt=""
+                              width={20}
+                              height={20}
+                              className="invert"
+                              src={`/images/svg/media/${item.svg}.svg`}
+                            />
+                            <div>{item.name}</div>
+                          </div>
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                   <FormMessage />

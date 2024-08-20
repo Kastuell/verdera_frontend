@@ -9,6 +9,7 @@ interface IFormFieldComponent {
   placeholder?: string;
   isProfile?: boolean;
   className?: string;
+  defaultValue?: any;
 }
 
 export const FormFieldComponent = (props: IFormFieldComponent) => {
@@ -19,10 +20,12 @@ export const FormFieldComponent = (props: IFormFieldComponent) => {
     placeholder,
     isProfile = false,
     className,
+    defaultValue,
   } = props;
 
   return (
     <FormField
+      defaultValue={defaultValue}
       control={control}
       name={name}
       render={({ field }) => (
@@ -34,6 +37,7 @@ export const FormFieldComponent = (props: IFormFieldComponent) => {
               placeholder={placeholder}
               {...field}
               className={className}
+              defaultValue={defaultValue}
             />
           </FormControl>
           <FormMessage />

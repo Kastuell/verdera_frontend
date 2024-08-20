@@ -1,24 +1,27 @@
 "use client";
 
 import { useMyOrders } from "@/hooks/useMyOrders";
-import { Container, Head } from "../ui";
+import { Loader } from "lucide-react";
+import { FullOrder } from "./FullOrder";
 
-export default function OrdersPage() {
-  const { data } = useMyOrders();
+export const OrdersPage = () => {
+  const { data, error, isLoading } = useMyOrders();
 
-  console.log(data);
+  if (isLoading) return <Loader className="animate-spin" />;
 
-  return (
-    <Container>
-      <Head className="hidden lg:block" center={false}>
-        Мои заказы
-      </Head>
-      {/* <div>
-        {data?.map((item) => (
-          <OrdersItem item={item} />
-        ))}
-      </div> */}
-      
-    </Container>
-  );
-}
+  if (error) return <div>Ошибка</div>;
+
+  if (data !== undefined) {
+    if (data.length == 0) return <div>Вы ещё не делали заказ</div>;
+
+    return (
+      <>
+        <div>
+          {data.map((item) => (
+            <FullOrder items={item.items} status={item.status} />
+          ))}
+        </div>
+      </>
+    );
+  }
+};

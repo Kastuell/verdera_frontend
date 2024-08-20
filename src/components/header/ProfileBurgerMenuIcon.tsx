@@ -11,9 +11,9 @@ import {
 } from "../ui";
 
 export const ProfileBurgerMenuIcon = () => {
-  const { data } = useProfile();
-  const { changeOpen } = useBurgerMenuStore();
+  const { data, error, isLoading } = useProfile();
 
+  const { changeOpen } = useBurgerMenuStore();
 
   const burgerItems = [
     { title: "Аккаунт", href: "/profile" },
@@ -31,7 +31,12 @@ export const ProfileBurgerMenuIcon = () => {
             <AccordionTrigger className="flex justify-start gap-3">
               <Avatar className="size-16">
                 <AvatarImage
-                  src={data?.avatar ? data?.avatar : "/images/png/default_profile.png"}
+                  className="z-10"
+                  src={
+                    data.avatarId
+                      ? `${process.env.NEXT_PUBLIC_API_URL}/local-file/${data.avatarId}`
+                      : "/images/png/default_profile.png"
+                  }
                   alt="@shadcn"
                 />
                 <AvatarFallback>CN</AvatarFallback>
@@ -40,7 +45,11 @@ export const ProfileBurgerMenuIcon = () => {
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-6 text-xl">
               {burgerItems.map((item) => (
-                <Link key={`${item.href} wqe`} onClick={changeOpen} href={item.href}>
+                <Link
+                  key={`${item.href} wqe`}
+                  onClick={changeOpen}
+                  href={item.href}
+                >
                   {item.title}
                 </Link>
               ))}

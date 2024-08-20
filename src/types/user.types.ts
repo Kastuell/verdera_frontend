@@ -7,7 +7,7 @@ export type UserT = {
   surname: string;
   family: string;
   phone: string;
-  avatar: string;
+  avatarId: string;
   birthday: string;
   active: boolean;
   role: string;

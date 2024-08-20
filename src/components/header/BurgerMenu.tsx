@@ -33,7 +33,7 @@ export const BurgerMenu = () => {
           <Logo sizes="w-[185px] lg:w-[250px] h-[100px]" long />
           <X onClick={changeOpen} className="text-secondary" size={40} />
         </div>
-        <div className="flex flex-col gap-4 text-xl mt-6">
+        <div suppressHydrationWarning className="flex flex-col gap-4 text-xl mt-6">
           {burger.map((item) =>
             item.href !== "/profile" ? (
               <Link

@@ -1,3 +1,4 @@
+"use client";
 import { OrderItem } from "@/types/order.types";
 import Image from "next/image";
 

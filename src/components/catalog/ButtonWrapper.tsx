@@ -32,7 +32,7 @@ export const ButtonWrapper = ({
               Подробнее
             </Button>
           ) : (
-            <Button>Купить</Button>
+            <Button onClick={() =>{ addItem(item); push("/cart")}}>Купить</Button>
           )}
           {inCartItem(item) ? (
             <Button onClick={() => deleteItem(item)} variant={"black"}>

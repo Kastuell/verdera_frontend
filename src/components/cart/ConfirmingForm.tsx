@@ -3,6 +3,7 @@
 import { useCreateOrder } from "@/hooks/useCreateOrder";
 import { useCartStore } from "@/lib/cart-store";
 import { PlaceOrderT } from "@/services/order.service";
+import { UserT } from "@/types/user.types";
 import { confirmingSchema } from "@/types/zod/confirming.schema";
 import { convertPrice } from "@/utils/convertPrice";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,16 +26,16 @@ import {
   RadioGroupItem,
 } from "../ui";
 
-export const ComfirmingForm = () => {
+export const ComfirmingForm = ({ data }: { data: UserT | undefined }) => {
   const form = useForm<z.infer<typeof confirmingSchema>>({
     resolver: zodResolver(confirmingSchema),
     defaultValues: {
       city: "",
-      delivery: "",
-      name: "",
-      family: "",
-      phone: "",
-      email: "",
+      delivery: "Курьерская доставка",
+      // name: data?.name,
+      // family: data?.family,
+      // phone: data?.phone,
+      // email: data?.email,
     },
   });
 
@@ -56,6 +57,7 @@ export const ComfirmingForm = () => {
       type: "text",
       placeholder: "Имя",
       isProfile: true,
+      defaultValue: data?.name,
     },
     {
       control: form.control,
@@ -63,6 +65,7 @@ export const ComfirmingForm = () => {
       type: "text",
       placeholder: "Фамилия",
       isProfile: true,
+      defaultValue: data?.family,
     },
     {
       control: form.control,
@@ -70,6 +73,7 @@ export const ComfirmingForm = () => {
       type: "tel",
       placeholder: "Телефон",
       isProfile: true,
+      defaultValue: data?.phone,
     },
     {
       control: form.control,
@@ -77,6 +81,7 @@ export const ComfirmingForm = () => {
       type: "email",
       placeholder: "E-mail",
       isProfile: true,
+      defaultValue: data?.email,
     },
   ];
 
@@ -192,6 +197,7 @@ export const ComfirmingForm = () => {
                         type={item.type}
                         key={item.name}
                         placeholder={item.placeholder}
+                        defaultValue={item.defaultValue}
                       />
                     ))}
                   </div>

@@ -1,10 +1,13 @@
-import { Profile } from "@/components";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Профиль",
-};
+"use client";
+import { Container, Head, Profile } from "@/components";
 
 export default function Page() {
-  return <Profile />;
+  return (
+    <Container>
+      <Head className="hidden lg:block" center={false}>
+        Мои данные
+      </Head>
+      <Profile />
+    </Container>
+  );
 }

@@ -5,6 +5,8 @@ import { useProfile } from "@/hooks/useProfile";
 import { useCartStore } from "@/lib/cart-store";
 import { convertPrice } from "@/utils/convertPrice";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { Icon } from "../Icon";
 import { CartItem } from "./CartItem";
 
@@ -26,6 +28,12 @@ export const FullCart = () => {
       size: 60,
     },
   ];
+
+  const { refresh } = useRouter();
+
+  useEffect(() => {
+    refresh();
+  }, []);
 
   const { items, findSum } = useCartStore();
 
