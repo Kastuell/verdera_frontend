@@ -18,6 +18,7 @@ export function useLogin() {
     mutationFn: (data: IAuthForm) => authService.login(data),
     onSuccess: () => {
       push("/profile");
+      refresh()
     },
     onError: () => {
       console.log(error?.message);

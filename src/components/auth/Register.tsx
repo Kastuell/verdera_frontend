@@ -36,13 +36,14 @@ import {
 } from "../ui";
 
 export const Register = () => {
-  const { push } = useRouter();
+  const { push, refresh } = useRouter();
 
   const { mutate } = useMutation({
     mutationKey: ["auth"],
     mutationFn: (data: IAuthRegisterForm) => authService.register(data),
     onSuccess: () => {
       push("/profile");
+      refresh();
     },
   });
 
@@ -140,7 +141,7 @@ export const Register = () => {
                         </Button>
                       </FormControl>
                     </PopoverTrigger>
-                    <PopoverContent  className="w-auto p-0" align="start">
+                    <PopoverContent className="w-auto p-0" align="start">
                       <Calendar
                         mode="single"
                         selected={field.value}
@@ -207,7 +208,7 @@ export const Register = () => {
                     </FormControl>
                     <SelectContent>
                       {mediaInputs.map((item) => (
-                        <SelectItem value={item.name}>
+                        <SelectItem value={item.name} key={item.name}>
                           <div className="flex gap-4">
                             <Image
                               alt=""

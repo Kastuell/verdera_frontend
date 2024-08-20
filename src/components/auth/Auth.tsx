@@ -6,11 +6,11 @@ import { useEffect } from "react";
 import { Button, Container } from "../ui";
 
 export const Auth = () => {
-  const { refresh } = useRouter();
-
   useEffect(() => {
+    const { refresh } = useRouter();
     refresh();
   }, []);
+
   return (
     <Container className="flex flex-col justify-center items-center gap-12">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-32 mt-10">

@@ -18,7 +18,7 @@ export const OrdersPage = () => {
       <>
         <div>
           {data.map((item) => (
-            <FullOrder items={item.items} status={item.status} />
+            <FullOrder key={item.id} items={item.items} status={item.status} />
           ))}
         </div>
       </>

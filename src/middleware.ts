@@ -12,17 +12,15 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   const isProfilePage = nextUrl.pathname.startsWith("/profile");
   const isConfirmingPage = nextUrl.pathname.startsWith("/cart/confirming");
 
-  if (isAuthPage && accessToken)
-    return NextResponse.redirect(new URL("/profile", request.url));
-
   if ((isProfilePage || isConfirmingPage || isCoursesPage) && !accessToken)
     return NextResponse.redirect(new URL("/auth", request.url));
+
+  if (isAuthPage && accessToken)
+    return NextResponse.redirect(new URL("/profile", request.url));
 
   // if(isAdminpanelPage &&)
 
   return NextResponse.next();
-
-  
 }
 
 export const config = {

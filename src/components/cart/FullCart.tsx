@@ -29,9 +29,8 @@ export const FullCart = () => {
     },
   ];
 
-  const { refresh } = useRouter();
-
   useEffect(() => {
+    const { refresh } = useRouter();
     refresh();
   }, []);
 
