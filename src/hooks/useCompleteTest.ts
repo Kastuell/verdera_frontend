@@ -1,5 +1,6 @@
 import { testService } from "@/services/test.service";
 import { TestT } from "@/types/test.types";
+import { queryClient } from "@/utils/TanstackProvider";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
@@ -11,7 +12,7 @@ type TestUserT = {
 };
 
 export function useCompleteTest() {
-  const { push } = useRouter();
+  const { push, refresh } = useRouter();
   const { mutate, isPending, error, data } = useMutation<
     TestT,
     AxiosError,
@@ -22,12 +23,15 @@ export function useCompleteTest() {
     mutationFn: (data: TestUserT) => testService.completeTest(data),
     onSuccess: () => {
       toast("Тест решён верно");
+      refresh()
       push("/courses");
     },
     onError: () => {
-      console.log(error?.message);
       toast("Вы совершили ошибку в тесте!");
+      push("/courses");
     },
+    onSettled: () =>
+      queryClient.invalidateQueries({ queryKey: ["useCourseChapters"] }),
   });
 
   return { mutate, isPending, error };

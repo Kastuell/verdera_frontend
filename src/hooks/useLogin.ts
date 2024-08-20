@@ -1,12 +1,13 @@
 import { authService } from "@/services/auth.service";
 import { IAuthForm, IAuthResponse } from "@/types/auth.types";
+import { queryClient } from "@/utils/TanstackProvider";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 export function useLogin() {
-  const { push, refresh } = useRouter();
+  const { refresh } = useRouter();
 
   const { mutate, isError, error } = useMutation<
     IAuthResponse,
@@ -17,13 +18,14 @@ export function useLogin() {
     mutationKey: ["auth"],
     mutationFn: (data: IAuthForm) => authService.login(data),
     onSuccess: () => {
-      push("/profile");
       refresh()
+      toast("Вы вошли");
     },
     onError: () => {
       console.log(error?.message);
       toast("Неправильный пароль");
     },
+    onSettled: () => queryClient.invalidateQueries({ queryKey: ['get_profile'] }),
   });
 
   return { mutate, isError, error };

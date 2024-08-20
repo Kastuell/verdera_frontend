@@ -1,7 +1,6 @@
 "use client";
 
 import { useProfile } from "@/hooks/useProfile";
-import { useRouter } from "next/navigation";
 import { Icon } from "../Icon";
 import {
   Avatar,
@@ -22,8 +21,6 @@ const profileIconItems = [
 
 export const ProfileIcon = () => {
   const { data, error, isLoading } = useProfile();
-
-  const { push } = useRouter();
 
 
   return (
@@ -64,10 +61,9 @@ export const ProfileIcon = () => {
                 {profileIconItems.map((item) => (
                   <li
                     key={`${item.title} ewqeqwweq`}
-                    onClick={() => push(item.href)}
                     className="border cursor-pointer border-transparent p-2 rounded-xl hover:border-grayish duration-300 transition"
                   >
-                    {item.title}
+                    <a href={item.href}>{item.title}</a>
                   </li>
                 ))}
               </ul>

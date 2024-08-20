@@ -2,7 +2,6 @@ import { useCourseChapters } from "@/hooks/useCourseChapters";
 import { useProfile } from "@/hooks/useProfile";
 import { cn } from "@/lib/utils";
 import { CourseT } from "@/types/course.types";
-import Link from "next/link";
 import { Head } from "../ui";
 
 export const CourseProgram = ({ course }: { course: CourseT }) => {
@@ -33,7 +32,7 @@ export const CourseProgram = ({ course }: { course: CourseT }) => {
             <div className="col-span-2 md:col-span-4 xl:col-span-2 flex gap-5 font-bold md:grid grid-cols-2">
               <div className="col-span-1">
                 {item.unlocked ? (
-                  <Link
+                  <a
                     href={`courses/lection/${item.lection?.slug}`}
                     className={cn("cursor-pointer hover:underline", {
                       ["text-greenish"]:
@@ -43,14 +42,14 @@ export const CourseProgram = ({ course }: { course: CourseT }) => {
                     })}
                   >
                     {item.lection?.name && "Лекция"}
-                  </Link>
+                  </a>
                 ) : (
                   <p>Лекция</p>
                 )}
               </div>
               <div className="col-span-1">
                 {item.unlocked ? (
-                  <Link
+                  <a
                     href={`courses/test/${item.test?.slug}`}
                     className={cn("cursor-pointer hover:underline", {
                       ["text-greenish"]:
@@ -60,7 +59,7 @@ export const CourseProgram = ({ course }: { course: CourseT }) => {
                     })}
                   >
                     {item.test?.name && "Тест"}
-                  </Link>
+                  </a>
                 ) : (
                   <p>{item.test?.name && "Тест"}</p>
                 )}

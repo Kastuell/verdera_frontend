@@ -8,6 +8,13 @@ import { Course } from "./Course";
 export const CourseWrapper = () => {
   const { data, error, isLoading } = useCourses();
 
+  if (data?.length == 0)
+    return (
+      <Container>
+        У вас пока нет курсов
+      </Container>
+    );
+
   if (isLoading)
     return (
       <Container>
