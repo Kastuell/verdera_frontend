@@ -7,15 +7,13 @@ interface IBurgerMenuStore {
 }
 
 export const useBurgerMenuStore = create<IBurgerMenuStore>()(
-  devtools(
-    devtools((set, get) => ({
-      isOpen: false,
-      changeOpen: () => {
-        const { isOpen } = get();
-        set(() => ({
-          isOpen: !isOpen,
-        }));
-      },
-    }))
-  )
+  devtools((set, get) => ({
+    isOpen: false,
+    changeOpen: () => {
+      const { isOpen } = get();
+      set(() => ({
+        isOpen: !isOpen,
+      }));
+    },
+  }))
 );

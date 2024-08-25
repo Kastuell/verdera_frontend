@@ -45,7 +45,7 @@ export default function RootLayout(props: Ilayout) {
           <Footer />
         </TanstackProvider>
         {/* <UpButton /> */}
-        <Toaster theme="dark" position="bottom-right" duration={1500} />
+        <Toaster theme="dark" position="bottom-right" duration={5000} />
       </body>
     </html>
   );

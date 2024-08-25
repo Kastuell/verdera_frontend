@@ -5,6 +5,19 @@ export {
     AccordionItem,
     AccordionTrigger
 } from "./accordion";
+export {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogOverlay,
+    AlertDialogPortal,
+    AlertDialogTitle,
+    AlertDialogTrigger
+} from "./alert-dialog";
 export { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 export { Button } from "./button";
 export { Calendar } from "./calendar";
@@ -49,4 +62,31 @@ export {
     ToastViewport
 } from "./toast";
 export { Toaster } from "./toaster";
+
+export {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger
+} from "./dialog";
+
+export {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle
+} from "./card";
+
+export {
+    ContextMenu,
+    ContextMenuContent,
+    ContextMenuItem,
+    ContextMenuTrigger
+} from "./context-menu";
 

@@ -3,6 +3,8 @@ export const COLORS = {
   secondary: "#F2F4F3",
   grayish: "#4D4D4D",
   greenish: "#ABBD83",
+  orangeish: "#FFA500",
+  reddish: "#D24B4B",
   border: "hsl(var(--border))",
   input: "hsl(var(--input))",
   ring: "hsl(var(--ring))",

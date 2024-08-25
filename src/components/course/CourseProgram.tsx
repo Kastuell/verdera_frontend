@@ -1,3 +1,5 @@
+"use client"
+
 import { useCourseChapters } from "@/hooks/useCourseChapters";
 import { useProfile } from "@/hooks/useProfile";
 import { cn } from "@/lib/utils";
@@ -10,7 +12,7 @@ export const CourseProgram = ({ course }: { course: CourseT }) => {
   const { data: chapters } = useCourseChapters(course.slug);
 
   return (
-    <div className=" xl:mt-20">
+    <div className="mt-20">
       <Head center={false}>Программа курса</Head>
       <div className="mt-10 xl:mt-20">
         {chapters?.map((item, index, arr) => (
@@ -21,7 +23,7 @@ export const CourseProgram = ({ course }: { course: CourseT }) => {
               {
                 ["rounded-t-3xl border-t-4"]: index == 0,
                 ["rounded-b-3xl"]: index == arr.length - 1,
-                ["bg-slate-300"]: !item.unlocked,
+                ["bg-slate-300"]: !item.unlocked && !item.completed,
               }
             )}
           >
@@ -31,7 +33,7 @@ export const CourseProgram = ({ course }: { course: CourseT }) => {
             </div>
             <div className="col-span-2 md:col-span-4 xl:col-span-2 flex gap-5 font-bold md:grid grid-cols-2">
               <div className="col-span-1">
-                {item.unlocked ? (
+                {item.unlocked || item.completed ? (
                   <a
                     href={`courses/lection/${item.lection?.slug}`}
                     className={cn("cursor-pointer hover:underline", {
@@ -48,7 +50,7 @@ export const CourseProgram = ({ course }: { course: CourseT }) => {
                 )}
               </div>
               <div className="col-span-1">
-                {item.unlocked ? (
+                {item.unlocked || item.completed ? (
                   <a
                     href={`courses/test/${item.test?.slug}`}
                     className={cn("cursor-pointer hover:underline", {

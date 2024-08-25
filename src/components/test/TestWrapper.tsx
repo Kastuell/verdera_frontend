@@ -61,7 +61,6 @@ export const TestWrapper = ({ slug }: { slug: string }) => {
         prev.concat({ answerId: answerId, questId: questId })
       );
     }
-    console.log(answers);
   };
 
   if (isLoading) return <div>Loading...</div>;

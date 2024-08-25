@@ -13,6 +13,8 @@ const buttonVariants = cva(
           "bg-greenish text-secondary text-xl xl:text-3xl hover:opacity-70 active:opacity-100",
         transparent:
           "bg-transparent text-primary text-xl xl:text-3xl border-2 border-greenish hover:bg-greenish hover:text-secondary active:bg-transparent active:text-primary",
+        modal:
+          "bg-transparent text-primary text-xl xl:text-3xl border-2 border-primary hover:opacity-70 active:opacity-100",
         social_black:
           "text-xl xl:text-3xl gap-8 border-2 border-secondary text-secondary bg-primary font-thin hover:invert",
         social_white:

@@ -49,7 +49,7 @@ export const Footer = () => {
           <p>© Verdera2024</p>
           <ul className="flex xl:gap-12 gap-6 items-center">
             {footerItems.right.map((item) => (
-              <Link key={item.href} href={"/"}>
+              <Link key={item.href} href={item.href} target="_blank">
                 <div className="relative xl:w-[70px] w-[50px] h-[70px]">
                   <Image fill src={item.src} alt={item.alt} />
                 </div>

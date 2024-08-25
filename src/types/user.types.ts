@@ -10,7 +10,7 @@ export type UserT = {
   avatarId: string;
   birthday: string;
   active: boolean;
-  role: string;
+  role: EnumUserRoles;
   region: string;
   social: string;
   orders: OrderResponse[];
@@ -19,10 +19,23 @@ export type UserT = {
     userId: number;
     testId: number;
   }[];
-  completeCourseChapters: [];
-  completeCourses: [];
+  completeCourseChapters: {
+    userId: number;
+    courseChapterId: number;
+  }[];
+  completeCourses: {
+    userId: number;
+    courseId: number;
+  }[];
   completeLection: {
     userId: number;
     lectionId: number;
   }[];
 };
+
+export enum EnumUserRoles {
+  "USER" = "USER",
+  "STUDENT" = "STUDENT",
+  "TEACHER" = "TEACHER",
+  "ADMIN" = "ADMIN",
+}

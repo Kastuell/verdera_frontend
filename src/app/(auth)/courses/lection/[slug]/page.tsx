@@ -33,7 +33,7 @@ export async function generateMetadata(
 export default async function Page({ params }: Props) {
   return (
     <Container>
-      <Back>Назад</Back>
+      <Back href="/courses">Назад</Back>
       <LectionWrapper slug={params.slug} />
     </Container>
   );

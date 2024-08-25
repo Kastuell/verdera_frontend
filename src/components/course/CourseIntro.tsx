@@ -1,6 +1,7 @@
 import { CourseT } from "@/types/course.types";
 import Image from "next/image";
-import { Button, Head } from "../ui";
+import { Head } from "../ui";
+import { CourseButton } from "./CourseButton";
 
 export const CourseIntro = ({ course }: { course: CourseT }) => {
   return (
@@ -47,9 +48,9 @@ export const CourseIntro = ({ course }: { course: CourseT }) => {
             {course.description.after.items[0]}
           </div>
         </div>
-        <div className="col-span-3 md:grid-cols-2 xl:grid-cols-1 md:gap-5 xl:gap-0 row-span-2 grid grid-rows-10 mt-10 md:mt-0">
-          <Button className="rounded-2xl row-span-4">Начать обучение</Button>
-          <ul className="list-image-[url(/images/png/marker.png)] list-inside text-sm gap-5 xl:text-xl flex flex-col justify-between row-span-6">
+        <div className="flex flex-col justify-between w-full col-span-3 row-span-2 mt-10 md:mt-0 space-y-10 xl:space-y-0">
+          <CourseButton course={course} />
+          <ul className="list-image-[url(/images/png/marker.png)] list-inside gap-6 text-sm xl:text-xl flex flex-col justify-between row-span-6">
             {course.description.pluses.map((item) => (
               <li key={item}>{item}</li>
             ))}

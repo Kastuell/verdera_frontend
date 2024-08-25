@@ -21,8 +21,14 @@ import {
 export const ProfileForm = ({ data }: { data: UserT }) => {
   const form = useForm<z.infer<typeof profileSchema>>({
     resolver: zodResolver(profileSchema),
-
+    defaultValues: {
+      family: data.family,
+      name: data.name,
+      phone: data.phone,
+      surname: data.surname,
+    },
   });
+
   const { mutate, isPending } = useProfileUpdate();
 
   function onSubmit(dat: z.infer<typeof profileSchema>) {

@@ -1,7 +1,9 @@
 "use client";
 
 import { useProfile } from "@/hooks/useProfile";
-import { Icon } from "../Icon";
+import { cn } from "@/lib/utils";
+import { UserRound } from "lucide-react";
+import { usePathname } from "next/navigation";
 import {
   Avatar,
   AvatarFallback,
@@ -21,7 +23,7 @@ const profileIconItems = [
 
 export const ProfileIcon = () => {
   const { data, error, isLoading } = useProfile();
-
+  const path = usePathname();
 
   return (
     <>
@@ -72,12 +74,7 @@ export const ProfileIcon = () => {
         </Popover>
       ) : (
         <a href={"/profile"}>
-          <Icon
-            isHeader={true}
-            src={"/images/svg/header/profile.svg"}
-            alt={"Профиль"}
-            title={"Профиль"}
-          />
+          <UserRound size={50} className={cn({["text-primary"]: path !== "/"})} />
         </a>
       )}
     </>

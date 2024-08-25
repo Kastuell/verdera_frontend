@@ -4,4 +4,10 @@ export type LectionT = {
   slug: string;
   materials: string[];
   source: string;
+  courseChapter: {
+    test?: {
+      slug: string;
+    };
+  };
+  courseChapterCompleted: boolean;
 };

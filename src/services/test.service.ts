@@ -15,11 +15,21 @@ export const testService = {
     const response = await axiosInst.post<
       {
         isCorrect: boolean;
+        curLectionSlug?: string;
+        nextLectionSlug?: string;
+        testSlug: boolean;
       },
-      AxiosResponse<TestT, any>,
+      AxiosResponse<
+        {
+          isCorrect: boolean;
+          curLectionSlug?: string;
+          nextLectionSlug?: string;
+          testSlug: boolean;
+        },
+        any
+      >,
       any
     >(`/course-test/check-test`, data);
-
 
     return response.data;
   },

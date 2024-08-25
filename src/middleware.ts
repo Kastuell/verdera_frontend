@@ -11,8 +11,9 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   const isCoursesPage = nextUrl.pathname.startsWith("/courses");
   const isProfilePage = nextUrl.pathname.startsWith("/profile");
   const isConfirmingPage = nextUrl.pathname.startsWith("/cart/confirming");
+  const isSchedulePage = nextUrl.pathname.startsWith("/schedule");
 
-  if ((isProfilePage || isConfirmingPage || isCoursesPage) && !accessToken)
+  if ((isProfilePage || isConfirmingPage || isCoursesPage || isSchedulePage) && !accessToken)
     return NextResponse.redirect(new URL("/auth", request.url));
 
   if (isAuthPage && accessToken)

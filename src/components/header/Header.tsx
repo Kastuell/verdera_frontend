@@ -50,7 +50,7 @@ export const Header = () => {
               />
             </Link>
           </div>
-          <ul className="hidden md:flex gap-14 text-3xl justify-center basis-1/3">
+          <ul className="hidden md:flex gap-14 text-2xl justify-center basis-1/3">
             {navItems.center.map((item) => (
               <UnderlineText
                 key={item.href}

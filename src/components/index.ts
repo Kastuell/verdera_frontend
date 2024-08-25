@@ -10,6 +10,7 @@ export * from "./Icon";
 export * from "./intro";
 export * from "./Logo";
 export * from "./orders";
+export * from "./schedule";
 export * from "./test";
 export * from "./Thanks";
 export * from "./ui";
