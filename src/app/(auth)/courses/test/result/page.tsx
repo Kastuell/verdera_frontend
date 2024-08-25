@@ -1,5 +1,10 @@
 import { Result } from "@/components";
+import { Suspense } from "react";
 
 export default function Page() {
-  return <Result />;
+  return (
+    <Suspense fallback={<div></div>}>
+      <Result />
+    </Suspense>
+  );
 }
