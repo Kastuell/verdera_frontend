@@ -9,19 +9,18 @@ import { Question } from "./Question";
 export const TestWrapper = ({ slug }: { slug: string }) => {
   const { data, isLoading, error } = useTest(slug);
 
+  const { mutate } = useCompleteTest();
+
+  const [curQuest, setQuest] = useState<number>(0);
+  const [answers, setAnswers] = useState<
+    { questId: number; answerId: number[] }[]
+  >([]);
+
   if (isLoading) return <div>Loading...</div>;
 
   if (error) return <div>Вам сюда рановато)</div>;
   if (data) {
-    const { mutate } = useCompleteTest();
-
-    const [curQuest, setQuest] = useState<number>(0);
-
     const testLength = data.questions.length;
-
-    const [answers, setAnswers] = useState<
-      { questId: number; answerId: number[] }[]
-    >([]);
 
     const validToNext =
       curQuest < (testLength ?? 10) - 1 && answers[curQuest] !== undefined;
