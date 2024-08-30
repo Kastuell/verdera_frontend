@@ -10,7 +10,7 @@ export function useCourses() {
     CourseT[],
     string[]
   >({
-    queryKey: [`courses`],
+    queryKey: ["courses"],
     queryFn: () => courseService.getMyCourses(),
   });
 

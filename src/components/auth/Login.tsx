@@ -14,12 +14,11 @@ import { useLogin } from "@/hooks/useLogin";
 import { loginSchema } from "@/types/zod/login.shema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { PasswordInput } from "./PasswordInput";
 
 export const Login = () => {
-  const { push } = useRouter();
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -34,6 +33,7 @@ export const Login = () => {
   function onSubmit(data: z.infer<typeof loginSchema>) {
     mutate(data);
   }
+
 
   return (
     <Container>
@@ -60,7 +60,7 @@ export const Login = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input type="password" placeholder="Пароль" {...field} />
+                    <PasswordInput placeholder="Пароль" field={field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -77,7 +77,7 @@ export const Login = () => {
       </Form>
       <div className="text-center lg:mt-16 mt-8 text-lg">
         <p>У вас нет аккаунта?</p>
-        <p className="text-greenish mt-4">
+        <p className="text-greenish mt-4 hover:underline">
           <Link href={"/auth/register"} scroll>
             Создать аккаунт
           </Link>

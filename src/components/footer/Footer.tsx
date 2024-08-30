@@ -26,7 +26,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-secondary text-lg xl:text-4xl xl:mt-32 mt-10">
+    <footer className="bg-primary text-secondary text-lg xl:text-2xl xl:mt-32 mt-10">
       <div className="container flex flex-col md:flex-row justify-between items-center xl:py-20 py-10">
         <Link href="/" className="onClick_onHover ">
           {/* <Logo sizes="w-[150px] md:w-[250px] xl:w-[250px] h-[100px]" long /> */}
@@ -45,7 +45,7 @@ export const Footer = () => {
             </p>
           ))}
         </div>
-        <div className="flex flex-col xl:gap-16 gap-7 items-center mt-10 md:mt-0">
+        <div className="flex flex-col xl:gap-12 gap-7 items-center mt-10 md:mt-0">
           <p>© Verdera2024</p>
           <ul className="flex xl:gap-12 gap-6 items-center">
             {footerItems.right.map((item) => (

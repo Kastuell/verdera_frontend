@@ -16,6 +16,10 @@ export function useCompleteTest() {
     mutationFn: (data: TestUserT) => testService.completeTest(data),
     onSuccess: (data) => {
       if (data?.isCorrect) {
+        queryClient.invalidateQueries({ queryKey: ["useCourseChapters"] });
+        queryClient.invalidateQueries({ queryKey: ["courses"] });
+        queryClient.invalidateQueries({ queryKey: [`test ${data?.testSlug}`] });
+        queryClient.invalidateQueries({ queryKey: ["get_profile"] });
         toast("Тест решён верно");
         push(
           `/courses/test/result?result=true&next-lection=${data?.nextLectionSlug}`
@@ -27,11 +31,6 @@ export function useCompleteTest() {
         );
       }
     },
-
-    onSettled: (data) =>
-      queryClient.invalidateQueries({
-        queryKey: ["useCourseChapters", `test ${data?.testSlug}`],
-      }),
   });
 
   return { mutate, isPending, error };

@@ -22,10 +22,10 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
   const form = useForm<z.infer<typeof profileSchema>>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
-      family: data.family,
-      name: data.name,
-      phone: data.phone,
-      surname: data.surname,
+      family: data.family ?? "qwe",
+      name: data.name ?? "qwe",
+      phone: data.phone ?? "qwe",
+      surname: data.surname ?? "qwe",
     },
   });
 

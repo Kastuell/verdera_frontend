@@ -10,7 +10,6 @@ import { useApproveTime } from "@/hooks/useApproveTime";
 import { useCancelTime } from "@/hooks/useCancelTime";
 import { useEndTime } from "@/hooks/useEndTime";
 import { useSelectTime } from "@/hooks/useSelectTime";
-import { useScheduleStore } from "@/lib/schedule-store";
 import { EnumUserRoles } from "@/types/user.types";
 import { X } from "lucide-react";
 import {
@@ -31,8 +30,6 @@ import {
 export const Time = ({ time }: { time: ScheduleTimeT }) => {
   const { status, time: dayTime, studentId, teacherId, sheduleDay, id } = time;
   const { data: user } = useProfile();
-  const { mode, setSelected, selected } = useScheduleStore();
-
   const { mutate: mutateSelectTime } = useSelectTime();
   const { mutate: mutateEndTime } = useEndTime();
   const { mutate: mutateCancelTime } = useCancelTime();
@@ -43,13 +40,6 @@ export const Time = ({ time }: { time: ScheduleTimeT }) => {
       <>
         <AlertDialog>
           <AlertDialogTrigger
-            // disabled={
-            //   status !== ScheduleTimeEnum.FREE &&
-            //   user.id == studentId &&
-            //   (status == ScheduleTimeEnum.END ||
-            //     status == ScheduleTimeEnum.SELECTED) &&
-            //   user.id !== teacherId
-            // }
             disabled={
               (status !== ScheduleTimeEnum.FREE &&
                 user.id !== studentId &&
@@ -155,7 +145,7 @@ export const Time = ({ time }: { time: ScheduleTimeT }) => {
                     </div>
                   </AlertDialogHeader>
                   <AlertDialogFooter className="flex flex-col gap-5">
-                    <AlertDialogCancel>Отменить</AlertDialogCancel>
+                    <AlertDialogCancel onClick={() => mutateCancelTime(id)}>Отменить занятие</AlertDialogCancel>
                     <AlertDialogAction onClick={() => mutateEndTime(id)}>
                       Подтвердить
                     </AlertDialogAction>

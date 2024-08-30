@@ -32,7 +32,11 @@ export const ProfileIcon = () => {
           <PopoverTrigger asChild className="cursor-pointer">
             <Avatar className="size-16">
               <AvatarImage
-                className="z-10"
+                className={cn({
+                  ["z-10"]: true,
+                  ["invert"]: path == "/" && !data.avatarId
+
+                })}
                 src={
                   data.avatarId
                     ? `${process.env.NEXT_PUBLIC_API_URL}/local-file/${data.avatarId}`

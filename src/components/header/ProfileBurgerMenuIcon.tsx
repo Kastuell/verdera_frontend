@@ -2,7 +2,9 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useProfile } from "@/hooks/useProfile";
 import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Accordion,
   AccordionContent,
@@ -12,6 +14,7 @@ import {
 
 export const ProfileBurgerMenuIcon = () => {
   const { data, error, isLoading } = useProfile();
+  const path = usePathname();
 
   const { changeOpen } = useBurgerMenuStore();
 
@@ -31,7 +34,11 @@ export const ProfileBurgerMenuIcon = () => {
             <AccordionTrigger className="flex justify-start gap-3">
               <Avatar className="size-16">
                 <AvatarImage
-                  className="z-10"
+                  className={cn({
+                    ["z-10"]: true,
+                    ["invert"]: path == "/" && !data.avatarId
+  
+                  })}
                   src={
                     data.avatarId
                       ? `${process.env.NEXT_PUBLIC_API_URL}/local-file/${data.avatarId}`

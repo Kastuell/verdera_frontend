@@ -14,8 +14,9 @@ export function useAddTime() {
       toast("Успешно!");
       changeMode();
     },
-    onError() {
-      toast("Произошла ошибка!");
+    onError(err) {
+      // @ts-ignore
+      toast(`${err.response?.data.message}`);
     },
     onSettled: () =>
       queryClient.invalidateQueries({ queryKey: ["currentWeeks"] }),

@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export function useLectionBySlug(slug: string) {
   const { data, error, isLoading, isError } = useQuery({
-    queryKey: [`lection`],
+    queryKey: [`lection`, slug],
     queryFn: () => lectionService.getBySlug(slug),
   });
 

@@ -34,6 +34,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui";
+import { PasswordInput } from "./PasswordInput";
 
 export const Register = () => {
   const { push, refresh } = useRouter();
@@ -249,7 +250,7 @@ export const Register = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input type="password" placeholder="Пароль" {...field} />
+                    <PasswordInput placeholder="Пароль" field={field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -261,10 +262,9 @@ export const Register = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      type="password"
+                    <PasswordInput
                       placeholder="Повторите пароль"
-                      {...field}
+                      field={field}
                     />
                   </FormControl>
                   <FormMessage />
@@ -282,7 +282,7 @@ export const Register = () => {
       </Form>
       <div className="text-center lg:mt-16 mt-8 text-lg">
         <p>У вас уже есть аккаунт?</p>
-        <p className="text-greenish mt-4">
+        <p className="text-greenish mt-4 hover:underline">
           <Link href={"/auth/login"} scroll>
             Войти в аккаунт
           </Link>

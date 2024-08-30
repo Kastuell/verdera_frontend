@@ -12,16 +12,23 @@ export const ProfileAvatarChangeIcon = ({
   form,
 }: {
   form: UseFormReturn<{
-    avatar?: any;
+    avatar: any;
 }, any, undefined>
 }) => {
-  const {mutate} = useCreateAvatar()
+  const {mutate} = useCreateAvatar({form})
   function onSubmit(data: z.infer<typeof avatarSchema>) {
-    mutate(data.avatar)
-    console.log(data);
-  }
 
-  return (
+    const formData = new FormData()
+
+
+    formData.append("file", data.avatar);
+
+    // console.log(formData.get("profileImage"))
+
+    mutate(formData)
+
+  }
+    return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="z-20 cursor-pointer absolute bottom-2 right-2 hover:opacity-80 active:opacity-100 transition duration-300">
@@ -38,7 +45,7 @@ export const ProfileAvatarChangeIcon = ({
               name="avatar"
               render={({ field: { value, onChange, ...fieldProps } }) => (
                 <FormItem>
-                  <Label htmlFor="avatar">
+                  <Label htmlFor="avatar" className="cursor-pointer">
                     <Image
                       src="/images/svg/profile/edit.svg"
                       width={60}

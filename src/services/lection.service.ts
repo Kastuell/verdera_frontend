@@ -14,9 +14,12 @@ export const lectionService = {
   },
 
   async completeLection(slug: string) {
-    const response = await axiosInst.post<any>(
-      `lection/complete-lection/${slug}`
-    );
+    const response = await axiosInst.post<{
+      createdAt: string;
+      updatedAt: string;
+      userId: number;
+      lectionId: number;
+    }>(`lection/complete-lection/${slug}`);
 
     return response.data;
   },

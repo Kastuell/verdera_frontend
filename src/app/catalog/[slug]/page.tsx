@@ -44,17 +44,20 @@ export default async function Page({ params }: Props) {
               />
             ))}
           </div>
-          <div className="relative hidden xl:block">
-            <Image
-              className="rounded-2xl"
-              alt=""
-              src={
-                product.description.about?.img !== undefined
-                  ? `/images/jpg/catalog/${product.description.about?.img}.jpg`
-                  : ""
-              }
-              fill
-            />
+          <div className="hidden xl:block xl:col-span-1">
+            <div>
+              <Image
+                className="rounded-2xl"
+                alt=""
+                src={
+                  product.description.about?.img !== undefined
+                    ? `/images/jpg/catalog/${product.description.about?.img}.jpg`
+                    : ""
+                }
+                width={500}
+                height={500}
+              />
+            </div>
           </div>
         </Container>
       </div>

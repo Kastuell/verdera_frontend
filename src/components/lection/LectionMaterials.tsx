@@ -1,8 +1,10 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
 import { Head } from "../ui";
 
-export const LectionMeterials = ({ materials }: { materials?: string[] }) => {
+export const LectionMaterials = ({ materials }: { materials?: string[] }) => {
   return (
     <div className="mt-10">
       <Head center={false}>Материалы к лекции</Head>

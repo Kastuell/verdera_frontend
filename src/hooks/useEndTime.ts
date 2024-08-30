@@ -10,8 +10,9 @@ export function useEndTime() {
     onSuccess() {
       toast("Успешно!");
     },
-    onError() {
-      toast("Произошла ошибка!");
+    onError(err) {
+      // @ts-ignore
+      toast(`${err.response?.data.message}`);
     },
     onSettled: () =>
       queryClient.invalidateQueries({ queryKey: ["currentWeeks"] }),
