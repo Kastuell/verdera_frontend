@@ -41,7 +41,7 @@ export const LectionWrapper = ({ slug }: { slug: string }) => {
 
         {user.completeLection.findIndex((item) => item.lectionId == data.id) ==
         -1 ? (
-          <Button onClick={() => mutate()} className="mt-20">
+          <Button onClick={() => mutate(slug)} className="mt-20">
             Завершить лекцию
           </Button>
         ) : (
