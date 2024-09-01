@@ -23,7 +23,7 @@ export const Day = ({ day }: { day: ScheduleDayT }) => {
           ["opacity-50"]: selected !== id && mode,
         })}
       >
-        <div className="capitalize flex justify-between text-sm items-center">
+        <div className="capitalize flex justify-between md:flex-col 2xl:flex-row text-sm items-center">
           <div className="font-bold">{day_of_week}</div>
           <div>{day_month}</div>
         </div>

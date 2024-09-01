@@ -16,11 +16,9 @@ export const OrdersPage = () => {
 
     return (
       <>
-        <div>
-          {data.map((item) => (
-            <FullOrder key={item.id} items={item.items} status={item.status} />
-          ))}
-        </div>
+        {data.map((item, index) => (
+          <FullOrder key={item.id} index={index} items={item.items} status={item.status} />
+        ))}
       </>
     );
   }

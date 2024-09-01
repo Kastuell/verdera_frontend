@@ -25,6 +25,7 @@ import {
   FormMessage,
   Head,
   Input,
+  PhoneInput,
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -56,17 +57,6 @@ export const Register = () => {
 
   const form = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
-    defaultValues: {
-      confirmPassword: "",
-      email: "",
-      name: "",
-      surname: "",
-      family: "",
-      password: "",
-      region: "",
-      social: "",
-      phone: "",
-    },
   });
 
   function onSubmit(data: z.infer<typeof registerSchema>) {
@@ -75,6 +65,7 @@ export const Register = () => {
     mutate(rest);
   }
 
+  console.log(form.getValues("phone"));
   return (
     <Container>
       <Head>Регистрация</Head>
@@ -175,12 +166,13 @@ export const Register = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input type="tel" placeholder="Телефон" {...field} />
+                    <PhoneInput className="" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="email"

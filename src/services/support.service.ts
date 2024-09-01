@@ -7,4 +7,10 @@ export const supportService = {
 
     return response.data;
   },
+
+  async sendUnAuth(data: SupportT) {
+    const response = await axiosInst.post(`/support/no-auth`, data);
+
+    return response.data;
+  },
 };

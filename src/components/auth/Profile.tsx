@@ -22,7 +22,7 @@ export const Profile = () => {
 
   if (error) return <div>Ошибка</div>;
 
-  if (data !== undefined)
+  if (data)
     return (
       <div className="lg:mt-20 mt-10 flex flex-col justify-center items-center lg:block">
         <div className="relative inline-block">

@@ -8,11 +8,26 @@ export function useSupport() {
     mutationKey: [`support}`],
     mutationFn: (qwe: SupportT) => supportService.send(qwe),
     onSuccess: () => {
-        toast('Успешно отправлено')
+      toast("Успешно отправлено");
     },
     onError: () => {
-        toast('Произошла ошибка')
-    }
+      toast("Произошла ошибка");
+    },
+  });
+
+  return { mutate, error };
+}
+
+export function useSupportUnAuth() {
+  const { mutate, error } = useMutation({
+    mutationKey: [`support}`],
+    mutationFn: (qwe: SupportT) => supportService.sendUnAuth(qwe),
+    onSuccess: () => {
+      toast("Успешно отправлено");
+    },
+    onError: () => {
+      toast("Произошла ошибка");
+    },
   });
 
   return { mutate, error };

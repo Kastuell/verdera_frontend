@@ -16,9 +16,9 @@ const buttonVariants = cva(
         modal:
           "bg-transparent text-primary text-xl xl:text-3xl border-2 border-primary hover:opacity-70 active:opacity-100",
         social_black:
-          "text-xl xl:text-3xl gap-8 border-2 border-secondary text-secondary bg-primary font-thin hover:invert",
+          "text-xl xl:text-3xl gap-8 border-2 border-secondary text-secondary bg-primary hover:invert",
         social_white:
-          "text-xl xl:text-3xl gap-8 border-2 border-primary text-primary bg-secondary font-thin hover:invert",
+          "text-xl xl:text-3xl gap-8 border-2 border-primary text-primary bg-secondary hover:invert",
         black:
           "text-xl xl:text-3xl bg-primary border-2 border-primary text-secondary hover:bg-secondary hover:text-primary hover:border-primary active:text-secondary active:bg-primary",
         white:

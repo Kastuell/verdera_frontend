@@ -6,6 +6,8 @@ import { profileSchema } from "@/types/zod/profile.shema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader } from "lucide-react";
 import { useForm } from "react-hook-form";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import { z } from "zod";
 import {
   Button,
@@ -22,10 +24,10 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
   const form = useForm<z.infer<typeof profileSchema>>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
-      family: data.family ?? "qwe",
-      name: data.name ?? "qwe",
-      phone: data.phone ?? "qwe",
-      surname: data.surname ?? "qwe",
+      surname: data.surname ?? null,
+      family: data.family ?? null,
+      name: data.name ?? null,
+      phone: data.phone ?? null,
     },
   });
 
@@ -103,13 +105,21 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
                 <FormItem>
                   <Label htmlFor="phone">Телефон</Label>
                   <FormControl>
-                    <Input
-                      type="tel"
+                    {/* <PhoneInput
                       defaultValue={data.phone}
-                      isProfile
-                      id="phone"
                       autoComplete="new-password"
+                      id="phone"
+                      className="border-0"
                       {...field}
+                    /> */}
+                    <PhoneInput
+                      inputProps={{
+                        name: "phone",
+                        required: true,
+                        autoFocus: true,
+                      }}
+                      {...field}
+                      inputClass=".phone-input"
                     />
                   </FormControl>
                   <FormMessage />

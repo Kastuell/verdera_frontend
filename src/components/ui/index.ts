@@ -90,3 +90,16 @@ export {
     ContextMenuTrigger
 } from "./context-menu";
 
+export {
+    Command,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+    CommandSeparator,
+    CommandShortcut
+} from "./command";
+
+export { ScrollArea, ScrollBar } from "./scroll-area";
+

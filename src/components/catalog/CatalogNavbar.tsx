@@ -24,7 +24,7 @@ export const CatalogNavbar = (props: ICatalogNavbar) => {
             })
           }
           className={clsx({
-            ["lg:text-5xl md:text-3xl text-base cursor-pointer"]: true,
+            ["lg:text-5xl md:text-3xl text-base cursor-pointer border border-primary p-5 rounded-xl"]: true,
             ["font-medium"]: selected.name === item.name,
           })}
           key={item.name}

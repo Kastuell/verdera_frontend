@@ -26,10 +26,7 @@ export const profileSchema = z.object({
     .min(1, "Заполните поле!")
     .max(30, "Максимум 30 символов!")
     .optional(),
-  phone: z
-    .string({ required_error: "Обязательное поле!" })
-    .regex(phoneRegex, "Некорректный номер!")
-    .optional(),
+  phone: z.string().regex(phoneRegex, "Некорректный номер!").optional(),
   // birthday: z
   //   .date({ required_error: "Обязательное поле!" })
   //   .min(new Date(new Date().setDate(new Date().getDate() - 100 * 365)))
@@ -79,5 +76,5 @@ export const avatarSchema = z.object({
       {
         message: "File format must be either jpg, jpeg lub png.",
       }
-    )
+    ),
 });

@@ -1,3 +1,4 @@
+import { ProductT } from "./product.types";
 
 export type OrderT = {
   id: string;
@@ -40,7 +41,7 @@ export type OrderResponse = {
   id: number;
   items: OrderItem[];
   total: number;
-  status: string;
+  status: EnumOrderStatus;
   info: {
     city: string;
     name: string;
@@ -58,11 +59,12 @@ export type OrderItem = {
   quantity: number;
   price: number;
   orderId: number;
-  product: {
-    id: number,
-    name: string,
-    subName: string,
-    img: string,
-    price: number,
-  };
+  product: ProductT;
 };
+
+
+export enum EnumOrderStatus {
+  "PENDING" = "В обработке",
+  "PAYED" = "Оплачено"
+}
+
