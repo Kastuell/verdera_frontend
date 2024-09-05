@@ -9,6 +9,7 @@ export const Footer = () => {
       { title: "verdera@internet.ru", href: "mailto:verdera@internet.ru" },
       { title: "ИНН: 490913669400", href: "" },
       { title: "г. Владивосток, Ульяновская 6", href: "" },
+      { title: "Политика конфиденциальности", href: "/policy" },
     ],
     right: [
       {

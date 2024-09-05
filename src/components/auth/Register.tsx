@@ -13,6 +13,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import PhoneInput from "react-phone-input-2";
+import { toast } from "sonner";
 import { z } from "zod";
 import {
   Button,
@@ -25,7 +27,6 @@ import {
   FormMessage,
   Head,
   Input,
-  PhoneInput,
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -47,6 +48,10 @@ export const Register = () => {
       push("/profile");
       refresh();
     },
+    onError(err) {
+      // @ts-ignore
+      toast(`${err.response?.data.message}`);
+    },
   });
 
   const mediaInputs = [
@@ -60,9 +65,9 @@ export const Register = () => {
   });
 
   function onSubmit(data: z.infer<typeof registerSchema>) {
-    const { confirmPassword, ...rest } = data;
-
-    mutate(rest);
+    const { confirmPassword, phone: phn, ...rest } = data;
+    const phone = "+" + phn;
+    mutate({ ...rest, phone });
   }
 
   console.log(form.getValues("phone"));
@@ -166,7 +171,14 @@ export const Register = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <PhoneInput className="" {...field} />
+                    <PhoneInput
+                      inputProps={{
+                        name: "phone",
+                        required: true,
+                        autoFocus: true,
+                      }}
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

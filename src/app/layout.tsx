@@ -1,4 +1,4 @@
-import { Footer, Header } from "@/components";
+import { Footer, Header, UpButton } from "@/components";
 import { SITE_NAME } from "@/constants/seo.constants";
 import { cn } from "@/lib/utils";
 import { TanstackProvider } from "@/utils/TanstackProvider";
@@ -44,7 +44,7 @@ export default function RootLayout(props: Ilayout) {
           </main>
           <Footer />
         </TanstackProvider>
-        {/* <UpButton /> */}
+        <UpButton />
         <Toaster theme="dark" position="bottom-right" duration={5000} />
       </body>
     </html>
