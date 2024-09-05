@@ -23,7 +23,7 @@ export const FullOrder = ({
 
       <div className="grid grid-cols-2 mt-2">
         {items.map((item) => (
-          <div className="grid grid-cols-5">
+          <div key={item.id} className="grid grid-cols-5">
             <Image
               className="col-span-2"
               src={`/images/jpg/catalog/${item.product.img}.jpg`}
