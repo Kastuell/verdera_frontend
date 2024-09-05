@@ -19,7 +19,9 @@ export const CourseButton = ({ course }: { course: CourseT }) => {
   if (user !== undefined && chapters !== undefined)
     return (
       <>
-        {curChapter !== undefined && curChapter !== -1 ? (
+        {curChapter !== undefined &&
+        curChapter !== -1 &&
+        chapters.length - 1 !== curChapter ? (
           curChapter == 0 ? (
             <Button
               onClick={() =>

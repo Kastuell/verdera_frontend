@@ -5,7 +5,6 @@ import { useLectionBySlug } from "@/hooks/useLection";
 import { useProfile } from "@/hooks/useProfile";
 import { useRouter } from "next/navigation";
 import { Button, Head } from "../ui";
-import { LectionMaterials } from "./LectionMaterials";
 import { VideoPlayer } from "./VideoPlayer";
 
 export const LectionWrapper = ({ slug }: { slug: string }) => {
@@ -37,7 +36,6 @@ export const LectionWrapper = ({ slug }: { slug: string }) => {
             }}
           />
         </div>
-        <LectionMaterials materials={data.materials} />
 
         {user.completeLection.findIndex((item) => item.lectionId == data.id) ==
         -1 ? (
