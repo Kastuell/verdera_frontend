@@ -33,7 +33,7 @@ export default function RootLayout(props: Ilayout) {
     <html lang="en" className="scroll-smooth">
       <body
         className={cn(
-          `flex flex-col justify-between bg-secondary select-none `,
+          `grid grid-cols-1 bg-secondary select-none`,
           montserrat.className
         )}
       >

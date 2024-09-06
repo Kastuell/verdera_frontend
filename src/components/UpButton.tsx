@@ -24,7 +24,7 @@ export const UpButton = () => {
     upToTop && (
       <MoveUpIcon
         onClick={() => scrollUp()}
-        className="fixed right-16 text-secondary bottom-16 mix-blend-difference rounded-full p-2 transition duration-300 hover:opacity-75 cursor-pointer animate-up-btn-up"
+        className="fixed right-16 bg-secondary text-primary z-[9999] bottom-16 mix-blend-difference rounded-full p-2 transition duration-300 hover:opacity-75 cursor-pointer animate-up-btn-up"
         size={50}
       />
     )

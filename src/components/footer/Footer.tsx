@@ -5,7 +5,7 @@ export const Footer = () => {
   const footerItems = {
     center: [
       { title: "+ 7 984 149-43-69", href: "tel:+79841494369" },
-      { title: "ИП Петухов А.И", href: "" },
+      { title: "ИП Петухов АИ", href: "" },
       { title: "verdera@internet.ru", href: "mailto:verdera@internet.ru" },
       { title: "ИНН: 490913669400", href: "" },
       { title: "г. Владивосток, Ульяновская 6", href: "" },
@@ -38,19 +38,19 @@ export const Footer = () => {
             height={180}
           />
         </Link>
-        <div className="flex flex-col gap-6 items-center mt-10 md:mt-0">
+        <div className="flex flex-col gap-6 items-center mt-10 md:mt-0 text-center">
           {footerItems.center.map((item) => (
             <p key={item.title}>
               <Link href={item.href}>{item.title}</Link>
             </p>
           ))}
         </div>
-        <div className="flex flex-col xl:gap-6 gap-7 items-center mt-10 md:mt-0">
-          <p>© Verdera2024</p>
+        <div className="flex flex-col xl:gap-6 gap-3 items-center mt-10 md:mt-0">
+          <p className="xl:text-2xl text-xl">© Verdera2024</p>
           <ul className="flex xl:gap-12 gap-6 items-center">
             {footerItems.right.map((item) => (
               <Link key={item.href} href={item.href} target="_blank">
-                <div className="relative xl:w-[70px] w-[30px] h-[50px]">
+                <div className="relative xl:w-[70px] w-[50px] h-[50px]">
                   <Image fill src={item.src} alt={item.alt} />
                 </div>
               </Link>

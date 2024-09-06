@@ -123,7 +123,7 @@ export const IntroQuestion = () => {
                 <FormControl>
                   <Input
                     type="tel"
-                    placeholder="Номер телефона, по которому с вами можно связаться"
+                    placeholder="Номер телефона, по которому с Вами можно связаться"
                     {...field}
                   />
                 </FormControl>

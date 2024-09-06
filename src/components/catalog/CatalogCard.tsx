@@ -32,10 +32,12 @@ export const CatalogCard = (props: ICatalogCard) => {
           <div className="leading-8 text-sm lg:text-xl lg:leading-[2.5rem] xl:text-2xl xl:leading-[3rem] 2xl:leading-[3.5rem] ">
             {item.description.firstly}
           </div>
-          <div className="font-bold py-3 text-2xl xl:text-4xl">
-            {convertPrice(item.price)} &#x20bd;
+          <div>
+            <div className="font-bold py-3 text-2xl xl:text-4xl">
+              {convertPrice(item.price)} &#x20bd;
+            </div>
+            <ButtonWrapper className="hidden xl:block" item={item} />
           </div>
-          <ButtonWrapper className="hidden xl:block" item={item} />
         </div>
       </div>
       <ButtonWrapper className="xl:hidden" item={item} />
