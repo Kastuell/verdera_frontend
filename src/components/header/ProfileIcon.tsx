@@ -2,6 +2,7 @@
 
 import { useProfile } from "@/hooks/useProfile";
 import { cn } from "@/lib/utils";
+import { EnumUserRoles } from "@/types/user.types";
 import { UserRound } from "lucide-react";
 import { usePathname } from "next/navigation";
 import {
@@ -19,6 +20,7 @@ const profileIconItems = [
   { title: "Мои заказы", href: "/orders" },
   { title: "Уведомления", href: "/notifications" },
   { title: "Поддержка", href: "/support" },
+  { title: "Расписание", href: "/schedule" },
 ];
 
 export const ProfileIcon = () => {
@@ -34,8 +36,7 @@ export const ProfileIcon = () => {
               <AvatarImage
                 className={cn({
                   ["z-10"]: true,
-                  ["invert"]: path == "/" && !data.avatarId
-
+                  ["invert"]: path == "/" && !data.avatarId,
                 })}
                 src={
                   data.avatarId
@@ -64,21 +65,38 @@ export const ProfileIcon = () => {
               </div>
 
               <ul className="grid gap-4 font-medium text-lg">
-                {profileIconItems.map((item) => (
-                  <li
-                    key={`${item.title} ewqeqwweq`}
-                    className="border cursor-pointer border-transparent p-2 rounded-xl hover:border-grayish duration-300 transition"
-                  >
-                    <a href={item.href}>{item.title}</a>
-                  </li>
-                ))}
+                {profileIconItems.map((item) =>
+                  item.title == "Расписание" ? (
+                    data.role == EnumUserRoles.ADMIN ||
+                    data.role == EnumUserRoles.TEACHER ? (
+                      <li
+                        key={`${item.title} ewqeqwweq`}
+                        className="border cursor-pointer border-transparent p-2 rounded-xl hover:border-grayish duration-300 transition"
+                      >
+                        <a href={item.href}>{item.title}</a>
+                      </li>
+                    ) : (
+                      ""
+                    )
+                  ) : (
+                    <li
+                      key={`${item.title} ewqeqwweq`}
+                      className="border cursor-pointer border-transparent p-2 rounded-xl hover:border-grayish duration-300 transition"
+                    >
+                      <a href={item.href}>{item.title}</a>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           </PopoverContent>
         </Popover>
       ) : (
         <a href={"/profile"}>
-          <UserRound size={50} className={cn({["text-primary"]: path !== "/"})} />
+          <UserRound
+            size={50}
+            className={cn({ ["text-primary"]: path !== "/" })}
+          />
         </a>
       )}
     </>

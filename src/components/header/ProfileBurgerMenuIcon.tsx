@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useProfile } from "@/hooks/useProfile";
 import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
 import { cn } from "@/lib/utils";
+import { EnumUserRoles } from "@/types/user.types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -24,6 +25,7 @@ export const ProfileBurgerMenuIcon = () => {
     { title: "Мои заказы", href: "/orders" },
     { title: "Уведомления", href: "/notifications" },
     { title: "Поддержка", href: "/support" },
+    { title: "Расписание", href: "/schedule" },
   ];
 
   return (
@@ -36,8 +38,7 @@ export const ProfileBurgerMenuIcon = () => {
                 <AvatarImage
                   className={cn({
                     ["z-10"]: true,
-                    ["invert"]: path == "/" && !data.avatarId
-  
+                    ["invert"]: path == "/" && !data.avatarId,
                   })}
                   src={
                     data.avatarId
@@ -51,15 +52,30 @@ export const ProfileBurgerMenuIcon = () => {
               <div>{data.name}</div>
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-6 text-xl">
-              {burgerItems.map((item) => (
-                <Link
-                  key={`${item.href} wqe`}
-                  onClick={changeOpen}
-                  href={item.href}
-                >
-                  {item.title}
-                </Link>
-              ))}
+              {burgerItems.map((item) =>
+                item.title == "Расписание" ? (
+                  data.role == EnumUserRoles.ADMIN ||
+                  data.role == EnumUserRoles.TEACHER ? (
+                    <Link
+                      key={`${item.href} wqe`}
+                      onClick={changeOpen}
+                      href={item.href}
+                    >
+                      {item.title}
+                    </Link>
+                  ) : (
+                    ""
+                  )
+                ) : (
+                  <Link
+                    key={`${item.href} wqe`}
+                    onClick={changeOpen}
+                    href={item.href}
+                  >
+                    {item.title}
+                  </Link>
+                )
+              )}
             </AccordionContent>
           </AccordionItem>
         </Accordion>

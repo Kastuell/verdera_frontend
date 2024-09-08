@@ -1,5 +1,6 @@
 "use client";
 
+import { useLogout } from "@/hooks/useLogout";
 import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
@@ -18,6 +19,8 @@ export const BurgerMenu = () => {
   const { isOpen } = useBurgerMenuStore();
 
   const { changeOpen } = useBurgerMenuStore();
+
+  const { mutate } = useLogout()
 
   return (
     <div
@@ -47,6 +50,12 @@ export const BurgerMenu = () => {
               <ProfileBurgerMenuIcon key={"qwe"} />
             )
           )}
+           <div
+                className="text-reddish mt-4 rounded-xl hover:text-red-300 transition duration-300"
+                onClick={() => mutate()}
+              >
+                Выход
+              </div>
         </div>
       </div>
     </div>

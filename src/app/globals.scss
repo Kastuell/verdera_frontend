@@ -113,9 +113,17 @@ span {
 
 
 .react-tel-input .form-control {
-  @apply w-full border-2 border-primary rounded-none xl:h-20 h-16
+  @apply w-full border-2 border-primary rounded-none xl:h-20 h-16 text-xl
 }
 
 .react-tel-input .flag-dropdown {
   @apply bg-white border-2 border-primary rounded-none
+}
+
+.react-tel-input .selected-flag{
+  @apply hover:bg-inherit active:bg-inherit focus:bg-inherit
+}
+
+.react-tel-input .flag-dropdown.open .selected-flag {
+   @apply hover:bg-inherit active:bg-inherit focus:bg-inherit
 }

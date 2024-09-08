@@ -30,4 +30,5 @@ export const userService = {
 
     console.log(response.data);
   },
+
 };

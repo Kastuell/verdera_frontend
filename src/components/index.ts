@@ -3,6 +3,7 @@ export * from "./auth";
 export * from "./Back";
 export * from "./cart";
 export * from "./catalog";
+export * from "./Confirm";
 export * from "./course";
 export * from "./footer/";
 export * from "./header";

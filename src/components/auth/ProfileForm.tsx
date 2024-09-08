@@ -34,7 +34,9 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
   const { mutate, isPending } = useProfileUpdate();
 
   function onSubmit(dat: z.infer<typeof profileSchema>) {
-    mutate(dat);
+    const { phone: phn, ...rest } = dat;
+    const phone = "+" + phn;
+    mutate({ ...rest, phone });
   }
 
   return (
@@ -118,8 +120,17 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
                         required: true,
                         autoFocus: true,
                       }}
+                      inputStyle={{
+                        border: "0",
+                        borderBottom: "2px solid black",
+                        background: "transparent",
+                      }}
+                      buttonStyle={{
+                        border: "0",
+                        borderBottom: "2px solid black",
+                        background: "transparent",
+                      }}
                       {...field}
-                      inputClass=".phone-input"
                     />
                   </FormControl>
                   <FormMessage />

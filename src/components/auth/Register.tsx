@@ -45,8 +45,8 @@ export const Register = () => {
     mutationKey: ["auth"],
     mutationFn: (data: IAuthRegisterForm) => authService.register(data),
     onSuccess: () => {
-      push("/profile");
-      refresh();
+      push("/");
+      toast("Активируйте аккаунт через Вашу почту");
     },
     onError(err) {
       // @ts-ignore

@@ -48,4 +48,12 @@ export const authService = {
 
     return response.data;
   },
+
+  async emailConfirm(email: string, code: string) {
+    const response = await axiosInst.post<boolean>(
+      `/auth/email-confirm/${email}?code=${code}`
+    );
+
+    return response.data;
+  },
 };

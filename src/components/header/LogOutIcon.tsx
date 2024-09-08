@@ -1,12 +1,8 @@
-import { authService } from "@/services/auth.service";
-import { useMutation } from "@tanstack/react-query";
+import { useLogout } from "@/hooks/useLogout";
 import { LogOut } from "lucide-react";
 
 export const LogOutIcon = () => {
-  const { mutate } = useMutation({
-    mutationKey: ["logout"],
-    mutationFn: () => authService.logout(),
-  });
+  const { mutate } = useLogout()
 
   return (
     <a href="/">
