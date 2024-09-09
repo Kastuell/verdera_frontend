@@ -11,7 +11,6 @@ export const FullOrder = ({
   status: string;
   index: number;
 }) => {
-  console.log(items);
   return (
     <div className="w-full">
       <div className="flex gap-5 font-bold text-3xl">
@@ -21,17 +20,17 @@ export const FullOrder = ({
         </h6>
       </div>
 
-      <div className="grid grid-cols-2 mt-2">
+      <div className="grid grid-cols-1 xl:grid-cols-2 mt-2">
         {items.map((item) => (
           <div key={item.id} className="grid grid-cols-5">
             <Image
-              className="col-span-2"
+              className="xl:col-span-2 col-span-5"
               src={`/images/jpg/catalog/${item.product.img}.jpg`}
               alt=""
               width={500}
               height={500}
             />
-            <div className="col-span-3 ml-2">
+            <div className="xl:col-span-3 col-span-5 ml-2 space-y-3 xl:space-y-0">
               <div className="text-greenish font-bold text-3xl">
                 {item.product.name}
               </div>

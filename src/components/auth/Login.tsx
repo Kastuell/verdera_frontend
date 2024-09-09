@@ -1,6 +1,11 @@
 "use client";
 
-import { Button, Container, Head, Input } from "@/components/ui";
+import {
+  Button,
+  Container,
+  Head,
+  Input
+} from "@/components/ui";
 
 import {
   Form,
@@ -17,9 +22,9 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { PasswordInput } from "./PasswordInput";
+import { SendEmail } from "./SendEmail";
 
 export const Login = () => {
-
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -33,7 +38,6 @@ export const Login = () => {
   function onSubmit(data: z.infer<typeof loginSchema>) {
     mutate(data);
   }
-
 
   return (
     <Container>
@@ -75,13 +79,19 @@ export const Login = () => {
           </div>
         </form>
       </Form>
-      <div className="text-center lg:mt-16 mt-8 text-lg">
-        <p>У вас нет аккаунта?</p>
-        <p className="text-greenish mt-4 hover:underline">
-          <Link href={"/auth/register"} scroll>
-            Создать аккаунт
-          </Link>
-        </p>
+      <div className="text-center lg:mt-16 mt-8 text-lg flex flex-col md:flex-row gap-8 justify-center">
+        <div>
+          <p>У вас нет аккаунта?</p>
+          <p className="text-greenish mt-4 hover:underline">
+            <Link href={"/auth/register"} scroll>
+              Создать аккаунт
+            </Link>
+          </p>
+        </div>
+        <div>
+          <p>Забыли пароль?</p>
+          <SendEmail />
+        </div>
       </div>
     </Container>
   );

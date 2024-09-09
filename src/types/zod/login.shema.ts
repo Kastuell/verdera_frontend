@@ -25,3 +25,9 @@ export const loginSchema = z
       } else return;
     }
   });
+
+export const sendEmailSchema = z.object({
+  email: z
+    .string({ required_error: "Обязательное поле!" })
+    .email("Некорректная почта!"),
+});

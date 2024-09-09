@@ -21,9 +21,9 @@ export function useLogin() {
       refresh()
       toast("Вы вошли");
     },
-    onError: () => {
-      console.log(error?.message);
-      toast("Неправильный пароль");
+    onError(err) {
+      // @ts-ignore
+      toast(`${err.response?.data.message}`);
     },
     onSettled: () => queryClient.invalidateQueries({ queryKey: ['get_profile'] }),
   });
