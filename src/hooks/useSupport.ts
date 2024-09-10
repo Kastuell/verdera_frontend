@@ -5,7 +5,7 @@ import { toast } from "sonner";
 
 export function useSupport() {
   const { mutate, error } = useMutation({
-    mutationKey: [`support}`],
+    mutationKey: [`support`],
     mutationFn: (qwe: SupportT) => supportService.send(qwe),
     onSuccess: () => {
       toast("Успешно отправлено");

@@ -31,3 +31,24 @@ export const sendEmailSchema = z.object({
     .string({ required_error: "Обязательное поле!" })
     .email("Некорректная почта!"),
 });
+
+export const resetPasswordSchema = z
+  .object({
+    password: z
+      .string({ required_error: "Обязательное поле!" })
+      .min(6, "Минимум 6 символов!")
+      .max(20, "Максимум 20 символов!"),
+    confirmPassword: z
+      .string({ required_error: "Обязательное поле!" })
+      .min(6, "Минимум 6 символов!")
+      .max(20, "Максимум 20 символов!"),
+  })
+  .superRefine(({ confirmPassword, password }, ctx) => {
+    if (confirmPassword !== password) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Пароли не совпадают!",
+        path: ["confirmPassword"],
+      });
+    }
+  });

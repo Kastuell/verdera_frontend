@@ -49,24 +49,21 @@ export const authService = {
     return response.data;
   },
 
-  async changePass(data: {
-    email: string;
-    password: string;
-    confirmCode: string;
-    code: string;
-  }) {
-    const { code, ...rest } = data;
-    const response = await axiosInst.post<IAuthResponse>(
-      `/auth/change-password?code=${code}`,
-      rest
+  async emailConfirm(email: string, code: string) {
+    const response = await axiosInst.post<boolean>(
+      `/auth/email-confirm/${email}?code=${code}`
     );
 
     return response.data;
   },
 
-  async emailConfirm(email: string, code: string) {
-    const response = await axiosInst.post<boolean>(
-      `/auth/email-confirm/${email}?code=${code}`
+  async resetPassword(data: { password: string; code: string; email: string }) {
+    const { password, code, email } = data;
+    const response = await axiosInst.post(
+      `/auth/change-password?code=${code}&email=${email}`,
+      {
+        password,
+      }
     );
 
     return response.data;

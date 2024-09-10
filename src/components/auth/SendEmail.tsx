@@ -9,9 +9,13 @@ import {
   DialogTitle,
   DialogTrigger,
   Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
   Input,
 } from "@/components/ui";
-import { useChangePass } from "@/hooks/useChangePass";
+import { useSendResetPassword } from "@/hooks/useSendResetPassword";
 import { sendEmailSchema } from "@/types/zod/login.shema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -21,9 +25,9 @@ export const SendEmail = () => {
   const form = useForm<z.infer<typeof sendEmailSchema>>({
     resolver: zodResolver(sendEmailSchema),
   });
-  const {mutate} = useChangePass()
+  const { mutate } = useSendResetPassword();
   function onSubmit(data: z.infer<typeof sendEmailSchema>) {
-    // mutate(data);
+    mutate(data.email);
   }
   return (
     <Dialog>
@@ -36,7 +40,18 @@ export const SendEmail = () => {
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <DialogTitle>Ваша почта</DialogTitle>
               <DialogDescription>
-                <Input />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input type="email" placeholder="E-mail" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
                 <Button className="lg:mt-20 mt-10 lg:w-1/2" type="submit">
                   Отправить
                 </Button>
