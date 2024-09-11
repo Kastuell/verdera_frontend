@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 
 export function useSendResetPassword() {
-  const { mutate, error } = useMutation({
+  const { mutate, error, isSuccess, isPending } = useMutation({
     mutationKey: [`useSendResetPassword`],
     mutationFn: (email: string) => emailService.sendResetPass(email),
     onSuccess: () => {
@@ -15,5 +15,5 @@ export function useSendResetPassword() {
     },
   });
 
-  return { mutate, error };
+  return { mutate, error, isSuccess, isPending };
 }

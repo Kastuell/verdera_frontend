@@ -18,6 +18,8 @@ import {
 import { useSendResetPassword } from "@/hooks/useSendResetPassword";
 import { sendEmailSchema } from "@/types/zod/login.shema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { LoaderCircle } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -25,12 +27,20 @@ export const SendEmail = () => {
   const form = useForm<z.infer<typeof sendEmailSchema>>({
     resolver: zodResolver(sendEmailSchema),
   });
-  const { mutate } = useSendResetPassword();
+  const { mutate, isSuccess, isPending } = useSendResetPassword();
   function onSubmit(data: z.infer<typeof sendEmailSchema>) {
     mutate(data.email);
   }
+  
+  const [open, setOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [isSuccess]);
+
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger className="text-greenish mt-4 hover:underline">
         Восстановить
       </DialogTrigger>
@@ -39,7 +49,7 @@ export const SendEmail = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <DialogTitle>Ваша почта</DialogTitle>
-              <DialogDescription>
+              <DialogDescription className="mt-10">
                 <FormField
                   control={form.control}
                   name="email"
@@ -52,8 +62,12 @@ export const SendEmail = () => {
                     </FormItem>
                   )}
                 />
-                <Button className="lg:mt-20 mt-10 lg:w-1/2" type="submit">
-                  Отправить
+                <Button className="mt-10" disabled={isPending} type="submit">
+                  {isPending ? (
+                    <LoaderCircle className="animate-spin" />
+                  ) : (
+                    "Отправить"
+                  )}
                 </Button>
               </DialogDescription>
             </form>

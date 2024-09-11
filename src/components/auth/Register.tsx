@@ -123,7 +123,7 @@ export const Register = () => {
                       <FormControl>
                         <Button
                           className={cn(
-                            "text-left font-normal border-2 border-primary bg-white text-primary",
+                            "text-left font-normal border-2 border-primary bg-white text-primary px-2",
                             !field.value && "text-muted-foreground"
                           )}
                         >
@@ -132,7 +132,7 @@ export const Register = () => {
                               locale: ru,
                             })
                           ) : (
-                            <span>Выберите дату рождения</span>
+                            <span className="text-base">Выберите дату рождения</span>
                           )}
                           <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                         </Button>
@@ -208,7 +208,7 @@ export const Register = () => {
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Выберите соц.сеть для общения" />
+                        <SelectValue className="placeholder:text-grayish" placeholder="Выберите соц.сеть для общения" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
