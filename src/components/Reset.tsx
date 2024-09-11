@@ -1,6 +1,13 @@
 "use client";
 
+import { useResetPassword } from "@/hooks/useResetPassword";
+import { resetPasswordSchema } from "@/types/zod/login.shema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { LoaderCircle } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { PasswordInput } from "./auth";
 import {
   Button,
   Container,
@@ -9,14 +16,8 @@ import {
   FormField,
   FormItem,
   FormMessage,
+  Head,
 } from "./ui";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { resetPasswordSchema } from "@/types/zod/login.shema";
-import { z } from "zod";
-import { PasswordInput } from "./auth";
-import { useResetPassword } from "@/hooks/useResetPassword";
-import { LoaderCircle } from "lucide-react";
 
 export const Reset = () => {
   const code = useSearchParams().get("code");
@@ -42,8 +43,9 @@ export const Reset = () => {
 
   return (
     <Container>
+      <Head>Придумайте новый пароль</Head>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form className="w-2/3 mx-auto space-y-5 mt-10" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
             name="password"
@@ -68,12 +70,14 @@ export const Reset = () => {
               </FormItem>
             )}
           />
+          <Button disabled={isPending}>
+            {isPending ? (
+              <LoaderCircle className="animate-spin" />
+            ) : (
+              "Отправить"
+            )}
+          </Button>
         </form>
-        <h1 className="text-center text-4xl">Придумайте новый пароль</h1>
-
-        <Button disabled={isPending}>
-          {isPending ? <LoaderCircle className="animate-spin" /> : "Отправить"}
-        </Button>
       </Form>
       ;
     </Container>

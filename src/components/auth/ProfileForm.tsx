@@ -124,6 +124,7 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
                         border: "0",
                         borderBottom: "2px solid black",
                         background: "transparent",
+                        fontSize: "24px"
                       }}
                       buttonStyle={{
                         border: "0",

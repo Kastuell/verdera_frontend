@@ -13,13 +13,14 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   const isConfirmingPage = nextUrl.pathname.startsWith("/cart/confirming");
   const isSchedulePage = nextUrl.pathname.startsWith("/schedule");
   const isConfirmPage = nextUrl.pathname.startsWith("/email/confirm");
+  const isResetPasswordPage = nextUrl.pathname.startsWith("/email/reset");
 
   if (
     (isProfilePage || isConfirmingPage || isCoursesPage || isSchedulePage) &&
     !accessToken
   )
     return NextResponse.redirect(new URL("/auth", request.url));
-  if ((isAuthPage || isConfirmPage) && accessToken)
+  if ((isAuthPage || isConfirmPage || isResetPasswordPage) && accessToken)
     return NextResponse.redirect(new URL("/profile", request.url));
 
   // if(isAdminpanelPage &&)
