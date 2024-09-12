@@ -1,6 +1,7 @@
-import { Reset, Container } from "@/components";
+import { Reset } from "@/components";
 import { NO_INDEX_PAGE } from "@/constants/seo.constants";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Смена пароля",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <Reset />;
+  return (
+    <Suspense fallback={<div></div>}>
+      <Reset />
+    </Suspense>
+  );
 }
