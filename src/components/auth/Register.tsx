@@ -132,7 +132,9 @@ export const Register = () => {
                               locale: ru,
                             })
                           ) : (
-                            <span className="text-base">Выберите дату рождения</span>
+                            <span className="text-base">
+                              Выберите дату рождения
+                            </span>
                           )}
                           <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                         </Button>
@@ -172,6 +174,18 @@ export const Register = () => {
                 <FormItem>
                   <FormControl>
                     <PhoneInput
+                      inputStyle={{
+                        borderRadius: "0",
+                        border: "2px solid black",
+                        background: "transparent",
+                        fontSize: "24px",
+                        width: "100%",
+                        height: "80px",
+                      }}
+                      buttonStyle={{
+                        border: "2px solid black",
+                        background: "transparent",
+                      }}
                       inputProps={{
                         name: "phone",
                         required: true,
@@ -208,7 +222,10 @@ export const Register = () => {
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue className="placeholder:text-grayish" placeholder="Выберите соц.сеть для общения" />
+                        <SelectValue
+                          className="placeholder:text-grayish"
+                          placeholder="Выберите соц.сеть для общения"
+                        />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>

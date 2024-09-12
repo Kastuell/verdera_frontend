@@ -7,7 +7,7 @@ import { Montserrat } from "next/font/google";
 import { CustomProvider } from "rsuite";
 import "rsuite/dist/rsuite-no-reset.min.css";
 import { Toaster } from "sonner";
-import "./globals.scss";
+import "./globals.css";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {

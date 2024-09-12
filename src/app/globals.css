@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html
-{
-  @apply h-full w-full ;
-  body {
-    @apply min-h-full  ;
-  }
+html {
+  @apply h-full w-full;
+}
+body {
+  @apply min-h-full;
 }
 
 .onClick_onHover {
@@ -109,24 +108,22 @@ span {
   }
 }
 
-
-.react-tel-input {
-  @apply w-full
+/* .react-tel-input {
+  @apply w-full;
 }
 
-
 .react-tel-input .form-control {
-  @apply w-full border-2 border-primary rounded-none xl:h-20 h-16 text-base
+  @apply w-full border-2 border-primary rounded-none xl:h-20 h-16 text-base;
 }
 
 .react-tel-input .flag-dropdown {
-  @apply bg-white border-2 border-primary rounded-none
+  @apply bg-white border-2 border-primary rounded-none;
 }
 
-.react-tel-input .selected-flag{
-  @apply hover:bg-inherit active:bg-inherit focus:bg-inherit
+.react-tel-input .selected-flag {
+  @apply hover:bg-inherit active:bg-inherit focus:bg-inherit;
 }
 
 .react-tel-input .flag-dropdown.open .selected-flag {
-   @apply hover:bg-inherit active:bg-inherit focus:bg-inherit
-}
+  @apply hover:bg-inherit active:bg-inherit focus:bg-inherit;
+} */

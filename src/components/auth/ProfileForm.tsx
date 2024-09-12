@@ -121,10 +121,13 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
                         autoFocus: true,
                       }}
                       inputStyle={{
+                        borderRadius: "0",
                         border: "0",
                         borderBottom: "2px solid black",
                         background: "transparent",
-                        fontSize: "24px"
+                        fontSize: "24px",
+                        width: "100%",
+                        height: "80px",
                       }}
                       buttonStyle={{
                         border: "0",

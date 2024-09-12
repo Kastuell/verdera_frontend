@@ -25,6 +25,7 @@ export const LectionWrapper = ({ slug }: { slug: string }) => {
         <div className="mt-10">
           <VideoPlayer
             source={{
+              poster: `/images/jpg/black.jpg`,
               type: "video",
               sources: [
                 {
