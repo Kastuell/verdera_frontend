@@ -17,6 +17,9 @@ export default function Page() {
           <Button variant={"white"}>Войти в аккаунт</Button>
         </Link>
       </div>
+      <br />
+      <br />
+      <br />
     </Container>
   );
 }
