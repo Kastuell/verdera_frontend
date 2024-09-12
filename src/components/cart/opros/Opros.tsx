@@ -10,6 +10,7 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "@/components";
+import { useCreateOrder } from "@/hooks/useCreateOrder";
 import { useCartStore } from "@/lib/cart-store";
 import { PlaceOrderT } from "@/services/order.service";
 import { useSearchParams } from "next/navigation";
@@ -27,6 +28,8 @@ export const Opros = () => {
 
   const searchParams = useSearchParams();
 
+  const { mutate } = useCreateOrder();
+
   function onSubmit() {
     const searchParamsdata: any = {};
     searchParams.forEach((value, key) => {
@@ -42,7 +45,7 @@ export const Opros = () => {
       info: searchParamsdata,
     };
 
-    console.log(qwe);
+    mutate(qwe);
   }
   return (
     <Container>
