@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 
 export const IntroVideo = () => {
   return (
@@ -16,8 +15,16 @@ export const IntroVideo = () => {
           ],
         }}
       /> */}
-      <video autoPlay muted loop preload="metadata" playsInline className="mt-32 w-full">
-        <source src="/videos/D3D417FE-main.h264" type="video/h264" />
+      <video
+        autoPlay
+        muted
+        loop
+        preload="metadata"
+        playsInline
+        className="mt-32 w-full"
+      >
+        <source src="/videos/main1.mp4" type="video/mp4" />
+        <source src="/videos/main.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </>

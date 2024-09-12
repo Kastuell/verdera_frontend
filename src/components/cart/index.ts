@@ -5,5 +5,6 @@ export { ComfirmingForm } from "./ConfirmingForm";
 export { Counter } from "./Counter";
 export { EmptyCart } from "./EmptyCart";
 export { FullCart } from "./FullCart";
+export * from "./opros";
 export { YaMap } from "./YaMap";
 

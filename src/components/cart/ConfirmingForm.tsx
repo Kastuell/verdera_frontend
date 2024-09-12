@@ -8,6 +8,7 @@ import { confirmingSchema } from "@/types/zod/confirming.schema";
 import { convertPrice } from "@/utils/convertPrice";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -26,16 +27,18 @@ import {
   RadioGroupItem,
 } from "../ui";
 
-export const ComfirmingForm = ({ data }: { data: UserT | undefined }) => {
+export const ComfirmingForm = ({ data }: { data: UserT }) => {
+  const { push } = useRouter();
+
   const form = useForm<z.infer<typeof confirmingSchema>>({
     resolver: zodResolver(confirmingSchema),
     defaultValues: {
       city: "",
       delivery: "Курьерская доставка",
-      // name: data?.name,
-      // family: data?.family,
-      // phone: data?.phone,
-      // email: data?.email,
+      name: data.name,
+      family: data.family,
+      phone: data.phone,
+      email: data.email,
     },
   });
 
@@ -48,8 +51,6 @@ export const ComfirmingForm = ({ data }: { data: UserT | undefined }) => {
     setClient(true);
   }, []);
 
-  console.log(selected);
-
   const confirmingFormInputs = [
     {
       control: form.control,
@@ -57,7 +58,7 @@ export const ComfirmingForm = ({ data }: { data: UserT | undefined }) => {
       type: "text",
       placeholder: "Имя",
       isProfile: true,
-      defaultValue: data?.name,
+      defaultValue: data.name,
     },
     {
       control: form.control,
@@ -65,7 +66,7 @@ export const ComfirmingForm = ({ data }: { data: UserT | undefined }) => {
       type: "text",
       placeholder: "Фамилия",
       isProfile: true,
-      defaultValue: data?.family,
+      defaultValue: data.family,
     },
     {
       control: form.control,
@@ -73,7 +74,7 @@ export const ComfirmingForm = ({ data }: { data: UserT | undefined }) => {
       type: "tel",
       placeholder: "Телефон",
       isProfile: true,
-      defaultValue: data?.phone,
+      defaultValue: data.phone,
     },
     {
       control: form.control,
@@ -81,7 +82,7 @@ export const ComfirmingForm = ({ data }: { data: UserT | undefined }) => {
       type: "email",
       placeholder: "E-mail",
       isProfile: true,
-      defaultValue: data?.email,
+      defaultValue: data.email,
     },
   ];
 
@@ -132,9 +133,17 @@ export const ComfirmingForm = ({ data }: { data: UserT | undefined }) => {
       })),
       info: data,
     };
-
+    const arrOfKeys = Object.keys(qwe.info);
+    let link = `form?`;
+    for (let i = 0; i < arrOfKeys.length - 1; i++) {
+      // @ts-ignore
+      link += `${arrOfKeys[i]}=${form.getValues(arrOfKeys[i])}&`.replace(
+        /\s/g,
+        ""
+      );
+    }
     console.log(qwe);
-    mutate(qwe);
+    push(link);
   }
 
   return (
