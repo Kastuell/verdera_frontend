@@ -7,7 +7,7 @@ export const IntroProduct = () => {
     <div className="container lg:mt-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 text-center lg:text-start lg:gap-10">
         <h3 className="lg:hidden font-bold text-sm py-5 md:py-7 md:text-3xl">
-          Тренежер с полноценной имитацией губ
+          Тренежёр с полноценной имитацией губ
         </h3>
         <Image
           src={"/images/jpg/catalog/simulator_1.jpg"}
