@@ -13,4 +13,10 @@ export const discountService = {
 
     return res.data;
   },
+
+  async getMyDiscount() {
+    const res = await axiosInst.get<DiscountT>("/discount/get/my-discount");
+
+    return res.data;
+  },
 };

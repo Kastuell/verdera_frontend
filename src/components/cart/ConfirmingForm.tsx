@@ -1,6 +1,7 @@
 "use client";
 
 import { useCreateOrder } from "@/hooks/useCreateOrder";
+import { useMyDiscount } from "@/hooks/useMyDiscount";
 import { useCartStore } from "@/lib/cart-store";
 import { PlaceOrderT } from "@/services/order.service";
 import { UserT } from "@/types/user.types";
@@ -50,6 +51,8 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
   useEffect(() => {
     setClient(true);
   }, []);
+
+  const { data: disc } = useMyDiscount();
 
   const confirmingFormInputs = [
     {
@@ -142,9 +145,10 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
         ""
       );
     }
-    console.log(qwe);
     push(link);
   }
+
+  const discount: number = disc ? findSum() * 0.1 : 0;
 
   return (
     <>
@@ -236,13 +240,13 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                 </div>
                 <div className="flex justify-between">
                   <div>Скидка Verdera</div>
-                  <div className="text-greenish">0 &#x20bd;</div>
+                  <div className="text-greenish">{discount} &#x20bd;</div>
                 </div>
                 <div className="hidden h-0.5 border-t border-primary lg:block " />
                 <div className="flex justify-between">
                   <div className="font-bold">Итого</div>
                   <div className="text-greenish">
-                    {isClient && convertPrice(findSum())} &#x20bd;
+                    {isClient && convertPrice(findSum() - discount)} &#x20bd;
                   </div>
                 </div>
                 <Button className="mt-20" type="submit" variant={"black"}>

@@ -1,4 +1,4 @@
-export const convertPrice = (price: number) => {
+export const convertPrice = (price: number): string => {
   const arrayOfDigits: any = Array.from(String(price), Number);
   if (arrayOfDigits.length == 6) arrayOfDigits.splice(3, 0, " ");
   else if (arrayOfDigits.length == 5) arrayOfDigits.splice(2, 0, " ");
