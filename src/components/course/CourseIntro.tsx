@@ -31,14 +31,13 @@ export const CourseIntro = ({ course }: { course: CourseT }) => {
           </div>
         </div>
         <div className="xl:col-span-3 hidden xl:block">
-          <div className="relative h-full">
-            <Image
-              src={`/images/jpg/catalog/${course.img}.jpg`}
-              fill
-              alt=""
-              className="rounded-2xl"
-            />
-          </div>
+          <Image
+            src={`/images/jpg/catalog/${course.img}.jpg`}
+            width={400}
+            height={400}
+            alt=""
+            className="rounded-2xl"
+          />
         </div>
         <div className="xl:row-span-2 xl:col-span-4 md:col-span-2 md:border-4 border-primary rounded-2xl md:p-5 mt-10 md:mt-0">
           <h3 className="text-greenish font-bold text-lg md:text-3xl">

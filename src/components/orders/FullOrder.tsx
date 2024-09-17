@@ -13,9 +13,9 @@ export const FullOrder = ({
 }) => {
   return (
     <div className="w-full">
-      <div className="flex gap-5 font-bold text-3xl">
+      <div className="flex gap-5 font-bold text-xl md:text-3xl">
         <h2>Заказ #{index + 1}</h2>
-        <h6>
+        <h6 className="flex-0">
           {status == "PAYED" ? EnumOrderStatus.PAYED : EnumOrderStatus.PENDING}
         </h6>
       </div>
@@ -30,7 +30,7 @@ export const FullOrder = ({
               width={500}
               height={500}
             />
-            <div className="xl:col-span-3 col-span-5 ml-2 space-y-3 xl:space-y-0">
+            <div className="xl:col-span-3 col-span-5 ml-2 mt-2 space-y-3 xl:space-y-0">
               <div className="text-greenish font-bold text-3xl">
                 {item.product.name}
               </div>

@@ -5,7 +5,7 @@ import { useLectionBySlug } from "@/hooks/useLection";
 import { useProfile } from "@/hooks/useProfile";
 import { useRouter } from "next/navigation";
 import { Button, Head } from "../ui";
-import { VideoPlayer } from "./VideoPlayer";
+import VideoPlayer from "./VideoPlayer";
 
 export const LectionWrapper = ({ slug }: { slug: string }) => {
   const { data, isLoading, isError } = useLectionBySlug(slug);

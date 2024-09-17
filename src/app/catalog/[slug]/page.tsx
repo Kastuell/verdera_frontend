@@ -25,7 +25,6 @@ export async function generateMetadata(
 
 export default async function Page({ params }: Props) {
   const product = await productService.getBySlug(params.slug);
-
   return (
     <div>
       <Container>

@@ -15,11 +15,11 @@ export const OrdersPage = () => {
     if (data.length == 0) return <div>Вы ещё не делали заказ</div>;
 
     return (
-      <>
+      <div className="space-y-10">
         {data.map((item, index) => (
           <FullOrder key={item.id} index={index} items={item.items} status={item.status} />
         ))}
-      </>
+      </div>
     );
   }
 };
