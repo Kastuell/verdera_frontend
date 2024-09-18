@@ -35,7 +35,7 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
 
   function onSubmit(dat: z.infer<typeof profileSchema>) {
     const { phone: phn, ...rest } = dat;
-    const phone = "+" + phn;
+    const phone = phn ? (phn[0] !== "+" ? "+" + phn : phn) : ""
     mutate({ ...rest, phone });
   }
 
