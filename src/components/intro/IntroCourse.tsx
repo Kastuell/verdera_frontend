@@ -23,6 +23,9 @@ export const IntroCourse = () => {
               description={item.description}
             />
           ))}
+          <div>
+            
+          </div>
         </ul>
         <Link href={"catalog/konturnaya_plastika_gub"}>
           <Button className="mt-20" variant={"transparent"} size={"lg"}>
