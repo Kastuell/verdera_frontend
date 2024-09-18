@@ -1,6 +1,7 @@
 "use client";
 
 import { useLogout } from "@/hooks/useLogout";
+import { useProfile } from "@/hooks/useProfile";
 import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
@@ -20,7 +21,9 @@ export const BurgerMenu = () => {
 
   const { changeOpen } = useBurgerMenuStore();
 
-  const { mutate } = useLogout()
+  const { mutate } = useLogout();
+
+  const { data, error, isLoading } = useProfile();
 
   return (
     <div
@@ -36,7 +39,10 @@ export const BurgerMenu = () => {
           <Logo sizes="w-[185px] lg:w-[250px] h-[100px]" long />
           <X onClick={changeOpen} className="text-secondary" size={40} />
         </div>
-        <div suppressHydrationWarning className="flex flex-col gap-4 text-xl mt-6">
+        <div
+          suppressHydrationWarning
+          className="flex flex-col gap-4 text-xl mt-6"
+        >
           {burger.map((item) =>
             item.href !== "/profile" ? (
               <Link
@@ -47,15 +53,17 @@ export const BurgerMenu = () => {
                 {item.title}
               </Link>
             ) : (
-              <ProfileBurgerMenuIcon key={"qwe"} />
+              <ProfileBurgerMenuIcon data={data} key={"qwe"} />
             )
           )}
-           <div
-                className="text-reddish mt-4 rounded-xl hover:text-red-300 transition duration-300"
-                onClick={() => mutate()}
-              >
-                Выход
-              </div>
+          {data && (
+            <div
+              className="text-reddish mt-4 rounded-xl hover:text-red-300 transition duration-300"
+              onClick={() => mutate()}
+            >
+              Выход
+            </div>
+          )}
         </div>
       </div>
     </div>

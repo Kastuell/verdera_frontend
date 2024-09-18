@@ -1,27 +1,17 @@
 "use client";
 
-import { userService } from "@/services/user.service";
 import { z } from "zod";
 import { phoneRegex } from "./phoneRegex";
 
 export const registerSchema = z
   .object({
-    name: z
-      .string({
-        required_error: "Обязательное поле!",
-      })
-      .min(1, "Заполните поле!")
-      .max(30, "Максимум 30 символов!"),
+    name: z.string().min(1, "Заполните поле!").max(30, "Максимум 30 символов!"),
     surname: z
-      .string({
-        required_error: "Обязательное поле!",
-      })
+      .string()
       .min(1, "Заполните поле!")
       .max(30, "Максимум 30 символов!"),
     family: z
-      .string({
-        required_error: "Обязательное поле!",
-      })
+      .string()
       .min(1, "Заполните поле!")
       .max(30, "Максимум 30 символов!"),
     birthday: z
@@ -60,14 +50,14 @@ export const registerSchema = z
         path: ["confirmPassword"],
       });
     }
-  })
-  .superRefine(async ({ email }, ctx) => {
-    const res = await userService.checkEmail(email);
-    if (res == "Почта занята") {
-      ctx.addIssue({
-        code: "custom",
-        message: "Пользователь с такой почтой уже зарегистрирован!",
-        path: ["email"],
-      });
-    }
   });
+// .superRefine(async ({ email }, ctx) => {
+//   const res = await userService.checkEmail(email);
+//   if (res == "Почта занята") {
+//     ctx.addIssue({
+//       code: "custom",
+//       message: "Пользователь с такой почтой уже зарегистрирован!",
+//       path: ["email"],
+//     });
+//   }
+// });

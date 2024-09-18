@@ -66,7 +66,9 @@ export const Register = () => {
 
   function onSubmit(data: z.infer<typeof registerSchema>) {
     const { confirmPassword, phone: phn, ...rest } = data;
-    const phone = "+" + phn;
+
+    const phone = phn[0] !== "+" ? "+" + phn : phn;
+    
     mutate({ ...rest, phone });
   }
 
