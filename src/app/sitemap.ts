@@ -1,24 +1,34 @@
-import type { MetadataRoute } from 'next'
- 
-export default function sitemap(): MetadataRoute.Sitemap {
+import { productService } from "@/services/product.service";
+import type { MetadataRoute } from "next";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const products = await productService.getAll();
+
+  const productEntries: MetadataRoute.Sitemap = products.map((product) => {
+    return {
+      url: `${process.env.NEXT_PUBLIC_DEPLOY_URL}/catalog/${product.slug}`,
+    };
+  });
+
   return [
     {
-      url: "https://www.verdera.ru",
+      url: `${process.env.NEXT_PUBLIC_DEPLOY_URL}`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: 'https://www.verdera.ru/about',
+      url: `${process.env.NEXT_PUBLIC_DEPLOY_URL}/about`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: 'https://www.verdera.ru/catalog',
+      url: `${process.env.NEXT_PUBLIC_DEPLOY_URL}/catalog`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 0.5,
     },
-  ]
+    ...productEntries,
+  ];
 }
