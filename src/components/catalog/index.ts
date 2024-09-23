@@ -4,4 +4,5 @@ export { CatalogCard } from "./CatalogCard";
 export { CatalogNavbar } from "./CatalogNavbar";
 export { CatalogWrapper } from "./CatalogWrapper";
 export { ProductTile } from "./ProductTile";
+export { RecomendProduct } from "./RecomendProduct";
 

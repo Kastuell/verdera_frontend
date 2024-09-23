@@ -1,30 +1,31 @@
 "use client";
 import { categoryItems } from "@/app/catalog/category-items";
+import { useCatalogNavBarStore } from "@/lib/catalogNavBar-store";
 import clsx from "clsx";
-import { Dispatch, SetStateAction } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { UnderlineText } from "../UnderlineText";
-import { SelectedT } from "./CatalogWrapper";
 
-interface ICatalogNavbar {
-  selected: SelectedT;
-  setSelected: Dispatch<SetStateAction<SelectedT>>;
-}
+export const CatalogNavbar = () => {
+  const { selected, setSelected } = useCatalogNavBarStore();
 
-export const CatalogNavbar = (props: ICatalogNavbar) => {
-  const { selected, setSelected } = props;
+  const pathname = usePathname();
+
+  const { push } = useRouter();
 
   return (
     <ul className="flex flex-col md:flex-row justify-between lg:gap-16 gap-3 font-thin">
       {categoryItems.map((item) => (
         <li
-          onClick={() =>
+          onClick={() => {
             setSelected({
               name: item.name,
               slug: item.slug,
-            })
-          }
+            });
+            pathname.length !== 8 && push("/catalog");
+          }}
           className={clsx({
-            ["lg:text-5xl md:text-3xl text-base cursor-pointer border border-primary p-5 rounded-xl"]: true,
+            ["lg:text-5xl md:text-3xl text-base cursor-pointer border border-primary p-5 rounded-xl"]:
+              true,
             ["font-medium"]: selected.name === item.name,
           })}
           key={item.name}

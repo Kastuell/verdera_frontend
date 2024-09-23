@@ -9,8 +9,8 @@ export const IntroCourse = () => {
     { title: "20+", description: "Часов обучения" },
     { title: "180+", description: "Проколов" },
     { title: "∞", description: "Полученного опыта" },
-    { title: "Тесты", description: "После просмотра лекций" },
     { title: "Видеозанятия", description: "С практикующими преподавателями" },
+    { title: "Тесты", description: "После просмотра лекций" },
     { title: "Сертификат", description: "По окончанию курса" },
   ];
 
@@ -21,7 +21,7 @@ export const IntroCourse = () => {
         <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 xl:py-16 gap-12 md:gap-16 xl:gap-16">
           {introCourseItems.map((item, index) => (
             <IntroCourseItem
-            index={index}
+              index={index}
               key={item.title}
               title={item.title}
               description={item.description}

@@ -1,34 +1,23 @@
 "use client";
 
-import {
-  Button,
-  Container,
-  DevicePc,
-  DevicePhone,
-  Head,
-  Label,
-  RadioGroup,
-  RadioGroupItem,
-} from "@/components";
+import { Button, Container, Head, RecomendProduct } from "@/components";
 import { useCreateOrder } from "@/hooks/useCreateOrder";
+import { useProductBySlug } from "@/hooks/useProduct";
 import { useCartStore } from "@/lib/cart-store";
 import { PlaceOrderT } from "@/services/order.service";
+import Image from "next/image";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
-
-enum DeviceEnum {
-  PHONE = "PHONE",
-  PC = "PC",
-}
+import opros1 from "../../../../public/images/jpg/opros/1.jpeg";
 
 export const Opros = () => {
-  const [device, setDevice] = useState<DeviceEnum>();
-
   const { items } = useCartStore();
 
   const searchParams = useSearchParams();
 
   const { mutate } = useCreateOrder();
+
+  const { data } = useProductBySlug("derzhatel_nastolnyy");
 
   function onSubmit() {
     const searchParamsdata: any = {};
@@ -50,54 +39,59 @@ export const Opros = () => {
   return (
     <Container>
       <Head>
-        Перед покупкой необходимо ответить на несколько вопросов для увеличения
-        качества обучения.
+        Перед покупкой, рекомендуем ознакомиться со следующей информацией!
       </Head>
-      <div className="space-y-10 mt-10">
-        <div>
-          <h3 className="text-lg font-semibold">
-            На каком устройстве вы будете проходить обучение и заниматься по
-            видеосвязи с преподавателем ?
-          </h3>
-          <RadioGroup
-            //   @ts-ignore
-            onValueChange={(e) => setDevice(e)}
-            className="gap-10 mx-auto mt-10"
-          >
-            <div className="flex items-center space-x-2 text-xl">
-              <RadioGroupItem value={DeviceEnum.PHONE} id="phone" />
-              <Label
-                className="cursor-pointer text-wrap flex-1 leading-6"
-                htmlFor="phone"
-              >
-                Телефон
-              </Label>
-            </div>
-            <div className="flex items-center space-x-2 text-xl">
-              <RadioGroupItem value={DeviceEnum.PC} id="comp" />
-              <Label
-                className="cursor-pointer text-wrap flex-1 leading-6"
-                htmlFor="comp"
-              >
-                Компьютер
-              </Label>
-            </div>
-          </RadioGroup>
+      <div className="mt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          <div className="py-5">
+            <h3 className="font-bold text-2xl lg:text-3xl">
+              Для комфортной и продуктивной работы Вам необходимо:
+            </h3>
+            <ul className="list-decimal list-inside space-y-5 font-bold text-xl lg:text-2xl mt-5">
+              <li>
+                <span className="font-medium">Телефон с хорошей камерой;</span>
+              </li>
+              <li>
+                <span className="font-medium">
+                  Стабильный мобильный интернет или wi-fi;
+                </span>
+              </li>
+              <li>
+                <span className="font-medium">
+                  Настольный держатель для телефона;
+                </span>
+              </li>
+              <li>
+                <span className="font-medium">
+                  Расположить телефон паралельно столу на расстоянии 20-30см над
+                  рабочей областью, чтобы преподаватель мог видеть и
+                  корректировать Вашу работу, а также, чтобы Вы могли видеть,
+                  что на экране.
+                </span>
+              </li>
+            </ul>
+          </div>
+          <Image className="rounded-xl" src={opros1} alt="" />
+          {/* <Image className="rounded-xl" src={opros2} alt="" /> */}
+          {/* <Image className="rounded-xl" src={opros3} alt="" /> */}
+        </div>
+        <div className="font-medium mt-10  text-xl lg:text-2xl">
+          Держатель для телефона вы можете приобрести в любом магазине
+          электроники или на нашем сайте в разделе{" "}
+          <Link href={"/catalog"} className="text-greenish underline">
+            Расходники
+          </Link>
+          . Удачи ;)
         </div>
       </div>
-      <div className="mt-10">
-        {device == DeviceEnum.PC ? (
-          <DevicePc />
-        ) : device == DeviceEnum.PHONE ? (
-          <DevicePhone />
-        ) : (
-          ""
-        )}
-      </div>
-      {device && (
-        <Button onClick={onSubmit} className="mt-10">
-          Оформить заказ
-        </Button>
+      <Button onClick={onSubmit} className="mt-10">
+        Оформить заказ
+      </Button>
+      {data && (
+        <div className="mt-20">
+          <h3 className="text-3xl font-bold">Рекомендуем к покупке</h3>
+          <RecomendProduct item={data} />
+        </div>
       )}
     </Container>
   );

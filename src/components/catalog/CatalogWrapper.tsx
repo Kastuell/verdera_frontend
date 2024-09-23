@@ -1,20 +1,12 @@
 "use client";
 
+import { useCatalogNavBarStore } from "@/lib/catalogNavBar-store";
 import { ProductT } from "@/types/product.types";
-import { useState } from "react";
 import { CatalogBody } from "./CatalogBody";
 import { CatalogNavbar } from "./CatalogNavbar";
 
-export type SelectedT = {
-  name: string;
-  slug: string;
-};
-
 export const CatalogWrapper = ({ products }: { products: ProductT[] }) => {
-  const [selected, setSelected] = useState<SelectedT>({
-    name: "Курсы",
-    slug: "kursy",
-  });
+  const { selected } = useCatalogNavBarStore();
 
   const selectedProducts = products.filter(
     (item) => item.category.name == selected.name
@@ -22,7 +14,7 @@ export const CatalogWrapper = ({ products }: { products: ProductT[] }) => {
 
   return (
     <>
-      <CatalogNavbar selected={selected} setSelected={setSelected} />
+      <CatalogNavbar />
       <CatalogBody products={selectedProducts} />
     </>
   );
