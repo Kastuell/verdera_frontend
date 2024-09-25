@@ -3,6 +3,7 @@ export type ProductT = {
   name: string;
   slug: string;
   subName: string;
+  potent: string;
   img: string;
   price: number;
   category: {
