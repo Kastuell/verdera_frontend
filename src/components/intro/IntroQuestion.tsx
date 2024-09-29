@@ -39,9 +39,9 @@ export const IntroQuestion = () => {
   ];
 
   return (
-    <div className="bg-primary p-16  text-center mt-20">
+    <div className="bg-primary p-16 text-center mt-20">
       <Form {...form}>
-        <h2 className="text-secondary text-5xl py-10 font-bold">
+        <h2 className="text-secondary text-3xl xl:text-5xl py-10 font-bold">
           У вас есть вопросы?
         </h2>
         <form

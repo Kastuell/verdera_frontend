@@ -1,12 +1,12 @@
 // import Plyr from "plyr-react";
 import dynamic from "next/dynamic";
-import "plyr-react/plyr.css";
+// import "plyr-react/plyr.css";
 import React from "react";
-const Plyr = dynamic(() => import("plyr-react"), { ssr: false });
+import { ReactPlayerProps } from "react-player";
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
-const VideoPlayer = ({ source }: { source: Plyr.SourceInfo | null }) => {
-  return <Plyr source={source} />;
+const VideoPlayer = (props: React.ComponentType<ReactPlayerProps>) => {
+  return <ReactPlayer {...props} />;
 };
 
-export default React.memo(VideoPlayer
-)
+export default React.memo(VideoPlayer);

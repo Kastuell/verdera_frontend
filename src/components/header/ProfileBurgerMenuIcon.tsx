@@ -25,7 +25,7 @@ export const ProfileBurgerMenuIcon = ({
     { title: "Аккаунт", href: "/profile" },
     { title: "Мои курсы", href: "/courses" },
     { title: "Мои заказы", href: "/orders" },
-    { title: "Уведомления", href: "/notifications" },
+    // { title: "Уведомления", href: "/notifications" },
     { title: "Поддержка", href: "/support" },
     { title: "Расписание", href: "/schedule" },
   ];

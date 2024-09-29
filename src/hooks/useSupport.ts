@@ -19,7 +19,7 @@ export function useSupport() {
 }
 
 export function useSupportUnAuth() {
-  const { mutate, error } = useMutation({
+  const { mutate, error, isSuccess } = useMutation({
     mutationKey: [`support}`],
     mutationFn: (qwe: SupportT) => supportService.sendUnAuth(qwe),
     onSuccess: () => {
@@ -30,5 +30,5 @@ export function useSupportUnAuth() {
     },
   });
 
-  return { mutate, error };
+  return { mutate, error, isSuccess };
 }

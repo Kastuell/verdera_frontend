@@ -3,10 +3,11 @@
 import { useCompleteLection } from "@/hooks/useCompleteLection";
 import { useLectionBySlug } from "@/hooks/useLection";
 import { useProfile } from "@/hooks/useProfile";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { Button, Head } from "../ui";
 import { LectionMaterials } from "./LectionMaterials";
-import VideoPlayer from "./VideoPlayer";
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 export const LectionWrapper = ({ slug }: { slug: string }) => {
   const { data, isLoading, isError } = useLectionBySlug(slug);
@@ -24,18 +25,35 @@ export const LectionWrapper = ({ slug }: { slug: string }) => {
           {data.name}
         </Head>
         <div className="mt-10">
-          <VideoPlayer
-            source={{
-              poster: `/images/jpg/black.jpg`,
-              type: "video",
-              sources: [
-                {
-                  src: `/videos/lection/${data.source}.mp4`,
-                  type: "video/mp4",
-                  size: 720,
+          <ReactPlayer
+            config={{
+              file: {
+                attributes: {
+                  poster: `/images/jpg/black.jpg`,
+                  controlsList: "nodownload noplaybackrate",
+                  onContextMenu: (e: any) => e.preventDefault(),
                 },
-              ],
+              },
             }}
+            url={[
+              { src: `/videos/lection/${data.source}.mp4`, type: "video/mp4" },
+            ]}
+            width="100%"
+            height="100%"
+            controls={true}
+            className="react-player fixed-bottom"
+            // source={{
+            //   poster: `/images/jpg/black.jpg`,
+            //   type: "video",
+            //   sources: [
+            //     {
+            //       src: `/videos/lection/${data.source}.mp4`,
+            //       type: "video/mp4",
+            //       size: 720,
+            //     },
+            //   ],
+
+            // }}
           />
         </div>
         <LectionMaterials />

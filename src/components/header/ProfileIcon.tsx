@@ -18,7 +18,7 @@ import { LogOutIcon } from "./LogOutIcon";
 const profileIconItems = [
   { title: "Мои курсы", href: "/courses" },
   { title: "Мои заказы", href: "/orders" },
-  { title: "Уведомления", href: "/notifications" },
+  // { title: "Уведомления", href: "/notifications" },
   { title: "Поддержка", href: "/support" },
   { title: "Расписание", href: "/schedule" },
 ];
