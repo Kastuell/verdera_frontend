@@ -51,6 +51,7 @@ export type OrderResponse = {
     delivery: string;
   };
   userId: number;
+  createdAt: string;
 };
 
 export type OrderItem = {
@@ -62,9 +63,8 @@ export type OrderItem = {
   product: ProductT;
 };
 
-
 export enum EnumOrderStatus {
   "PENDING" = "В обработке",
-  "PAYED" = "Оплачено"
+  "PAYED" = "Оплачено",
+  "CANCELED" = "Отменено",
 }
-

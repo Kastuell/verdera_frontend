@@ -23,19 +23,16 @@ import {
 export const ProfileForm = ({ data }: { data: UserT }) => {
   const form = useForm<z.infer<typeof profileSchema>>({
     resolver: zodResolver(profileSchema),
-    defaultValues: {
-      surname: data.surname ?? null,
-      family: data.family ?? null,
-      name: data.name ?? null,
-      phone: data.phone ?? null,
-    },
   });
 
   const { mutate, isPending } = useProfileUpdate();
 
+  // console.log(form.getValues("phone")?.length);
+  // console.log(form.getValues("phone"));
+
   function onSubmit(dat: z.infer<typeof profileSchema>) {
     const { phone: phn, ...rest } = dat;
-    const phone = phn ? (phn[0] !== "+" ? "+" + phn : phn) : ""
+    const phone = phn ? (phn[0] !== "+" ? "+" + phn : phn) : "";
     mutate({ ...rest, phone });
   }
 
@@ -45,54 +42,42 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
         <div className="mt-20 space-y-16x">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <FormField
+              defaultValue={data.name}
               control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem>
                   <Label htmlFor="name">Имя</Label>
                   <FormControl>
-                    <Input
-                      defaultValue={data.name}
-                      id="name"
-                      isProfile
-                      {...field}
-                    />
+                    <Input id="name" isProfile {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
             <FormField
+              defaultValue={data.family}
               control={form.control}
               name="family"
               render={({ field }) => (
                 <FormItem>
                   <Label htmlFor="family">Фамилия</Label>
                   <FormControl>
-                    <Input
-                      defaultValue={data.family}
-                      isProfile
-                      id="family"
-                      {...field}
-                    />
+                    <Input isProfile id="family" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
             <FormField
+              defaultValue={data.surname}
               control={form.control}
               name="surname"
               render={({ field }) => (
                 <FormItem>
                   <Label htmlFor="surname">Отчество</Label>
                   <FormControl>
-                    <Input
-                      defaultValue={data.surname}
-                      isProfile
-                      id="surname"
-                      {...field}
-                    />
+                    <Input isProfile id="surname" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -101,20 +86,21 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mt-16">
             <FormField
+              defaultValue={data.phone}
               control={form.control}
               name="phone"
               render={({ field }) => (
                 <FormItem>
                   <Label htmlFor="phone">Телефон</Label>
                   <FormControl>
-                    {/* <PhoneInput
-                      defaultValue={data.phone}
-                      autoComplete="new-password"
-                      id="phone"
-                      className="border-0"
-                      {...field}
-                    /> */}
                     <PhoneInput
+                      isValid={(value) => {
+                        if (value.length >= 11) {
+                          return true;
+                        } else {
+                          return false;
+                        }
+                      }}
                       inputProps={{
                         name: "phone",
                         required: true,

@@ -7,12 +7,18 @@ export const IntroTeahers = () => {
     {
       src: "/images/png/teacher1.png",
       name: "Анастасия Лютер",
-      description: "Врач-косметолог “Cosmetic Service”",
+      description: "Врач-косметолог “Косметик-Сервис”",
+      description1: "Образование: ФГБОУ ВО ТГМУ Минздрава России",
+      description2:
+        "Ординатура: Российский университет дружбы народов (Москва)",
     },
     {
       src: "/images/png/teacher2.png",
       name: "Зулейха Сурхаева",
-      description: "Врач-косметолог “Cosmetic Service”",
+      description: "Врач-косметолог “Косметик-Сервис”",
+      description1: "Образование: ФГБОУ ВО ТГМУ Минздрава России",
+      description2:
+        "Ординатура: Российский университет дружбы народов (Москва)",
     },
   ];
 
@@ -27,6 +33,8 @@ export const IntroTeahers = () => {
               src={item.src}
               name={item.name}
               description={item.description}
+              description1={item.description1}
+              description2={item.description2}
             />
           ))}
         </ul>

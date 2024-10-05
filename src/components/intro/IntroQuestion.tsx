@@ -6,6 +6,7 @@ import { supportUnAuthSchema } from "@/types/zod/support.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
+import PhoneInput from "react-phone-input-2";
 import { z } from "zod";
 import {
   Form,
@@ -121,17 +122,37 @@ export const IntroQuestion = () => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input
+                  <PhoneInput
+                    // onlyCountries={["ru", "ue"]}
+                    inputStyle={{
+                      borderRadius: "0",
+                      border: "0",
+                      background: "#f2f4f3",
+                      fontSize: "24px",
+                      width: "100%",
+                      height: "80px",
+                    }}
+                    buttonStyle={{
+                      border: "0",
+                      background: "#f2f4f3",
+                    }}
+                    inputProps={{
+                      name: "phone",
+                      required: true,
+                      autoFocus: true,
+                    }}
+                    {...field}
+                  />
+                  {/* <Input
                     type="tel"
                     placeholder="Номер телефона, по которому с Вами можно связаться"
                     {...field}
-                  />
+                  /> */}
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-
           <Button variant={"social_black"} type="submit">
             Отправить
           </Button>

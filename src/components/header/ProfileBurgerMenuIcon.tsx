@@ -3,7 +3,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
 import { cn } from "@/lib/utils";
 import { EnumUserRoles, UserT } from "@/types/user.types";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   Accordion,
@@ -58,33 +57,33 @@ export const ProfileBurgerMenuIcon = ({
                 item.title == "Расписание" ? (
                   data.role == EnumUserRoles.ADMIN ||
                   data.role == EnumUserRoles.TEACHER ? (
-                    <Link
+                    <a
                       key={`${item.href} wqe`}
                       onClick={changeOpen}
                       href={item.href}
                     >
                       {item.title}
-                    </Link>
+                    </a>
                   ) : (
                     ""
                   )
                 ) : (
-                  <Link
+                  <a
                     key={`${item.href} wqe`}
                     onClick={changeOpen}
                     href={item.href}
                   >
                     {item.title}
-                  </Link>
+                  </a>
                 )
               )}
             </AccordionContent>
           </AccordionItem>
         </Accordion>
       ) : (
-        <Link onClick={changeOpen} href={"/profile"}>
+        <a onClick={changeOpen} href={"/profile"}>
           Профиль
-        </Link>
+        </a>
       )}
     </>
   );

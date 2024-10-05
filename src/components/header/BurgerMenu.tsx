@@ -5,7 +5,6 @@ import { useProfile } from "@/hooks/useProfile";
 import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
-import Link from "next/link";
 import { Logo } from "../Logo";
 import { ProfileBurgerMenuIcon } from "./ProfileBurgerMenuIcon";
 
@@ -45,13 +44,13 @@ export const BurgerMenu = () => {
         >
           {burger.map((item) =>
             item.href !== "/profile" ? (
-              <Link
+              <a
                 key={`${item.href} ${item.title}`}
                 onClick={changeOpen}
                 href={item.href}
               >
                 {item.title}
-              </Link>
+              </a>
             ) : (
               <ProfileBurgerMenuIcon data={data} key={"qwe"} />
             )

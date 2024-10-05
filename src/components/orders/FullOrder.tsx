@@ -1,23 +1,35 @@
 "use client";
 import { EnumOrderStatus, OrderItem } from "@/types/order.types";
+import moment from "moment";
 import Image from "next/image";
 
 export const FullOrder = ({
   items,
   status,
   index,
+  date,
 }: {
   items: OrderItem[];
-  status: string;
+  status: EnumOrderStatus;
   index: number;
+  date: string;
 }) => {
   return (
     <div className="w-full">
-      <div className="flex gap-5 font-bold text-xl md:text-3xl">
-        <h2>Заказ #{index + 1}</h2>
-        <h6 className="flex-0">
-          {status == "PAYED" ? EnumOrderStatus.PAYED : EnumOrderStatus.PENDING}
-        </h6>
+      <div className="flex flex-col gap-5 text-xl md:text-3xl">
+        <h2 className="font-bold">Заказ #{index + 1}</h2>
+        <div className="flex-0">
+          <h6 className="font-bold">
+            {status == EnumOrderStatus.PAYED
+              ? "Оплачено"
+              : status == EnumOrderStatus.CANCELED
+              ? "Отменено"
+              : status == EnumOrderStatus.PENDING
+              ? "В обработке"
+              : ""}
+          </h6>
+          <p>{moment(date).locale("ru").format("LLLL")}</p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-2 mt-2">
