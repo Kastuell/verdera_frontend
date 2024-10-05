@@ -1,5 +1,5 @@
 "use client";
-import { EnumOrderStatus, OrderItem } from "@/types/order.types";
+import { OrderItem } from "@/types/order.types";
 import moment from "moment";
 import Image from "next/image";
 
@@ -10,21 +10,22 @@ export const FullOrder = ({
   date,
 }: {
   items: OrderItem[];
-  status: EnumOrderStatus;
+  status: string;
   index: number;
   date: string;
 }) => {
+  console.log(status)
   return (
     <div className="w-full">
       <div className="flex flex-col gap-5 text-xl md:text-3xl">
         <h2 className="font-bold">Заказ #{index + 1}</h2>
         <div className="flex-0">
           <h6 className="font-bold">
-            {status == EnumOrderStatus.PAYED
+            {status == "PAYED"
               ? "Оплачено"
-              : status == EnumOrderStatus.CANCELED
+              : status == "CANCELED"
               ? "Отменено"
-              : status == EnumOrderStatus.PENDING
+              : status == "PENDING"
               ? "В обработке"
               : ""}
           </h6>
