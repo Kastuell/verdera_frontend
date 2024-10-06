@@ -1,6 +1,7 @@
 "use client";
 import { OrderItem } from "@/types/order.types";
 import moment from "moment";
+import 'moment/locale/ru';
 import Image from "next/image";
 
 export const FullOrder = ({
