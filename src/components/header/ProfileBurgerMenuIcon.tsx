@@ -1,8 +1,9 @@
 "use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useProfile } from "@/hooks/useProfile";
 import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
 import { cn } from "@/lib/utils";
-import { EnumUserRoles, UserT } from "@/types/user.types";
+import { EnumUserRoles } from "@/types/user.types";
 import { usePathname } from "next/navigation";
 import {
   Accordion,
@@ -11,11 +12,9 @@ import {
   AccordionTrigger,
 } from "../ui";
 
-export const ProfileBurgerMenuIcon = ({
-  data,
-}: {
-  data: UserT | undefined;
-}) => {
+export const ProfileBurgerMenuIcon = () => {
+  const { data, error, isLoading } = useProfile();
+
   const path = usePathname();
 
   const { changeOpen } = useBurgerMenuStore();

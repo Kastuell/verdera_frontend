@@ -19,6 +19,7 @@ export const TestWrapper = ({ slug }: { slug: string }) => {
   if (isLoading) return <div>Loading...</div>;
 
   if (error) return <div>Вам сюда рановато)</div>;
+  
   if (data) {
     const testLength = data.questions.length;
 

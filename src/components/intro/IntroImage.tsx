@@ -40,7 +40,7 @@ export const IntroImage = () => {
           bg-introMobile h-screen
           md:bg-introTablet md:h-screen
           xl:bg-introDesktop xl:h-screen xl:bg-left
-          2xl:h-[1500px]"
+          2xl:h-screen 2xl:bg-top"
       >
         <div className="relative h-screen">
           <Image src={verdera_img} className="absolute bottom-28 md:bottom-36 w-11/12 right-2 lg:w-1/2 lg:right-10" alt="" />

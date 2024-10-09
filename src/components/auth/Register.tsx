@@ -68,7 +68,7 @@ export const Register = () => {
     const { confirmPassword, phone: phn, ...rest } = data;
 
     const phone = phn[0] !== "+" ? "+" + phn : phn;
-    
+
     mutate({ ...rest, phone });
   }
 
@@ -191,7 +191,6 @@ export const Register = () => {
                       inputProps={{
                         name: "phone",
                         required: true,
-                        autoFocus: true,
                       }}
                       {...field}
                     />

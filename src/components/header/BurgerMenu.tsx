@@ -6,6 +6,7 @@ import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
 import { Logo } from "../Logo";
+import { LogOutBtn } from "./LogOutBtn";
 import { ProfileBurgerMenuIcon } from "./ProfileBurgerMenuIcon";
 
 export const BurgerMenu = () => {
@@ -52,17 +53,10 @@ export const BurgerMenu = () => {
                 {item.title}
               </a>
             ) : (
-              <ProfileBurgerMenuIcon data={data} key={"qwe"} />
+              <ProfileBurgerMenuIcon key={"qwe"} />
             )
           )}
-          {data && (
-            <div
-              className="text-reddish mt-4 rounded-xl hover:text-red-300 transition duration-300"
-              onClick={() => mutate()}
-            >
-              Выход
-            </div>
-          )}
+          {data && <LogOutBtn />}
         </div>
       </div>
     </div>

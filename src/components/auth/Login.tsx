@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Button,
-  Container,
-  Head,
-  Input
-} from "@/components/ui";
+import { Button, Container, Head, Input } from "@/components/ui";
 
 import {
   Form,
@@ -27,10 +22,6 @@ import { SendEmail } from "./SendEmail";
 export const Login = () => {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
   });
 
   const { mutate, error } = useLogin();

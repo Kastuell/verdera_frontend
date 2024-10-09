@@ -104,7 +104,6 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
                       inputProps={{
                         name: "phone",
                         required: true,
-                        autoFocus: true,
                       }}
                       inputStyle={{
                         borderRadius: "0",
