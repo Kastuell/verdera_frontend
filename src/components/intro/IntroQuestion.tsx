@@ -139,7 +139,6 @@ export const IntroQuestion = () => {
                     inputProps={{
                       name: "phone",
                       required: true,
-                      autoFocus: true,
                     }}
                     {...field}
                   />
