@@ -7,7 +7,7 @@ import { Button, Head } from "../ui";
 import { Question } from "./Question";
 
 export const TestWrapper = ({ slug }: { slug: string }) => {
-  const { data, isLoading, error } = useTest(slug);
+  const { data, isLoading, error } = useTest(slug, 10);
 
   const { mutate } = useCompleteTest();
 
