@@ -45,8 +45,7 @@ export const Time = ({ time }: { time: ScheduleTimeT }) => {
                 user.id !== studentId &&
                 user.id !== teacherId) ||
               (status == ScheduleTimeEnum.FREE &&
-                (user.role == EnumUserRoles.TEACHER ||
-                  user.role == EnumUserRoles.ADMIN)) ||
+                user.role == EnumUserRoles.TEACHER) ||
               status == ScheduleTimeEnum.END
             }
             className="w-full"
@@ -145,7 +144,9 @@ export const Time = ({ time }: { time: ScheduleTimeT }) => {
                     </div>
                   </AlertDialogHeader>
                   <AlertDialogFooter className="flex flex-col gap-5">
-                    <AlertDialogCancel onClick={() => mutateCancelTime(id)}>Отменить занятие</AlertDialogCancel>
+                    <AlertDialogCancel onClick={() => mutateCancelTime(id)}>
+                      Отменить занятие
+                    </AlertDialogCancel>
                     <AlertDialogAction onClick={() => mutateEndTime(id)}>
                       Подтвердить
                     </AlertDialogAction>
