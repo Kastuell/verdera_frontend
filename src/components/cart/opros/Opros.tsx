@@ -8,7 +8,7 @@ import { PlaceOrderT } from "@/services/order.service";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import opros1 from "../../../../public/images/jpg/opros/1.jpeg";
+import opros1 from "../../../../public/images/webp/opros/1.webp";
 
 export const Opros = () => {
   const { items } = useCartStore();
@@ -83,7 +83,7 @@ export const Opros = () => {
           </Link>
           . Удачи ;)
         </div>
-      </div>
+      </div>  
       <Button onClick={onSubmit} className="mt-10">
         Оформить заказ
       </Button>

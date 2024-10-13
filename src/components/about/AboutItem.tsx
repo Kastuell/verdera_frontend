@@ -21,7 +21,7 @@ export const AboutItem = (props: IAboutItem) => {
       })}
     >
       {img?.length ? (
-        <Image src={`/images/jpg/about/${img}`} fill alt="" />
+        <Image src={`/images/webp/about/${img}.webp`} fill alt="" />
       ) : (
         <>
           <span

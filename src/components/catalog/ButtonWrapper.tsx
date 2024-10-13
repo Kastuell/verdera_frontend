@@ -26,7 +26,7 @@ export const ButtonWrapper = ({
   return (
     <div className={className}>
       {isClient && (
-        <div className="flex flex-col gap-5 md:mt-5 md:flex-row">
+        <div className="flex flex-col gap-5 md:mt-5 md:flex-row mt-2">
           {item.category.name !== "Расходники" && !path.includes("catalog/") ? (
             <Button onClick={() => push(`catalog/${item.slug}`)}>
               Подробнее

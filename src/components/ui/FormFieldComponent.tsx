@@ -35,9 +35,9 @@ export const FormFieldComponent = (props: IFormFieldComponent) => {
               isProfile={isProfile}
               type={type}
               placeholder={placeholder}
-              {...field}
               className={className}
               defaultValue={defaultValue}
+              {...field}
             />
           </FormControl>
           <FormMessage />

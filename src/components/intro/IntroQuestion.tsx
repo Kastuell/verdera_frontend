@@ -128,7 +128,7 @@ export const IntroQuestion = () => {
                       borderRadius: "0",
                       border: "0",
                       background: "#f2f4f3",
-                      fontSize: "24px",
+                      fontSize: "20px",
                       width: "100%",
                       height: "80px",
                     }}

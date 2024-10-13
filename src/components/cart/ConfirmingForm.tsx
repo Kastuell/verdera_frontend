@@ -2,12 +2,14 @@
 
 import { useCreateOrder } from "@/hooks/useCreateOrder";
 import { useMyDiscount } from "@/hooks/useMyDiscount";
+import { usePromo } from "@/hooks/usePromo";
 import { useCartStore } from "@/lib/cart-store";
 import { PlaceOrderT } from "@/services/order.service";
 import { UserT } from "@/types/user.types";
 import { confirmingSchema } from "@/types/zod/confirming.schema";
 import { convertPrice } from "@/utils/convertPrice";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Check } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -40,6 +42,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
       family: data.family,
       phone: data.phone,
       email: data.email,
+      promo: "",
     },
   });
 
@@ -47,6 +50,8 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
 
   const { items, findSum } = useCartStore();
   const [isClient, setClient] = useState<boolean>(false);
+
+  const { mutate: mut, isSuccess } = usePromo();
 
   useEffect(() => {
     setClient(true);
@@ -137,7 +142,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
       info: data,
     };
     const arrOfKeys = Object.keys(qwe.info);
-    let link = `form?`;
+    let link = `form?promo=${data.promo}&`;
     for (let i = 0; i < arrOfKeys.length - 1; i++) {
       // @ts-ignore
       link += `${arrOfKeys[i]}=${form.getValues(arrOfKeys[i])}&`.replace(
@@ -148,7 +153,11 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
     push(link);
   }
 
-  const discount: number = disc ? findSum() * 0.1 : 0;
+  const discount: number = isSuccess
+    ? findSum() * 0.3
+    : disc
+    ? findSum() * 0.1
+    : 0;
 
   return (
     <>
@@ -210,7 +219,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                         type={item.type}
                         key={item.name}
                         placeholder={item.placeholder}
-                        defaultValue={item.defaultValue}
+                        // defaultValue={"item.defaultValue"}
                       />
                     ))}
                   </div>
@@ -236,6 +245,30 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                   <div>{items.length} товара на сумму</div>
                   <div className="text-greenish">
                     {isClient && convertPrice(findSum())} &#x20bd;
+                  </div>
+                </div>
+                <div className="flex justify-between gap-3 items-center">
+                  <div>Промокод</div>
+                  <div className="flex">
+                    <FormField
+                      control={form.control}
+                      name="promo"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input isProfile type="text" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => mut(form.getValues("promo") ?? "")}
+                      className="border-2 border-primary py-2 px-3 -mt-2 hover:bg-primary bg-secondary group transition duration-300"
+                    >
+                      <Check className="group-hover:text-secondary text-primary" />
+                    </button>
                   </div>
                 </div>
                 <div className="flex justify-between">
