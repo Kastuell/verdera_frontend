@@ -1,9 +1,10 @@
-import { Footer, Header, UpButton } from "@/components";
+import { Footer, Header, Metrika, UpButton } from "@/components";
 import { SITE_NAME } from "@/constants/seo.constants";
 import { cn } from "@/lib/utils";
 import { TanstackProvider } from "@/utils/TanstackProvider";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { Suspense } from "react";
 import { CustomProvider } from "rsuite";
 import "rsuite/dist/rsuite-no-reset.min.css";
 import { Toaster } from "sonner";
@@ -83,6 +84,9 @@ export default function RootLayout(props: Ilayout) {
         </TanstackProvider>
         <UpButton />
         <Toaster theme="dark" position="bottom-right" duration={5000} />
+        <Suspense>
+          <Metrika />
+        </Suspense>
       </body>
     </html>
   );
