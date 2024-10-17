@@ -41,7 +41,7 @@ export type OrderResponse = {
   id: number;
   items: OrderItem[];
   total: number;
-  status: EnumOrderStatus;
+  status: EnumOrderStatus | string;
   info: {
     city: string;
     name: string;
@@ -52,6 +52,17 @@ export type OrderResponse = {
   };
   userId: number;
   createdAt: string;
+};
+
+export type AllOrdersT = OrderResponse & {
+  user: {
+    phone: string;
+    email: string;
+    name: string;
+    family: string;
+    surname: string;
+    social: string;
+  };
 };
 
 export type OrderItem = {

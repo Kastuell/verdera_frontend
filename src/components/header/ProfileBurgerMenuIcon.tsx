@@ -76,6 +76,13 @@ export const ProfileBurgerMenuIcon = () => {
                   </a>
                 )
               )}
+              {data.role == EnumUserRoles.ADMIN ? (
+                <a onClick={changeOpen} href={"/stat"}>
+                  Статистика
+                </a>
+              ) : (
+                ""
+              )}
             </AccordionContent>
           </AccordionItem>
         </Accordion>

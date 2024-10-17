@@ -87,6 +87,13 @@ export const ProfileIcon = () => {
                     </li>
                   )
                 )}
+                {data.role == EnumUserRoles.ADMIN ? (
+                  <li className="border cursor-pointer border-transparent p-2 rounded-xl hover:border-grayish duration-300 transition">
+                    <a href={"/stat"}>Статистика</a>
+                  </li>
+                ) : (
+                  ""
+                )}
               </ul>
             </div>
           </PopoverContent>

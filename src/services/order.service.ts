@@ -1,5 +1,5 @@
 import { axiosInst } from "@/api/interceptors";
-import { OrderResponse, OrderT } from "@/types/order.types";
+import { AllOrdersT, OrderResponse, OrderT } from "@/types/order.types";
 
 enum EnumOrderStatus {
   PENDING = "PENDING",
@@ -29,6 +29,12 @@ export const orderService = {
 
   async getMyOrders() {
     const response = await axiosInst.get<OrderResponse[]>(`/order/my-orders`);
+
+    return response.data;
+  },
+
+  async getAllOrders() {
+    const response = await axiosInst.get<AllOrdersT[]>(`/order/all`);
 
     return response.data;
   },
