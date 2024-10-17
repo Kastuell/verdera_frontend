@@ -4,6 +4,7 @@ import {
   IntroGallery,
   IntroImage,
   IntroProduct,
+  IntroPromo,
   IntroQuestion,
   IntroTeahers,
   IntroVideo,
@@ -19,6 +20,7 @@ export default function Home() {
     <main>
       <IntroImage />
       <IntroProduct />
+      <IntroPromo />
       <IntroVideo />
       <IntroCourse />
       <IntroQuestion />
