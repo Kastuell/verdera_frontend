@@ -7,7 +7,7 @@ import { useCartStore } from "@/lib/cart-store";
 import { PlaceOrderT } from "@/services/order.service";
 import { UserT } from "@/types/user.types";
 import { confirmingSchema } from "@/types/zod/confirming.schema";
-import { convertPrice } from "@/utils/convertPrice";
+import { numberFormat } from "@/utils/numberFormat";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check } from "lucide-react";
 import Image from "next/image";
@@ -244,7 +244,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                 <div className="flex justify-between">
                   <div>{items.length} товара на сумму</div>
                   <div className="text-greenish">
-                    {isClient && convertPrice(findSum())} &#x20bd;
+                    {isClient && numberFormat.format(findSum())}
                   </div>
                 </div>
                 <div className="flex justify-between gap-3 items-center">
@@ -273,13 +273,13 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                 </div>
                 <div className="flex justify-between">
                   <div>Скидка Verdera</div>
-                  <div className="text-greenish">{discount} &#x20bd;</div>
+                  <div className="text-greenish">{numberFormat.format(discount)}</div>
                 </div>
                 <div className="hidden h-0.5 border-t border-primary lg:block " />
                 <div className="flex justify-between">
                   <div className="font-bold">Итого</div>
                   <div className="text-greenish">
-                    {isClient && convertPrice(findSum() - discount)} &#x20bd;
+                    {isClient && numberFormat.format(findSum() - discount)}
                   </div>
                 </div>
                 <Button className="mt-20" type="submit" variant={"black"}>

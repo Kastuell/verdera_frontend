@@ -2,6 +2,7 @@
 
 import { useCartStore } from "@/lib/cart-store";
 import { convertPrice } from "@/utils/convertPrice";
+import { numberFormat } from "@/utils/numberFormat";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "../ui";
@@ -32,7 +33,7 @@ export const Order = () => {
         <div className="flex justify-between">
           <div>{items.length} товара на сумму</div>
           <div className="text-greenish">
-            {isClient && convertPrice(findSum())} &#x20bd;
+            {isClient && numberFormat.format(findSum())}
           </div>
         </div>
         <div className="flex justify-between">

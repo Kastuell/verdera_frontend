@@ -2,7 +2,7 @@
 
 import { CartItemT, useCartStore } from "@/lib/cart-store";
 import { cn } from "@/lib/utils";
-import { convertPrice } from "@/utils/convertPrice";
+import { numberFormat } from "@/utils/numberFormat";
 import { Trash } from "lucide-react";
 import Image from "next/image";
 import { Counter } from "./Counter";
@@ -37,7 +37,7 @@ export const CartItem = (props: ICartItem) => {
         </div>
         <div className="text-xs leading-6">{product.description.firstly}</div>
         <div className="text-2xl font-medium text-greenish ">
-          {convertPrice(product.price)} &#x20bd;
+          {numberFormat.format(product.price)}
         </div>
         <div
           className={cn(
@@ -51,12 +51,6 @@ export const CartItem = (props: ICartItem) => {
           />
         </div>
       </div>
-      {/* <div className="place-self-end hidden lg:block">
-        <Trash
-          onClick={() => deleteAll(item.product)}
-          className="hover:text-red-700 transition duration-300 cursor-pointer"
-        />
-      </div> */}
     </div>
   );
 };

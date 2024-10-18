@@ -1,5 +1,5 @@
 import { ProductT } from "@/types/product.types";
-import { convertPrice } from "@/utils/convertPrice";
+import { numberFormat } from "@/utils/numberFormat";
 import Image from "next/image";
 import { ButtonWrapper } from "./ButtonWrapper";
 
@@ -27,7 +27,9 @@ export const RecomendProduct = (props: IRecomendProduct) => {
           </div>
           <div className="">{item.description.firstly}</div>
           <div className="">
-            <div className="text-2xl font-bold">{convertPrice(item.price)} &#x20bd;</div>
+            <div className="text-2xl font-bold">
+              {numberFormat.format(item.price)}
+            </div>
             <ButtonWrapper className="hidden xl:block mt-3" item={item} />
           </div>
         </div>

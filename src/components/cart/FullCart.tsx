@@ -3,7 +3,7 @@
 import { Button, Head } from "@/components/ui";
 import { useProfile } from "@/hooks/useProfile";
 import { useCartStore } from "@/lib/cart-store";
-import { convertPrice } from "@/utils/convertPrice";
+import { numberFormat } from "@/utils/numberFormat";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -65,7 +65,7 @@ export const FullCart = () => {
       <div className="font-bold lg:text-4xl text-xl flex gap-32">
         <div>Итого</div>
         <div className="text-greenish text-nowrap">
-          {convertPrice(findSum())} &#x20bd;
+          {numberFormat.format(findSum())}
         </div>
       </div>
       <div className="lg:w-1/2 mx-auto">

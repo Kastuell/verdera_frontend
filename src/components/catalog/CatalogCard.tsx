@@ -1,5 +1,5 @@
 import { ProductT } from "@/types/product.types";
-import { convertPrice } from "@/utils/convertPrice";
+import { numberFormat } from "@/utils/numberFormat";
 import Image from "next/image";
 import { ButtonWrapper } from "./ButtonWrapper";
 
@@ -30,12 +30,13 @@ export const CatalogCard = (props: ICatalogCard) => {
             )}
           </div>
           <div className="leading-8 text-sm lg:text-xl lg:leading-[2.5rem] xl:text-2xl xl:leading-[3rem] 2xl:leading-[3.5rem] ">
-            {item.potent}<br />
+            {item.potent}
+            <br />
             {item.description.firstly}
           </div>
           <div>
             <div className="font-bold py-3 text-2xl xl:text-4xl">
-              {convertPrice(item.price)} &#x20bd;
+              {numberFormat.format(item.price)}
             </div>
             <ButtonWrapper className="hidden xl:block" item={item} />
           </div>

@@ -1,15 +1,16 @@
 "use client";
 
 import { useAllOrders } from "@/hooks/useAllOrders";
-import { Container } from "../ui";
+import { numberFormat } from "@/utils/numberFormat";
 import moment from "moment";
 import "moment/locale/ru";
+import { Container } from "../ui";
 import { StatItem } from "./StatItem";
-import { Divider } from "rsuite";
 export const Stat = () => {
   const { data, isLoading } = useAllOrders();
 
-  if(isLoading) return <Container className="text-center">Загрузка...</Container>;
+  if (isLoading)
+    return <Container className="text-center">Загрузка...</Container>;
 
   if (!data) return <Container className="text-center">Нет заказов</Container>;
 
@@ -30,14 +31,16 @@ export const Stat = () => {
             <StatItem k="Почта:" val={item.info.email} />
             <StatItem k="Фамилия:" val={item.info.family} />
             <StatItem k="Имя:" val={item.info.name} />
-
             <StatItem k="Телефон" val={item.info.phone} />
 
-            <div>
+            <div className="space-y-2">
               {item.items.map((it) => (
-                <div key={it.id}>
+                <div className="border border-primary px-2 py-1" key={it.id}>
                   <StatItem k="Товар:" val={it.product.name} />
-                  <StatItem k="Цена товара:" val={it.product.price} />
+                  <StatItem
+                    k="Цена товара:"
+                    val={numberFormat.format(it.product.price)}
+                  />
                   <StatItem k="Телефон" val={item.info.phone} />
                 </div>
               ))}
@@ -55,7 +58,10 @@ export const Stat = () => {
                   : ""
               }
             />
-            <StatItem k="Итоговая цена:" val={item.total} />
+            <StatItem
+              k="Итоговая цена:"
+              val={numberFormat.format(item.total)}
+            />
           </div>
         ))}
       </div>
