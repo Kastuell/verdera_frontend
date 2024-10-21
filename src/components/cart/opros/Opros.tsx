@@ -72,8 +72,6 @@ export const Opros = () => {
             </ul>
           </div>
           <Image className="rounded-xl" src={opros1} alt="" />
-          {/* <Image className="rounded-xl" src={opros2} alt="" /> */}
-          {/* <Image className="rounded-xl" src={opros3} alt="" /> */}
         </div>
         <div className="font-medium mt-10  text-xl lg:text-2xl">
           Держатель для телефона вы можете приобрести в любом магазине
@@ -83,7 +81,7 @@ export const Opros = () => {
           </Link>
           . Удачи ;)
         </div>
-      </div>  
+      </div>
       <Button onClick={onSubmit} className="mt-10">
         Оформить заказ
       </Button>
