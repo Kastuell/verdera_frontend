@@ -76,11 +76,13 @@ export default function RootLayout(props: Ilayout) {
         )}
       >
         <TanstackProvider>
-          <Header />
-          <main>
-            <CustomProvider>{children}</CustomProvider>
-          </main>
-          <Footer />
+          <div className="min-h-screen grid grid-cols-1">
+            <Header />
+            <main>
+              <CustomProvider>{children}</CustomProvider>
+            </main>
+            <Footer />
+          </div>
         </TanstackProvider>
         <UpButton />
         <Toaster theme="dark" position="bottom-right" duration={5000} />

@@ -5,30 +5,42 @@ import { avatarSchema } from "@/types/zod/profile.shema";
 import { Check } from "lucide-react";
 import Image from "next/image";
 import { UseFormReturn } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
-import { Form, FormControl, FormField, FormItem, FormMessage, Input, Label } from "../ui";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+  Input,
+  Label,
+} from "../ui";
 
 export const ProfileAvatarChangeIcon = ({
   form,
 }: {
-  form: UseFormReturn<{
-    avatar: any;
-}, any, undefined>
+  form: UseFormReturn<
+    {
+      avatar: any;
+    },
+    any,
+    undefined
+  >;
 }) => {
-  const {mutate} = useCreateAvatar({form})
+  const { mutate } = useCreateAvatar({ form });
   function onSubmit(data: z.infer<typeof avatarSchema>) {
-
-    const formData = new FormData()
-
+    const formData = new FormData();
 
     formData.append("file", data.avatar);
 
     // console.log(formData.get("profileImage"))
 
-    mutate(formData)
+    mutate(formData);
 
   }
-    return (
+  
+  return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className="z-20 cursor-pointer absolute bottom-2 right-2 hover:opacity-80 active:opacity-100 transition duration-300">
@@ -59,9 +71,10 @@ export const ProfileAvatarChangeIcon = ({
                       accept="image/png,image/jpg,image/jpeg,image/webp"
                       type="file"
                       id="avatar"
-                      onChange={(event) =>
-                        onChange(event.target.files && event.target.files[0])
-                      }
+                      onChange={(event) => {
+                        onChange(event.target.files && event.target.files[0]);
+                        toast("Нажмите на галочку для подтверждения");
+                      }}
                     />
                   </FormControl>
                   <FormMessage />

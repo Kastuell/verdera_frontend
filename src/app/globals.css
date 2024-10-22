@@ -108,11 +108,11 @@ span {
   }
 }
 
-/* .react-tel-input {
-  @apply w-full;
+.react-tel-input .form-control {
+  @apply placeholder:text-primary
 }
 
-.react-tel-input .form-control {
+/* .react-tel-input .form-control {
   @apply w-full border-2 border-primary rounded-none xl:h-20 h-16 text-base;
 }
 
@@ -126,4 +126,4 @@ span {
 
 .react-tel-input .flag-dropdown.open .selected-flag {
   @apply hover:bg-inherit active:bg-inherit focus:bg-inherit;
-} */
+}  */

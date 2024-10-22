@@ -40,7 +40,7 @@ export const IntroQuestion = () => {
   ];
 
   return (
-    <div className="bg-primary p-16 text-center mt-20">
+    <div className="bg-primary py-16 px-8 text-center mt-20">
       <Form {...form}>
         <h2 className="text-secondary text-3xl xl:text-5xl py-10 font-bold">
           У вас есть вопросы?
@@ -56,6 +56,7 @@ export const IntroQuestion = () => {
               <FormItem>
                 <FormControl>
                   <Textarea
+                    className="border-primary border-2  placeholder:text-primary text-primary"
                     id="description"
                     placeholder="Тут можно писать..."
                     {...field}
@@ -125,15 +126,19 @@ export const IntroQuestion = () => {
                   <PhoneInput
                     // onlyCountries={["ru", "ue"]}
                     inputStyle={{
+                      color: "#0A0908",
+                      borderColor: "#0A0908",
                       borderRadius: "0",
-                      border: "0",
+                      border: "2",
                       background: "#f2f4f3",
                       fontSize: "20px",
                       width: "100%",
                       height: "80px",
                     }}
                     buttonStyle={{
-                      border: "0",
+                      borderColor: "#0A0908",
+                      borderRadius: "0",
+                      border: "2",
                       background: "#f2f4f3",
                     }}
                     inputProps={{
