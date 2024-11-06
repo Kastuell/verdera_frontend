@@ -17,10 +17,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {
             [`border-2 border-primary bg-background px-3 py-2 xl:h-20 h-16 placeholder:text-primary`]:
               !isProfile,
-              [`border-b-2 border-primary bg-transparent h-12 placeholder:text-primary lg:text-2xl`]:
-                isProfile,
-                [`hidden`]:
-                  type =="file",
+            [`border-b-2 border-primary bg-transparent h-12 placeholder:text-primary lg:text-2xl`]:
+              isProfile,
+            [`hidden`]: type == "file",
           },
           className
         )}
