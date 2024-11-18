@@ -29,7 +29,7 @@ export const CatalogCard = (props: ICatalogCard) => {
               <div className="text-greenish">+ {item.subName}</div>
             )}
           </div>
-          <div className="leading-8 text-sm lg:text-xl lg:leading-[2.5rem] xl:text-2xl xl:leading-[3rem] 2xl:leading-[3.5rem] ">
+          <div className="leading-8 text-sm lg:text-xl lg:leading-[2.5rem] xl:text-2xl xl:leading-[3rem] 2xl:leading-[3.5rem]">
             {item.potent}
             <br />
             {item.description.firstly}

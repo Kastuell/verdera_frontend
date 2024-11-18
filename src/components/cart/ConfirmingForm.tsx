@@ -9,7 +9,6 @@ import { UserT } from "@/types/user.types";
 import { confirmingSchema } from "@/types/zod/confirming.schema";
 import { numberFormat } from "@/utils/numberFormat";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Check } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -42,7 +41,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
       family: data.family,
       phone: data.phone,
       email: data.email,
-      promo: "",
+      // promo: "",
     },
   });
 
@@ -142,7 +141,8 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
       info: data,
     };
     const arrOfKeys = Object.keys(qwe.info);
-    let link = `form?promo=${data.promo}&`;
+    // let link = `form?promo=${data.promo}&`;
+    let link = `form?`;
     for (let i = 0; i < arrOfKeys.length - 1; i++) {
       // @ts-ignore
       link += `${arrOfKeys[i]}=${form.getValues(arrOfKeys[i])}&`.replace(
@@ -247,7 +247,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                     {isClient && numberFormat.format(findSum())}
                   </div>
                 </div>
-                <div className="flex justify-between gap-3 items-center">
+                {/* <div className="flex justify-between gap-3 items-center">
                   <div>Промокод</div>
                   <div className="flex">
                     <FormField
@@ -270,10 +270,12 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                       <Check className="group-hover:text-secondary text-primary" />
                     </button>
                   </div>
-                </div>
+                </div> */}
                 <div className="flex justify-between">
                   <div>Скидка Verdera</div>
-                  <div className="text-greenish">{numberFormat.format(discount)}</div>
+                  <div className="text-greenish">
+                    {numberFormat.format(discount)}
+                  </div>
                 </div>
                 <div className="hidden h-0.5 border-t border-primary lg:block " />
                 <div className="flex justify-between">
@@ -285,6 +287,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                 <Button className="mt-20" type="submit" variant={"black"}>
                   Оформить заказ
                 </Button>
+
                 <p className="text-center text-sm leading-8">
                   Нажимая на кнопку «Оформить заказ», вы принимаете условия
                   <a

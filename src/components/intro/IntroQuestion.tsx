@@ -124,7 +124,7 @@ export const IntroQuestion = () => {
               <FormItem>
                 <FormControl>
                   <PhoneInput
-                    // onlyCountries={["ru", "ue"]}
+                    onlyCountries={["ru"]}
                     inputStyle={{
                       color: "#0A0908",
                       borderColor: "#0A0908",

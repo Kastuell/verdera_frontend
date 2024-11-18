@@ -10,5 +10,5 @@ export const confirmingSchema = z.object({
   family: z.string().max(30, "Максимум 30 символов!").optional(),
   phone: z.string().regex(phoneRegex, "Некорректный номер!").optional(),
   email: z.string().email("Некорректная почта!").optional(),
-  promo: z.string().optional(),
+  // promo: z.string().optional(),
 });
