@@ -66,7 +66,7 @@ export const IntroRasrochka = () => {
             <DialogDescription className="text-lg text-center mx-auto">
               Чтобы оформить рассрочку авторизуйтесь ниже, далее перейдите в
               каталог, выберите товар, добавьте в корзину и нажмите кнопку
-              "оформить заказ".
+              ”оформить заказ”.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="block">
