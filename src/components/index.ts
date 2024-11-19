@@ -12,6 +12,7 @@ export * from "./intro";
 export * from "./Logo";
 export * from "./metrika";
 export * from "./orders";
+export * from "./QuestionsButton";
 export * from "./Reset";
 export * from "./schedule";
 export * from "./test";

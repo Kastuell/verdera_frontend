@@ -6,6 +6,7 @@ import {
   IntroProduct,
   IntroPromo,
   IntroQuestion,
+  IntroRasrochka,
   IntroTeahers,
   IntroVideo,
 } from "@/components/intro";
@@ -21,6 +22,7 @@ export default function Home() {
       <IntroImage />
       <IntroProduct />
       <IntroPromo />
+      <IntroRasrochka />
       <IntroVideo />
       <IntroCourse />
       <IntroQuestion />

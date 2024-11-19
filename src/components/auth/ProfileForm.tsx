@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader } from "lucide-react";
 import { useForm } from "react-hook-form";
 import PhoneInput from "react-phone-input-2";
+import ru from "react-phone-input-2/lang/ru.json";
 import "react-phone-input-2/lib/style.css";
 import { z } from "zod";
 import {
@@ -94,6 +95,11 @@ export const ProfileForm = ({ data }: { data: UserT }) => {
                   <Label htmlFor="phone">Телефон</Label>
                   <FormControl>
                     <PhoneInput
+                      localization={ru}
+                      disableDropdown={true}
+                      showDropdown={false}
+                      country="ru"
+                      onlyCountries={["ru"]}
                       isValid={(value) => {
                         if (value.length >= 11) {
                           return true;

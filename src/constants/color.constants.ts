@@ -3,6 +3,7 @@ export const COLORS = {
   secondary: "#F2F4F3",
   grayish: "#4D4D4D",
   greenish: "#ABBD83",
+  violet: "#54427C",
   orangeish: "#FFA500",
   reddish: "#D24B4B",
   border: "hsl(var(--border))",

@@ -14,6 +14,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import PhoneInput from "react-phone-input-2";
+import ru1 from "react-phone-input-2/lang/ru.json";
 import { toast } from "sonner";
 import { z } from "zod";
 import {
@@ -37,6 +38,7 @@ import {
   SelectValue,
 } from "../ui";
 import { PasswordInput } from "./PasswordInput";
+
 
 export const Register = () => {
   const { push, refresh } = useRouter();
@@ -176,6 +178,11 @@ export const Register = () => {
                 <FormItem>
                   <FormControl>
                     <PhoneInput
+                      localization={ru1}
+                      disableDropdown={true}
+                      showDropdown={false}
+                      country="ru"
+                      onlyCountries={["ru"]}
                       inputStyle={{
                         borderRadius: "0",
                         border: "2px solid black",

@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import PhoneInput from "react-phone-input-2";
+import ru from "react-phone-input-2/lang/ru.json";
 import { z } from "zod";
 import {
   Form,
@@ -40,7 +41,7 @@ export const IntroQuestion = () => {
   ];
 
   return (
-    <div className="bg-primary py-16 px-8 text-center mt-20">
+    <div className="bg-primary py-16 px-8 text-center mt-20" id="questions">
       <Form {...form}>
         <h2 className="text-secondary text-3xl xl:text-5xl py-10 font-bold">
           У вас есть вопросы?
@@ -77,7 +78,10 @@ export const IntroQuestion = () => {
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Выберите соц.сеть для общения" />
+                      <SelectValue
+                        className="text-start"
+                        placeholder="Выберите соц.сеть для общения"
+                      />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -124,6 +128,10 @@ export const IntroQuestion = () => {
               <FormItem>
                 <FormControl>
                   <PhoneInput
+                    localization={ru}
+                    disableDropdown={true}
+                    showDropdown={false}
+                    country="ru"
                     onlyCountries={["ru"]}
                     inputStyle={{
                       color: "#0A0908",

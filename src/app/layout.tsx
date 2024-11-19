@@ -1,4 +1,10 @@
-import { Footer, Header, Metrika, UpButton } from "@/components";
+import {
+  Footer,
+  Header,
+  Metrika,
+  QuestionsButton,
+  UpButton,
+} from "@/components";
 import { SITE_NAME } from "@/constants/seo.constants";
 import { cn } from "@/lib/utils";
 import { TanstackProvider } from "@/utils/TanstackProvider";
@@ -32,7 +38,7 @@ export const metadata: Metadata = {
     "Онлайн",
     "Силиконовые Губы",
     "Тренажёры в виде губ",
-    "анипуляторы в виде губ",
+    "манипуляторы в виде губ",
     "Косметология",
     "Инновационная технология",
     "Лучшие курсы",
@@ -85,6 +91,7 @@ export default function RootLayout(props: Ilayout) {
           </div>
         </TanstackProvider>
         <UpButton />
+        <QuestionsButton />
         <Toaster theme="dark" position="bottom-right" duration={5000} />
         <Suspense>
           <Metrika />
