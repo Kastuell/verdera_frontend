@@ -41,7 +41,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
       family: data.family,
       phone: data.phone,
       email: data.email,
-      // promo: "",
+      promo: "",
     },
   });
 
@@ -141,8 +141,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
       info: data,
     };
     const arrOfKeys = Object.keys(qwe.info);
-    // let link = `form?promo=${data.promo}&`;
-    let link = `form?`;
+    let link = `form?promo=${data.promo}&`;
     for (let i = 0; i < arrOfKeys.length - 1; i++) {
       // @ts-ignore
       link += `${arrOfKeys[i]}=${form.getValues(arrOfKeys[i])}&`.replace(
