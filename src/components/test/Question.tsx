@@ -19,7 +19,7 @@ export const Question = ({
     return (
       <>
         <div className="mt-10 space-y-4">
-          <div className="text-4xl text-center mb-10">
+          <div className="lg:text-4xl text-center mb-10 text-3xl break-words">
             {question.item.name}
             {question.multi && "(несколько вариантов ответа)"}
           </div>
