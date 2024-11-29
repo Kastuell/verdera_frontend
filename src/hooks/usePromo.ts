@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 
 export function usePromo() {
-  const { mutate, error, isPending, isSuccess } = useMutation({
+  const { mutate, error, isPending, isSuccess, data } = useMutation({
     mutationKey: [`promo`],
     mutationFn: (name: string) => promoService.getByName(name),
     onSuccess: () => {
@@ -15,5 +15,5 @@ export function usePromo() {
     },
   });
 
-  return { mutate, error, isPending, isSuccess };
+  return { mutate, error, isPending, isSuccess, data };
 }

@@ -9,6 +9,7 @@ import { UserT } from "@/types/user.types";
 import { confirmingSchema } from "@/types/zod/confirming.schema";
 import { numberFormat } from "@/utils/numberFormat";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Check } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -50,7 +51,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
   const { items, findSum } = useCartStore();
   const [isClient, setClient] = useState<boolean>(false);
 
-  const { mutate: mut, isSuccess } = usePromo();
+  const { mutate: mut, isSuccess, data: d } = usePromo();
 
   useEffect(() => {
     setClient(true);
@@ -152,8 +153,8 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
     push(link);
   }
 
-  const discount: number = isSuccess
-    ? findSum() * 0.3
+  const discount: number = d
+    ? findSum() * ((d?.value) / 100)
     : disc
     ? findSum() * 0.1
     : 0;
@@ -246,7 +247,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                     {isClient && numberFormat.format(findSum())}
                   </div>
                 </div>
-                {/* <div className="flex justify-between gap-3 items-center">
+                <div className="flex justify-between gap-3 items-center">
                   <div>Промокод</div>
                   <div className="flex">
                     <FormField
@@ -269,7 +270,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                       <Check className="group-hover:text-secondary text-primary" />
                     </button>
                   </div>
-                </div> */}
+                </div>
                 <div className="flex justify-between">
                   <div>Скидка Verdera</div>
                   <div className="text-greenish">
