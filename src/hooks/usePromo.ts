@@ -5,7 +5,8 @@ import { toast } from "sonner";
 export function usePromo() {
   const { mutate, error, isPending, isSuccess, data } = useMutation({
     mutationKey: [`promo`],
-    mutationFn: (name: string) => promoService.getByName(name),
+    mutationFn: (name: string) =>
+      promoService.getByName(name.length == 0 ? "1" : name),
     onSuccess: () => {
       toast("Промокод активирован");
     },
