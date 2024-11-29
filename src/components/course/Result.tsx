@@ -38,13 +38,13 @@ export const Result = () => {
           <div className="text-center">
             <div className="text-5xl font-semibold">
               <span className="text-reddish">УПС!</span>
-              Вы не допустили ошибку в тесте
+              Вы допустили ошибку в тесте
             </div>
           </div>
           <div className="text-xl">
             Прочитайте и посмотрите материалы лекции и пройдите тест заново
           </div>
-          <div className="flex justify-center gap-10">
+          <div className="flex justify-center gap-10 flex-col lg:flex-row">
             <a href={`/courses/lection/${curLection}`}>
               <Button variant={"modal"}>Вернуться к лекции</Button>
             </a>
