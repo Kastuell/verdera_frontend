@@ -15,15 +15,24 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   const isConfirmPage = nextUrl.pathname.startsWith("/email/confirm");
   const isResetPasswordPage = nextUrl.pathname.startsWith("/email/reset");
 
-  if (
-    (isProfilePage || isConfirmingPage || isCoursesPage || isSchedulePage) &&
-    !accessToken
-  )
-    return NextResponse.redirect(new URL("/auth", request.url));
-  if ((isAuthPage || isConfirmPage || isResetPasswordPage) && accessToken)
-    return NextResponse.redirect(new URL("/profile", request.url));
-
-  // if(isAdminpanelPage &&)
+  if (!accessToken) {
+    if (isProfilePage || isConfirmingPage || isCoursesPage || isSchedulePage) {
+      let url = new URL("/auth", request.url);
+      url.searchParams.set("from", request.nextUrl.pathname);
+      console.log("!access");
+      return NextResponse.redirect(url);
+    }
+  } else {
+    if (isAuthPage || isConfirmPage || isResetPasswordPage) {
+      let url = new URL(
+        decodeURIComponent(nextUrl.search.slice(6)),
+        nextUrl.origin
+      );
+      console.log(url.href);
+      return NextResponse.redirect(new URL(url));
+    }
+    // if(isAdminpanelPage &&)
+  }
 
   return NextResponse.next();
 }

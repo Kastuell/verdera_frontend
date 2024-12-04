@@ -4,14 +4,14 @@ import { useCreateOrder } from "@/hooks/useCreateOrder";
 import { useMyDiscount } from "@/hooks/useMyDiscount";
 import { usePromo } from "@/hooks/usePromo";
 import { useCartStore } from "@/lib/cart-store";
-import { PlaceOrderT } from "@/services/order.service";
+import { OrderItemDto, PlaceOrderT } from "@/services/order.service";
 import { UserT } from "@/types/user.types";
 import { confirmingSchema } from "@/types/zod/confirming.schema";
 import { numberFormat } from "@/utils/numberFormat";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -31,7 +31,9 @@ import {
 } from "../ui";
 
 export const ComfirmingForm = ({ data }: { data: UserT }) => {
-  const { push } = useRouter();
+  const { replace } = useRouter();
+  const qwe = usePathname();
+  console.log(qwe);
 
   const form = useForm<z.infer<typeof confirmingSchema>>({
     resolver: zodResolver(confirmingSchema),
@@ -133,28 +135,42 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
   const { mutate } = useCreateOrder();
 
   function onSubmit(data: z.infer<typeof confirmingSchema>) {
-    const qwe: PlaceOrderT = {
-      items: items.map((item) => ({
-        quantity: item.quantity,
-        price: item.product.price,
-        productId: item.product.id,
-      })),
-      info: data,
-    };
-    const arrOfKeys = Object.keys(qwe.info);
-    let link = `form?promo=${data.promo}&`;
-    for (let i = 0; i < arrOfKeys.length - 1; i++) {
-      // @ts-ignore
-      link += `${arrOfKeys[i]}=${form.getValues(arrOfKeys[i])}&`.replace(
-        /\s/g,
-        ""
-      );
+    if (items.find((item) => item.product.category.name == "Курсы")) {
+      const qwe: PlaceOrderT = {
+        items: items.map((item) => ({
+          quantity: item.quantity,
+          price: item.product.price,
+          productId: item.product.id,
+        })),
+        info: data,
+      };
+      const arrOfKeys = Object.keys(qwe.info);
+      let link = `form?promo=${data.promo}&`;
+      for (let i = 0; i < arrOfKeys.length - 1; i++) {
+        // @ts-ignore
+        link += `${arrOfKeys[i]}=${form.getValues(arrOfKeys[i])}&`.replace(
+          /\s/g,
+          ""
+        );
+      }
+      replace("http://localhost:3000/cart/" + link);
+    } else {
+      const temp: OrderItemDto[] = items.map((it) => {
+        return {
+          quantity: it.quantity,
+          price: it.product.price,
+          productId: it.product.id,
+        };
+      });
+      mutate({
+        info: data,
+        items: temp,
+      });
     }
-    push(link);
   }
 
   const discount: number = d
-    ? findSum() * ((d?.value) / 100)
+    ? findSum() * (d?.value / 100)
     : disc
     ? findSum() * 0.1
     : 0;

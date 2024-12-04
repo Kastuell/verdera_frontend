@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/form";
 import { useLogin } from "@/hooks/useLogin";
 
+import { useProfile } from "@/hooks/useProfile";
 import { loginSchema } from "@/types/zod/login.shema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
@@ -38,6 +39,8 @@ export const IntroRasrochka = () => {
   });
 
   const { mutate, error, isSuccess } = useLogin();
+
+  const { data } = useProfile();
 
   useEffect(() => {
     if (isSuccess) push("/profile");
@@ -64,68 +67,84 @@ export const IntroRasrochka = () => {
               <div>Рассрочки</div>
             </DialogTitle>
             <DialogDescription className="text-lg text-center mx-auto">
-              Чтобы оформить рассрочку авторизуйтесь ниже, далее перейдите в
-              каталог, выберите товар, добавьте в корзину и нажмите кнопку
-              ”оформить заказ”.
+              {data ? (
+                <span>
+                  Чтобы оформить рассрочку перейдите в каталог, выберите товар,
+                  добавьте в корзину и нажмите кнопку ”оформить заказ”.
+                </span>
+              ) : (
+                <span>
+                  Чтобы оформить рассрочку авторизуйтесь ниже, далее перейдите в
+                  каталог, выберите товар, добавьте в корзину и нажмите кнопку
+                  ”оформить заказ”.
+                </span>
+              )}
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter className="block">
-            <div>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)}>
-                  <div className="space-y-5">
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Input
-                              type="email"
-                              placeholder="E-mail"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+          {data ? (
+            ""
+          ) : (
+            <DialogFooter className="block">
+              <div>
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)}>
+                    <div className="space-y-5">
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                type="email"
+                                placeholder="E-mail"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
-                    <FormField
-                      control={form.control}
-                      name="password"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <PasswordInput placeholder="Пароль" field={field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                      <FormField
+                        control={form.control}
+                        name="password"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <PasswordInput
+                                placeholder="Пароль"
+                                field={field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <Button className="mt-5" type="submit">
+                      Войти
+                    </Button>
+                  </form>
+                </Form>
+                <div className="text-center mt-5 text-lg flex flex-col md:flex-row gap-5 justify-center">
+                  <div>
+                    <p>У вас нет аккаунта?</p>
+                    <p className="text-greenish mt-4 hover:underline">
+                      <Link href={"/auth/register"} scroll>
+                        Создать аккаунт
+                      </Link>
+                    </p>
                   </div>
-
-                  <Button className="mt-5" type="submit">
-                    Войти
-                  </Button>
-                </form>
-              </Form>
-              <div className="text-center mt-5 text-lg flex flex-col md:flex-row gap-5 justify-center">
-                <div>
-                  <p>У вас нет аккаунта?</p>
-                  <p className="text-greenish mt-4 hover:underline">
-                    <Link href={"/auth/register"} scroll>
-                      Создать аккаунт
-                    </Link>
-                  </p>
-                </div>
-                <div>
-                  <p>Забыли пароль?</p>
-                  <SendEmail />
+                  <div>
+                    <p>Забыли пароль?</p>
+                    <SendEmail />
+                  </div>
                 </div>
               </div>
-            </div>
-          </DialogFooter>
+            </DialogFooter>
+          )}
         </DialogContent>
       </Dialog>
     </Container>

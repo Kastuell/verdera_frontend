@@ -1,4 +1,4 @@
-import { Back, Container, TestWrapper } from "@/components";
+import { Container, TestWrapper } from "@/components";
 import { NO_INDEX_PAGE } from "@/constants/seo.constants";
 import { Metadata, ResolvingMetadata } from "next";
 
@@ -20,7 +20,6 @@ export async function generateMetadata(
 export default async function Page({ params }: Props) {
   return (
     <Container>
-      <Back>Назад</Back>
       <TestWrapper slug={params.slug} />
     </Container>
   );

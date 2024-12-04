@@ -11,20 +11,20 @@ export const Result = () => {
 
   const { back, push } = useRouter();
 
-  console.log(nextLection)
+  console.log(nextLection);
 
   return (
     <Container className="text-center mt-10">
       {result == "true" ? (
         <div className="space-y-20">
           <div>
-            <div className="text-5xl font-semibold">
+            <div className="lg:text-5xl text-4xl font-semibold">
               <span className="text-greenish">Поздравляем! </span>
               Вы прошли тест на <span className="text-greenish">100%</span>
             </div>
           </div>
           <div className="text-xl">Следующая лекция доступна для вас !</div>
-          <div className="flex justify-between gap-10">
+          <div className="flex justify-center gap-10 flex-col lg:flex-row">
             <Button onClick={() => push("/courses")} variant={"modal"}>
               Вернуться на курс
             </Button>
@@ -36,7 +36,7 @@ export const Result = () => {
       ) : (
         <div className="space-y-20">
           <div className="text-center">
-            <div className="text-5xl font-semibold">
+            <div className="lg:text-5xl text-4xl font-semibold">
               <span className="text-reddish">УПС!</span>
               Вы допустили ошибку в тесте
             </div>

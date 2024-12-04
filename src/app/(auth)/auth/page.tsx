@@ -1,6 +1,7 @@
-import { Button, Container } from "@/components";
+import { Auth } from "@/components/auth/Auth";
+import { Loader2 } from "lucide-react";
 import { Metadata } from "next";
-import Link from "next/link";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Авторизация",
@@ -8,18 +9,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <Container className="flex flex-col justify-center items-center gap-12">
-      <div className="flex flex-col lg:flex-row gap-12 lg:gap-32 mt-10">
-        <Link href={"/auth/register"}>
-          <Button variant={"black"}>Создать аккаунт</Button>
-        </Link>
-        <Link href={"/auth/login"}>
-          <Button variant={"white"}>Войти в аккаунт</Button>
-        </Link>
-      </div>
-      <br />
-      <br />
-      <br />
-    </Container>
+    <Suspense fallback={<Loader2 className="animate-spin" />}>
+      <Auth />
+    </Suspense>
   );
 }

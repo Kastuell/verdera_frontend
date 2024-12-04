@@ -10,11 +10,11 @@ enum EnumOrderStatus {
 
 export type PlaceOrderT = {
   status?: EnumOrderStatus;
-  items: OrdetItemDto[];
+  items: OrderItemDto[];
   info: {};
 };
 
-export type OrdetItemDto = {
+export type OrderItemDto = {
   quantity: number;
   price: number;
   productId: number;
