@@ -13,7 +13,7 @@ export const TestWrapper = ({ slug }: { slug: string }) => {
 
   const { data, isLoading, error } = useTest(slug, 10);
 
-  const { mutate } = useCompleteTest();
+  const { mutate, data: qwe } = useCompleteTest();
 
   const [curQuest, setQuest] = useState<number>(0);
   const [answers, setAnswers] = useState<

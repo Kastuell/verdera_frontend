@@ -8,6 +8,7 @@ export const Result = () => {
   const curLection = useSearchParams().get("cur-lection");
   const nextLection = useSearchParams().get("next-lection");
   const curTest = useSearchParams().get("cur-test");
+  const wrongsCount = useSearchParams().get("wrongs-count");
 
   const { back, push } = useRouter();
 
@@ -15,12 +16,33 @@ export const Result = () => {
 
   return (
     <Container className="text-center mt-10">
-      {result == "true" ? (
+      {wrongsCount && parseInt(wrongsCount) == 0 ? (
         <div className="space-y-20">
           <div>
             <div className="lg:text-5xl text-4xl font-semibold">
               <span className="text-greenish">Поздравляем! </span>
               Вы прошли тест на <span className="text-greenish">100%</span>
+            </div>
+          </div>
+          <div className="text-xl">Следующая лекция доступна для вас !</div>
+          <div className="flex justify-center gap-10 flex-col lg:flex-row">
+            <Button onClick={() => push("/courses")} variant={"modal"}>
+              Вернуться на курс
+            </Button>
+            <Button onClick={() => push(`/courses/lection/${nextLection}`)}>
+              Продолжить обучение
+            </Button>
+          </div>
+        </div>
+      ) : wrongsCount && parseInt(wrongsCount) <= 2 ? (
+        <div className="space-y-20">
+          <div>
+            <div className="lg:text-5xl text-4xl font-semibold">
+              <span className="text-greenish">Поздравляем! </span>
+              Вы прошли тест на{" "}
+              <span className="text-greenish">
+                {10 - parseInt(wrongsCount)}0%
+              </span>
             </div>
           </div>
           <div className="text-xl">Следующая лекция доступна для вас !</div>

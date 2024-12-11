@@ -25,6 +25,11 @@ export const testService = {
           curLectionSlug?: string;
           nextLectionSlug?: string;
           testSlug: boolean;
+          wrongs: {
+            questionId: number;
+            answerId: number[];
+            isCorrect: boolean;
+          }[];
         },
         any
       >,
