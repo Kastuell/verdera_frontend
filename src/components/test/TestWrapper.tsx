@@ -17,7 +17,14 @@ export const TestWrapper = ({ slug }: { slug: string }) => {
 
   const [curQuest, setQuest] = useState<number>(0);
   const [answers, setAnswers] = useState<
-    { questId: number; answerId: number[] }[]
+    {
+      questId: number;
+      answerId: number[];
+      user_answer: {
+        id: number;
+        value: string;
+      }[];
+    }[]
   >([]);
 
   if (isLoading) return <div>Loading...</div>;
@@ -31,7 +38,6 @@ export const TestWrapper = ({ slug }: { slug: string }) => {
       curQuest < (testLength ?? 10) - 1 && answers[curQuest] !== undefined;
 
     const validToPrev = curQuest !== 0;
-    console.log(validToPrev);
 
     const changeQuest = (payload: "prev" | "next") => {
       if (payload == "next") {
@@ -57,27 +63,44 @@ export const TestWrapper = ({ slug }: { slug: string }) => {
       questId: number;
       answerId: number[];
       isMulti?: boolean;
+      user_answer: {
+        id: number;
+        value: string;
+      }[];
     }) => {
-      const { answerId, questId, isMulti } = answer;
+      const { answerId, questId, isMulti, user_answer } = answer;
       const inAnswersIndex = answers.findIndex(
         (item) => item.questId == answer.questId
       );
       if (inAnswersIndex !== -1) {
-        const prevArr = answers;
+        const prevArr: {
+          questId: number;
+          answerId: number[];
+          user_answer: {
+            id: number;
+            value: string;
+          }[];
+        }[] = answers;
         if (isMulti) {
           prevArr.splice(inAnswersIndex, 1, {
             answerId: answerId,
             questId: questId,
+            user_answer: user_answer,
           });
         } else {
           prevArr.splice(inAnswersIndex, 1, {
             answerId: answerId,
             questId: questId,
+            user_answer: user_answer,
           });
         }
       } else {
         setAnswers((prev) =>
-          prev.concat({ answerId: answerId, questId: questId })
+          prev.concat({
+            answerId: answerId,
+            questId: questId,
+            user_answer: user_answer,
+          })
         );
       }
     };

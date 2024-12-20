@@ -6,7 +6,14 @@ import { toast } from "sonner";
 
 type TestUserT = {
   testId: number;
-  userTest: { answerId: number[]; questId: number }[];
+  userTest: {
+    questId: number;
+    answerId: number[];
+    user_answer: {
+      id: number;
+      value: string;
+    }[];
+  }[];
 };
 
 export function useCompleteTest() {
@@ -22,17 +29,29 @@ export function useCompleteTest() {
         queryClient.invalidateQueries({ queryKey: ["get_profile"] });
         toast("Тест решён верно");
         push(
-          `/courses/test/result?result=true&wrongs-count=${data?.wrongs.length}&next-lection=${data?.nextLectionSlug}`
+          `/courses/test/result?result=true&wrongs-count=${
+            data?.wrongs.length
+          }&next-lection=${data?.nextLectionSlug}&procent=${
+            data?.procent
+          }&result=${JSON.stringify(data?.result)}`
         );
       } else if (data?.wrongs.length <= 2) {
         toast(`Тест решён верно, с ошибками: ${data?.wrongs.length}`);
         push(
-          `/courses/test/result?result=true&wrongs-count=${data?.wrongs.length}&next-lection=${data?.nextLectionSlug}`
+          `/courses/test/result?result=true&wrongs-count=${
+            data?.wrongs.length
+          }&next-lection=${data?.nextLectionSlug}&procent=${
+            data?.procent
+          }&result=${JSON.stringify(data?.result)}`
         );
       } else {
         toast("Вы совершили ошибку в тесте!");
         push(
-          `/courses/test/result?result=false&wrongs-count=${data?.wrongs.length}&cur-lection=${data?.curLectionSlug}&cur-test=${data?.testSlug}`
+          `/courses/test/result?result=false&wrongs-count=${
+            data?.wrongs.length
+          }&cur-lection=${data?.curLectionSlug}&cur-test=${
+            data?.testSlug
+          }&procent=${data?.procent}&result=${JSON.stringify(data?.result)}`
         );
       }
     },

@@ -12,9 +12,13 @@ export const Question = ({
     questId: number;
     answerId: number[];
     isMulti?: boolean;
+    user_answer: {
+      id: number;
+      value: string;
+    }[];
   }) => void;
 }) => {
-  const [value, setValue] = useState<any>([]);
+  const [val, setValue] = useState<any>([]);
   if (question)
     return (
       <>
@@ -26,13 +30,20 @@ export const Question = ({
           {question.multi ? (
             <CheckboxGroup
               className=" mt-10 space-y-10"
-              value={value}
+              value={val}
               onChange={(value) => {
                 setValue(value);
+                const user_answer = value.map((it) => {
+                  return {
+                    id: it as number,
+                    value: val,
+                  };
+                });
                 changeAnswers({
                   questId: question.item.id ?? 0,
                   // @ts-ignore
                   answerId: value,
+                  user_answer: user_answer,
                 });
               }}
               name={question.item.id.toString()}
@@ -53,6 +64,7 @@ export const Question = ({
                 changeAnswers({
                   questId: question.item.id ?? 0,
                   answerId: [JSON.parse(e).id],
+                  user_answer: [JSON.parse(e)],
                 })
               }
               className="gap-10 mx-auto mt-10 "

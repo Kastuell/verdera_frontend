@@ -29,6 +29,24 @@ export const testService = {
             questionId: number;
             answerId: number[];
             isCorrect: boolean;
+            user_answer: {
+              id: number;
+              value: string;
+            }[];
+          }[];
+          procent: number;
+          result: {
+            questionId: number;
+            answerId: number[];
+            isCorrect: boolean;
+            user_answer: {
+              answers: {
+                id: number;
+                value: string;
+              }[];
+              question: string;
+            }[];
+            question_options: string[]
           }[];
         },
         any
