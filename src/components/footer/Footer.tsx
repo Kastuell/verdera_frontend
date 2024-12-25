@@ -4,7 +4,7 @@ import Link from "next/link";
 export const Footer = () => {
   const footerItems = {
     center: [
-      { title: "+ 7 984 149-43-69", href: "tel:+79841494369" },
+      { title: "+ 7 995 280-67-07", href: "tel:+79952806707" },
       { title: "ИП Петухов АИ", href: "" },
       { title: "verdera@internet.ru", href: "mailto:verdera@internet.ru" },
       { title: "ИНН: 490913669400", href: "" },
