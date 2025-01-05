@@ -7,7 +7,7 @@ export const IntroCourse = () => {
   const introCourseItems = [
     { title: "8", description: "Лекций" },
     { title: "20+", description: "Часов обучения" },
-    { title: "180+", description: "Проколов" },
+    { title: "1000+", description: "Проколов" },
     { title: "∞", description: "Полученного опыта" },
     { title: "Видеозанятия", description: "С практикующими преподавателями" },
     { title: "Тесты", description: "После просмотра лекций" },
