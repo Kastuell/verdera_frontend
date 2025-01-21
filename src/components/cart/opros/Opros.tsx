@@ -1,8 +1,7 @@
 "use client";
 
-import { Button, Container, Head, RecomendProduct } from "@/components";
+import { Button, Container, Head } from "@/components";
 import { useCreateOrder } from "@/hooks/useCreateOrder";
-import { useProductBySlug } from "@/hooks/useProduct";
 import { useCartStore } from "@/lib/cart-store";
 import { PlaceOrderT } from "@/services/order.service";
 import Image from "next/image";
@@ -17,7 +16,7 @@ export const Opros = () => {
 
   const { mutate } = useCreateOrder();
 
-  const { data } = useProductBySlug("derzhatel_nastolnyy");
+  // const { data } = useProductBySlug("derzhatel_nastolnyy");
 
   function onSubmit() {
     const searchParamsdata: any = {};
@@ -85,12 +84,12 @@ export const Opros = () => {
       <Button onClick={onSubmit} className="mt-10">
         Оформить заказ
       </Button>
-      {data && (
+      {/* {data && (
         <div className="mt-20">
           <h3 className="text-3xl font-bold">Рекомендуем к покупке</h3>
           <RecomendProduct item={data} />
         </div>
-      )}
+      )} */}
     </Container>
   );
 };
