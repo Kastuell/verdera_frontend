@@ -153,7 +153,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
           ""
         );
       }
-      replace("http://localhost:3000/cart/" + link);
+      replace("https://verdera.ru/cart/" + link);
     } else {
       const temp: OrderItemDto[] = items.map((it) => {
         return {

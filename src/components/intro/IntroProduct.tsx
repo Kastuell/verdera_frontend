@@ -26,7 +26,7 @@ export const IntroProduct = () => {
             тренажер губ благодаря инновационной технологии производства
           </p>
           <div>
-            <Link href={"catalog/trenazher_s_polnocennoy_imitaciey_gub"}>
+            <Link href={"catalog/trenazher_s_polnocennoy_imitaciey_gub_pro"}>
               <Button size={"lg"}>Подробнее о товаре</Button>
             </Link>
           </div>
