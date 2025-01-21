@@ -5,7 +5,6 @@ import { useCreateOrder } from "@/hooks/useCreateOrder";
 import { useCartStore } from "@/lib/cart-store";
 import { PlaceOrderT } from "@/services/order.service";
 import Image from "next/image";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import opros1 from "../../../../public/images/webp/opros/1.webp";
 
@@ -72,14 +71,14 @@ export const Opros = () => {
           </div>
           <Image className="rounded-xl" src={opros1} alt="" />
         </div>
-        <div className="font-medium mt-10  text-xl lg:text-2xl">
+        {/* <div className="font-medium mt-10  text-xl lg:text-2xl">
           Держатель для телефона вы можете приобрести в любом магазине
           электроники или на нашем сайте в разделе{" "}
           <Link href={"/catalog"} className="text-greenish underline">
             Расходники
           </Link>
           . Удачи ;)
-        </div>
+        </div> */}
       </div>
       <Button onClick={onSubmit} className="mt-10">
         Оформить заказ
