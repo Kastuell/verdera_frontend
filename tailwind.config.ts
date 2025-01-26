@@ -23,11 +23,11 @@ const config: Config = {
           md: "1rem",
         },
         screens: {
-          "sm": "270px",
-          "md": "420px",
-          "lg": "650px",
-          "xl": "800px",
-          "2xl": "1150px"
+          "sm": "400px",
+          "md": "700px",
+          "lg": "900px",
+          "xl": "1000px",
+          "2xl": "1100px"
         }
       },
       borderRadius: {

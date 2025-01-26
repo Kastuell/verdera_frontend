@@ -25,13 +25,13 @@ export const CatalogCard = (props: ICatalogCard) => {
         </div>
 
         <div className="flex flex-col justify-between xl:col-span-5 ">
-          <div className="font-bold py-3 md:py-0 text-lg  lg:text-2xl xl:text-3xl">
+          <div className="font-bold py-3 md:py-0 text-lg md:text-xl lg:text-3xl xl:text-4xl xl:space-y-5">
             <h2 className="">{item.name}</h2>
             {item.subName && (
               <div className="text-greenish">+ {item.subName}</div>
             )}
           </div>
-          <div className="xl:text-xl xl:leading-[40px]">
+          <div className="leading-8 text-sm lg:text-xl lg:leading-[2.5rem] xl:text-2xl xl:leading-[3rem] 2xl:leading-[3.5rem]">
             {item.potent}
             <br className={clsx({
               "hidden": item.potent == null
