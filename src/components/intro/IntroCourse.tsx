@@ -33,6 +33,7 @@ export const IntroCourse = () => {
             Подробнее о курсе
           </Button>
         </Link>
+
       </div>
     </div>
   );

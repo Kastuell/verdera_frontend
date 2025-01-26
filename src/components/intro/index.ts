@@ -8,4 +8,5 @@ export { IntroQuestion } from "./IntroQuestion";
 export { IntroRasrochka } from "./IntroRasrochka";
 export { IntroTeahers } from "./IntroTeachers";
 export { IntroVideo } from "./introVideo";
+export { IntroVideo2 } from "./introVideo2";
 

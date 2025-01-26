@@ -24,10 +24,10 @@ export const IntroGallery = () => {
         slides: { perView: 1 , spacing: 10},
       },
       "(min-width: 768px)": {
-        slides: { perView: 2 , spacing: 10},
+        slides: { perView: 3 , spacing: 10},
       },
       "(min-width: 1000px)": {
-        slides: { perView: 3, spacing: 30 },
+        slides: { perView: 5, spacing: 30 },
       },
     },
   },[
@@ -72,7 +72,7 @@ export const IntroGallery = () => {
                 key={index}
                 src={`${item}${index + 1}.jpg`}
                 alt="img"
-                width={900}
+                width={800}
                 height={0}
               />
             </div>

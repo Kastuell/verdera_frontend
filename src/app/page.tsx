@@ -9,6 +9,7 @@ import {
   IntroRasrochka,
   IntroTeahers,
   IntroVideo,
+  IntroVideo2,
 } from "@/components/intro";
 import { Metadata } from "next";
 
@@ -25,6 +26,9 @@ export default function Home() {
       <IntroRasrochka />
       <IntroVideo />
       <IntroCourse />
+      <IntroPromo />
+      <IntroRasrochka />
+      <IntroVideo2 />
       <IntroQuestion />
       <IntroTeahers />
       <IntroGallery />

@@ -41,14 +41,14 @@ export const IntroQuestion = () => {
   ];
 
   return (
-    <div className="bg-primary py-16 px-8 text-center mt-20" id="questions">
+    <div className="bg-primary py-16 px-8 text-center" id="questions">
       <Form {...form}>
-        <h2 className="text-secondary text-3xl xl:text-5xl py-10 font-bold">
+        <h2 className="text-secondary text-3xl xl:text-4xl py-6 font-bold">
           У вас есть вопросы?
         </h2>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="xl:w-1/2 mx-auto space-y-5"
+          className="xl:w-1/3 mx-auto space-y-5"
         >
           <FormField
             control={form.control}
@@ -57,7 +57,7 @@ export const IntroQuestion = () => {
               <FormItem>
                 <FormControl>
                   <Textarea
-                    className="border-primary border-2  placeholder:text-primary text-primary"
+                    className="border-primary border-2 rounded-2xl placeholder:text-primary text-primary"
                     id="description"
                     placeholder="Тут можно писать..."
                     {...field}
@@ -77,7 +77,7 @@ export const IntroQuestion = () => {
                   defaultValue={field.value}
                 >
                   <FormControl>
-                    <SelectTrigger>
+                    <SelectTrigger className=" rounded-2xl">
                       <SelectValue
                         className="text-start"
                         placeholder="Выберите соц.сеть для общения"
@@ -113,8 +113,9 @@ export const IntroQuestion = () => {
                 <FormControl>
                   <Input
                     type="text"
-                    placeholder="Как в Вам можно обращаться?"
+                    placeholder="Как к Вам можно обращаться?"
                     {...field}
+                    className="rounded-2xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -136,7 +137,7 @@ export const IntroQuestion = () => {
                     inputStyle={{
                       color: "#0A0908",
                       borderColor: "#0A0908",
-                      borderRadius: "0",
+                      borderRadius: "16px",
                       border: "2",
                       background: "#f2f4f3",
                       fontSize: "20px",
@@ -145,7 +146,7 @@ export const IntroQuestion = () => {
                     }}
                     buttonStyle={{
                       borderColor: "#0A0908",
-                      borderRadius: "0",
+                      borderRadius: "16px 0px 0px 16px",
                       border: "2",
                       background: "#f2f4f3",
                     }}

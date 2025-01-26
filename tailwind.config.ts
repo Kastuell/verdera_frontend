@@ -12,6 +12,7 @@ const config: Config = {
       colors: COLORS,
       backgroundImage: {
         introDesktop: "url(/images/jpg/intro.jpg)",
+        introDesktopTest: "url(/images/jpg/qwe.jpg)",
         introMobile: "url(/images/jpg/intro_mobile.jpg)",
         introTablet: "url(/images/jpg/intro_tablet.jpg)",
       },
@@ -21,6 +22,13 @@ const config: Config = {
           DEFAULT: "1rem",
           md: "1rem",
         },
+        screens: {
+          "sm": "400px",
+          "md": "700px",
+          "lg": "900px",
+          "xl": "1000px",
+          "2xl": "1100px"
+        }
       },
       borderRadius: {
         lg: "var(--radius)",

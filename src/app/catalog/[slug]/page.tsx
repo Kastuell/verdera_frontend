@@ -7,7 +7,6 @@ import {
 import { IntroHead } from "@/components/intro/IntroHead";
 import { productService } from "@/services/product.service";
 import type { Metadata, ResolvingMetadata } from "next";
-import Image from "next/image";
 
 type Props = {
   params: { slug: string };
@@ -40,32 +39,15 @@ export default async function Page({ params }: Props) {
         </Container>
         <div className="mt-20">
           <IntroHead title={product.description.about?.title} />
-          <Container className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-            <div className="xl:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {product.description.about?.items.map((item, index) => (
-                <ProductTile
-                  title={item.title}
-                  description={item.description}
-                  number={index + 1}
-                  key={`${item.description} ${index}`}
-                />
-              ))}
-            </div>
-            <div className="hidden xl:block xl:col-span-1">
-              <div>
-                <Image
-                  className="rounded-2xl"
-                  alt=""
-                  src={
-                    product.description.about?.img !== undefined
-                      ? `/images/jpg/catalog/${product.description.about?.img}.jpg`
-                      : ""
-                  }
-                  width={500}
-                  height={500}
-                />
-              </div>
-            </div>
+          <Container className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+            {product.description.about?.items.map((item, index) => (
+              <ProductTile
+                title={item.title}
+                description={item.description}
+                number={index + 1}
+                key={`${item.description} ${index}`}
+              />
+            ))}
           </Container>
         </div>
         <div className="mt-20">

@@ -1,24 +1,24 @@
 "use client";
 
 import {
-    Button,
-    Container,
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-    Input,
+  Button,
+  Container,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  Input,
 } from "../ui";
 
 import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormMessage,
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
 } from "@/components/ui/form";
 import { useLogin } from "@/hooks/useLogin";
 
@@ -53,9 +53,9 @@ export const IntroPromo = () => {
   return (
     <>
       {!data && (
-        <Container>
+        <Container className="xl:mt-5">
           <Dialog>
-            <DialogTrigger className="w-full font-medium transition duration-300 xl:h-20 h-16 px-8 bg-greenish text-secondary text-xl xl:text-3xl hover:opacity-70 active:opacity-100">
+            <DialogTrigger className="w-full rounded-2xl font-medium transition duration-300 xl:h-18 h-14 px-8 bg-greenish text-secondary text-xl xl:text-2xl hover:opacity-70 active:opacity-100">
               Активировать промокод
             </DialogTrigger>
             <DialogContent className="space-y-5">

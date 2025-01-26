@@ -26,7 +26,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-secondary text-lg xl:mt-32 mt-10">
+    <footer className="bg-primary text-secondary text-base xl:mt-32 mt-10">
       <div className="container flex flex-col md:flex-row justify-between items-center py-10">
         <Link href="/" className="onClick_onHover ">
           {/* <Logo sizes="w-[150px] md:w-[250px] xl:w-[250px] h-[100px]" long /> */}
