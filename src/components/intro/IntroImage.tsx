@@ -37,14 +37,11 @@ export const IntroImage = () => {
       /> */}
       <div
         className="bg-center bg-cover bg-no-repeat 
-          bg-introDesktopTest h-screen
-          md:bg-introDesktopTest md:h-screen
-          xl:bg-introDesktopTest xl:h-screen xl:bg-left
-          2xl:h-screen 2xl:bg-bottom bg-blend-darken"
+          bg-introDesktopTest"
       >
         <div className="relative h-screen">
-          <Image src={verdera_img} className="absolute bottom-60 md:bottom-36 w-11/12 right-2 lg:w-[40%] lg:right-10" alt="" />
-          <Image src={stiraem_img} className="absolute bottom-52 md:bottom-20 w-11/12 right-2 lg:w-[40%] lg:right-10" alt="" />
+          <Image src={verdera_img} className="absolute bottom-1/2 w-11/12 right-2 md:bottom-36 md:w-1/2 md:right-10" alt="" />
+          <Image src={stiraem_img} className="absolute bottom-[45%] w-11/12 right-2 md:bottom-20 md:w-1/2 md:right-10" alt="" />
         </div>
       </div>
       {/* <div className="bg-introMobile h-[1080px] md:hidden bg-center bg-cover bg-no-repeat"></div>
