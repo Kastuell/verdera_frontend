@@ -33,8 +33,8 @@ export const Header = () => {
       <BurgerMenu />
       <header
         className={clsx({
-          ["py-5 text-primary max-w-[1400px] px-5 mx-auto  z-10"]: true,
-          ["absolute text-secondary left-0 right-0"]: pathName == "/",
+          ["py-5 text-primary max-w-[1400px] w-full px-5 mx-auto  z-10"]: true,
+          ["absolute  text-secondary left-0 right-0"]: pathName == "/",
         })}
       >
         <div className="flex justify-between items-center">
