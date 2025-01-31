@@ -36,7 +36,7 @@ export const IntroImage = () => {
         style={{ width: "100%", height: "auto" }}
       /> */}
       <div
-        className="bg-center bg-cover bg-no-repeat 
+        className="bg-bottom bg-cover bg-no-repeat 
           bg-introDesktopTest"
       >
         <div className="relative h-screen">

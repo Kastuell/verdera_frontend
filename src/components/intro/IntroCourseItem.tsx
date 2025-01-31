@@ -18,7 +18,7 @@ export default function IntroCourseItem(props: IIntroCourseItem) {
       })}
     >
       <h3  className={cn({
-        ["text-4xl md:text-5xl xl:text-5xl font-bold text-greenish"]: true,
+        ["text-2xl md:text-3xl xl:text-4xl font-bold text-greenish"]: true,
         ["scale-150"]: title == "∞"
       })}>
         {title}

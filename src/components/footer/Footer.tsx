@@ -46,7 +46,7 @@ export const Footer = () => {
           ))}
         </div>
         <div className="flex flex-col xl:gap-6 gap-3 items-center mt-10 md:mt-0">
-          <p className="xl:text-2xl text-xl">© Verdera2024</p>
+          <p className="xl:text-2xl">© Verdera2024</p>
           <ul className="flex xl:gap-12 gap-6 items-center">
             {footerItems.right.map((item) => (
               <Link key={item.href} href={item.href} target="_blank">

@@ -27,7 +27,7 @@ export const IntroTeahers = () => {
     <div className="mt-20">
       <IntroHead title="Преподаватели" />
       <Container>
-        <ul className="flex justify-between flex-col xl:flex-row gap-14 xl:gap-0">
+        <ul className="flex justify-between flex-col md:flex-row gap-14 xl:gap-0">
           {IntroTeacherItems.map((item) => (
             <IntroTeacherItem
               key={item.src}

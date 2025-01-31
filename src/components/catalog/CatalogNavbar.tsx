@@ -24,7 +24,7 @@ export const CatalogNavbar = () => {
             pathname.length !== 8 && push("/catalog");
           }}
           className={clsx({
-            ["lg:text-5xl md:text-3xl text-base cursor-pointer border border-primary p-5 rounded-xl"]:
+            ["lg:text-3xl md:text-2xl text-base cursor-pointer border border-primary p-5 rounded-xl"]:
               true,
             ["font-medium"]: selected.name === item.name,
           })}

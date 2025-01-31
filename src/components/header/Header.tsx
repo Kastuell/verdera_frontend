@@ -50,7 +50,7 @@ export const Header = () => {
               />
             </Link>
           </div>
-          <ul className="hidden md:flex gap-14 text-2xl justify-center basis-1/3">
+          <ul className="hidden md:flex gap-14 text-xl xl:text-2xl justify-center basis-1/3">
             {navItems.center.map((item) => (
               <UnderlineText
                 key={item.href}
@@ -62,7 +62,7 @@ export const Header = () => {
               </UnderlineText>
             ))}
           </ul>
-          <div className="hidden md:flex gap-14 justify-end items-center basis-1/3">
+          <div className="hidden md:flex gap-8 xl:gap-14 justify-end items-center basis-1/3">
             <CartIcon />
             <ProfileIcon />
           </div>
