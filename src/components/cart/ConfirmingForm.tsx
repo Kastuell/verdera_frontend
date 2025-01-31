@@ -179,7 +179,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
     <>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="flex flex-col xl:flex-row justify-between mt-12 gap-14 2xl:gap-0">
+          <div className="flex flex-col xl:flex-row justify-between mt-12 gap-14">
             <div>
               <Head center={false}>Оформление заказа</Head>
               <div className="mx-auto space-y-12 lg:mt-20 mt-10">
@@ -202,7 +202,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                   )}
                 />
                 <div>
-                  <h3 className="font-medium lg:text-5xl text-2xl">
+                  <h3 className="font-medium lg:text-3xl text-2xl">
                     Способ доставки
                   </h3>
                   <RadioGroup
@@ -243,7 +243,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
               </div>
             </div>
             <div className="lg:w-[500px]">
-              <h3 className="font-semibold text-4xl">Ваш заказ</h3>
+              <h3 className="font-semibold text-3xl">Ваш заказ</h3>
 
               <div className="flex flex-wrap gap-5 mt-5">
                 {items.map((item) => (
@@ -256,7 +256,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
                   />
                 ))}
               </div>
-              <div className="space-y-8 mt-5 lg:text-3xl text-lg">
+              <div className="space-y-8 mt-5 lg:text-2xl text-lg">
                 <div className="flex justify-between">
                   <div>{items.length} товара на сумму</div>
                   <div className="text-greenish">

@@ -13,7 +13,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         type={type}
         className={cn(
-          "flex w-full text-primary placeholder-primary text-sm  lg:text-lg file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50",
+          "flex w-full text-primary placeholder-primary text-sm  xl:h-18 h-16 rounded-2xl lg:text-lg file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50",
           {
             [`border-2 border-primary bg-background px-3 py-2 xl:h-18 h-16 placeholder:text-primary`]:
               !isProfile,

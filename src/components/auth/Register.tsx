@@ -184,16 +184,18 @@ export const Register = () => {
                       country="ru"
                       onlyCountries={["ru"]}
                       inputStyle={{
-                        borderRadius: "0",
+                        borderRadius: "16px",
                         border: "2px solid black",
-                        background: "transparent",
+                        background: "#fff",
                         fontSize: "24px",
                         width: "100%",
                         height: "80px",
                       }}
                       buttonStyle={{
+                        borderColor: "#0A0908",
+                        borderRadius: "16px 0px 0px 16px",
                         border: "2px solid black",
-                        background: "transparent",
+                        background: "#fff",
                       }}
                       inputProps={{
                         name: "phone",

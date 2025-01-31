@@ -38,7 +38,7 @@ export const Footer = () => {
             height={180}
           />
         </Link>
-        <div className="flex flex-col gap-6 items-center mt-10 md:mt-0 text-center">
+        <div className="flex flex-col gap-6 text-sm items-center mt-10 md:mt-0 text-center">
           {footerItems.center.map((item) => (
             <p key={item.title}>
               <Link href={item.href}>{item.title}</Link>

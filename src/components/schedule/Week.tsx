@@ -9,7 +9,7 @@ export const Week = ({ week }: { week: ScheduleWeekT }) => {
         {/* <div className="uppercase font-bold">
           {week_start} - {week_end}
         </div> */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-8 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mt-10">
           {days.map((item) => (
             <Day key={item.date} day={item} />
           ))}

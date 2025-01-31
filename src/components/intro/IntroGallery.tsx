@@ -9,71 +9,75 @@ import styles from "./gallery.module.scss";
 export const IntroGallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-    loop: true,
-    mode: "free",
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-    created() {
-      setLoaded(true);
-    },
-    breakpoints: {
-      "(min-width: 300px)": {
-        slides: { perView: 1 , spacing: 10},
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
+    {
+      loop: true,
+      mode: "free",
+      initial: 0,
+      slideChanged(slider) {
+        setCurrentSlide(slider.track.details.rel);
       },
-      "(min-width: 768px)": {
-        slides: { perView: 3 , spacing: 10},
+      created() {
+        setLoaded(true);
       },
-      "(min-width: 1000px)": {
-        slides: { perView: 5, spacing: 30 },
+      breakpoints: {
+        "(min-width: 300px)": {
+          slides: { perView: 1, spacing: 10 },
+        },
+        "(min-width: 768px)": {
+          slides: { perView: 2, spacing: 10 },
+        },
+        "(min-width: 1000px)": {
+          slides: { perView: 3, spacing: 30 },
+        },
       },
     },
-  },[
-    (slider) => {
-      let timeout: ReturnType<typeof setTimeout>
-      let mouseOver = false
-      function clearNextTimeout() {
-        clearTimeout(timeout)
-      }
-      function nextTimeout() {
-        clearTimeout(timeout)
-        if (mouseOver) return
-        timeout = setTimeout(() => {
-          slider.next()
-        }, 2000)
-      }
-      slider.on("created", () => {
-        slider.container.addEventListener("mouseover", () => {
-          mouseOver = true
-          clearNextTimeout()
-        })
-        slider.container.addEventListener("mouseout", () => {
-          mouseOver = false
-          nextTimeout()
-        })
-        nextTimeout()
-      })
-      slider.on("dragStarted", clearNextTimeout)
-      slider.on("animationEnded", nextTimeout)
-      slider.on("updated", nextTimeout)
-    },
-  ]);
+    [
+      (slider) => {
+        let timeout: ReturnType<typeof setTimeout>;
+        let mouseOver = false;
+        function clearNextTimeout() {
+          clearTimeout(timeout);
+        }
+        function nextTimeout() {
+          clearTimeout(timeout);
+          if (mouseOver) return;
+          timeout = setTimeout(() => {
+            slider.next();
+          }, 2000);
+        }
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true;
+            clearNextTimeout();
+          });
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false;
+            nextTimeout();
+          });
+          nextTimeout();
+        });
+        slider.on("dragStarted", clearNextTimeout);
+        slider.on("animationEnded", nextTimeout);
+        slider.on("updated", nextTimeout);
+      },
+    ]
+  );
 
-  const galleryItems = new Array(8).fill("/images/jpg/gallery/img");
+  const galleryItems = new Array(9).fill("/images/jpg/gallery/img");
   return (
     <>
       <div className="relative bg-primary p-20 xl:mt-32 mt-10">
-        <div ref={sliderRef} className="keen-slider">
+        <div ref={sliderRef} className="keen-slider items-center">
           {galleryItems.map((item, index) => (
-            <div key={index} className="relative keen-slider__slide border-2 border-secondary">
+            <div key={index} className="keen-slider__slide">
               <Image
                 key={index}
                 src={`${item}${index + 1}.jpg`}
                 alt="img"
-                width={800}
+                width={500}
                 height={0}
+                sizes="100vw"
               />
             </div>
           ))}

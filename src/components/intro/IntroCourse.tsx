@@ -18,7 +18,7 @@ export const IntroCourse = () => {
     <div className="mt-20">
       <IntroHead title="Курс по обучению контурной пластике губ" />
       <div className="container xl:mt-20 mt-10 ">
-        <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 xl:py-16 gap-12 md:gap-16 xl:gap-16">
+        <ul className="grid grid-cols-1 min-[588px]:grid-cols-2 xl:grid-cols-4 xl:py-16 gap-12 min-[588px]:gap-16 xl:gap-16">
           {introCourseItems.map((item, index) => (
             <IntroCourseItem
               index={index}

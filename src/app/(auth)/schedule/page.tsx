@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <Container>
-      <div className="flex justify-between flex-col md:flex-row gap-5 md:gap-0">
+    <Container className="md:px-0">
+      <div className="flex justify-between flex-col md:flex-row gap-5 ">
         <Head center={false}>Расписание</Head>
-        <h2 className="text-xl">Время в расписании указывается по Московскому часовому поясу</h2>
+        <h2 className="text-base">Время в расписании указывается по Московскому часовому поясу</h2>
         <AddTimeButton>Добавить время</AddTimeButton>
       </div>
       <ScheduleWrapper />

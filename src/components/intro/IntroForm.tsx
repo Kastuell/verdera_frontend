@@ -53,7 +53,7 @@ export const IntroForm = () => {
                     <Input
                       type="email"
                       placeholder="Ваш E-mail"
-                      className="border-4 w-full rounded-2xl"
+                      className="border-4 w-full rounded-2xl xl:h-18 h-14"
                       {...field}
                     />
                   </FormControl>

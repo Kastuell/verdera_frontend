@@ -34,7 +34,7 @@ export const AboutItem = (props: IAboutItem) => {
           </span>
           <h2
             className={cn({
-              ["text-3xl text-secondary font-bold mt-5"]: true,
+              ["text-2xl text-secondary font-bold mt-5"]: true,
               [" text-primary"]: number % 2 == 0,
             })}
           >
@@ -42,7 +42,7 @@ export const AboutItem = (props: IAboutItem) => {
           </h2>
           <p
             className={cn({
-              ["lg:text-2xl text-lg leading-9 lg:leading-10 text-secondary mt-5 text-wrap"]: true,
+              ["text-lg leading-9 lg:leading-10 text-secondary mt-5 text-wrap"]: true,
               [" text-primary"]: number % 2 == 0,
             })}
           >

@@ -31,7 +31,7 @@ export const CourseProgram = ({ course }: { course: CourseT }) => {
             <div className="col-span-12 md:col-span-10 xl:col-span-12 text-xl">
               {item.name}
             </div>
-            <div className="col-span-2 md:col-span-4 xl:col-span-2 flex gap-10 font-bold md:grid grid-cols-2">
+            <div className="col-span-2 md:col-span-4 xl:col-span-2 flex gap-14 font-bold md:grid grid-cols-2">
               <div className="col-span-1">
                 {item.unlocked || item.completed ? (
                   <a

@@ -48,7 +48,7 @@ export const IntroQuestion = () => {
         </h2>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="xl:w-1/3 mx-auto space-y-5"
+          className="md:w-1/2  mx-auto space-y-5"
         >
           <FormField
             control={form.control}

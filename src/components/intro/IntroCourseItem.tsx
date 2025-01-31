@@ -18,12 +18,12 @@ export default function IntroCourseItem(props: IIntroCourseItem) {
       })}
     >
       <h3  className={cn({
-        ["text-4xl md:text-5xl xl:text-5xl font-bold text-greenish"]: true,
+        ["text-2xl md:text-3xl xl:text-4xl font-bold text-greenish"]: true,
         ["scale-150"]: title == "∞"
       })}>
         {title}
       </h3>
-      <p className="text-2xl md:text-3xl text-center flex-none xl:text-nowrap">{description}</p>
+      <p className="text-xl md:text-2xl text-center flex-none xl:text-nowrap">{description}</p>
     </ul>
   );
 }

@@ -37,8 +37,8 @@ export const FullCart = () => {
   const { items, findSum } = useCartStore();
 
   return (
-    <div className="space-y-20">
-      <div className="space-y-8">
+    <div>
+      <div>
         {fullCartItems.map((item) => (
           <div key={item.description}>
             <div className="flex gap-4 items-center">
@@ -56,13 +56,13 @@ export const FullCart = () => {
         >
           Ваш заказ
         </Head>
-        <div className="grid xl:grid-cols-2 lg:mt-20 mt-10 gap-10">
+        <div className="grid xl:grid-cols-2 lg:mt-14 mt-10 gap-10">
           {items.map((item) => (
             <CartItem key={item.product.slug} item={item} />
           ))}
         </div>
       </div>
-      <div className="font-bold lg:text-4xl text-xl flex gap-32">
+      <div className="font-bold lg:text-4xl text-xl flex gap-32 py-5">
         <div>Итого</div>
         <div className="text-greenish text-nowrap">
           {numberFormat.format(findSum())}

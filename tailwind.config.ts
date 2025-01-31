@@ -16,17 +16,26 @@ const config: Config = {
         introMobile: "url(/images/jpg/intro_mobile.jpg)",
         introTablet: "url(/images/jpg/intro_tablet.jpg)",
       },
+      // screens: {
+      //   // "sm": "400px",
+      //   "md": "332px",
+      //   "lg": "588px",
+      //   "xl": "844px",
+      //   "2xl": "1100px"
+      // },
       container: {
         center: true,
         padding: {
           DEFAULT: "1rem",
           md: "1rem",
+          lg: "3rem",
+          xl: "5rem",
         },
         screens: {
-          "sm": "400px",
-          "md": "700px",
-          "lg": "900px",
-          "xl": "1000px",
+          // "sm": "400px",
+          "md": "332px",
+          "lg": "588px",
+          "xl": "844px",
           "2xl": "1100px"
         }
       },

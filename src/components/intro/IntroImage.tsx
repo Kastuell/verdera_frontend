@@ -36,15 +36,12 @@ export const IntroImage = () => {
         style={{ width: "100%", height: "auto" }}
       /> */}
       <div
-        className="bg-center bg-cover bg-no-repeat
-          bg-introMobile h-screen
-          md:bg-introTablet md:h-screen
-          xl:bg-introDesktop xl:h-screen xl:bg-left
-          2xl:h-screen 2xl:bg-top"
+        className="bg-bottom bg-cover bg-no-repeat
+          bg-introDesktopTest h-screen"
       >
         <div className="relative h-screen">
-          <Image src={verdera_img} className="absolute bottom-28 md:bottom-36 w-11/12 right-2 lg:w-1/2 lg:right-10" alt="" />
-          <Image src={stiraem_img} className="absolute bottom-12 w-11/12 right-2 lg:w-1/2 lg:right-10" alt="" />
+        <Image src={verdera_img} className="absolute bottom-[50%] md:bottom-36 w-11/12 right-2 md:w-[40%] md:right-10" alt="" />
+        <Image src={stiraem_img} className="absolute bottom-[45%] md:bottom-14 w-11/12 right-2 md:w-[40%] md:right-10" alt="" />
         </div>
       </div>
       {/* <div className="bg-introMobile h-[1080px] md:hidden bg-center bg-cover bg-no-repeat"></div>

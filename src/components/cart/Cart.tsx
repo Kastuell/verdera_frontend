@@ -9,6 +9,6 @@ export const Cart = () => {
   const { items } = useCartStore();
 
   return (
-    <Container>{items.length !== 0 ? <FullCart /> : <EmptyCart />}</Container>
+    <Container className="md:px-0">{items.length !== 0 ? <FullCart /> : <EmptyCart />}</Container>
   );
 };

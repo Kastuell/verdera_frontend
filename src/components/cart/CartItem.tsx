@@ -20,19 +20,20 @@ export const CartItem = (props: ICartItem) => {
 
   return (
     <div className="w-full flex flex-col md:flex-row justify-between gap-6">
-      <div className="mx-auto size-[280px] md:size-[300px] relative">
+      <div className="mx-auto size-[280px]  relative">
         <Image
           alt={product.name}
           src={`/images/jpg/catalog/${product.img}.jpg`}
           fill
+          className="rounded-2xl"
         />
       </div>
 
-      <div className="flex flex-col gap-5 justify-between text-center md:text-start basis-1/2 lg:basis-[55%]">
-        <div className="text-xl font-bold">
+      <div className="flex flex-col justify-between text-center md:text-start basis-1/2 lg:basis-[55%]">
+        <div className="font-bold text-lg">
           <h2>{product.name}</h2>
           {product.subName && (
-            <div className="text-greenish mt-2">+ {product.subName}</div>
+            <div className="text-greenish">+ {product.subName}</div>
           )}
         </div>
         <div className="text-xs leading-6">{product.description.firstly}</div>
