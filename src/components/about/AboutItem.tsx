@@ -14,7 +14,7 @@ export const AboutItem = (props: IAboutItem) => {
   return (
     <div
       className={cn({
-        ["xl:h-[450px] h-auto  relative bg-primary"]: true,
+        [" h-auto  relative bg-primary"]: true,
         ["rounded-2xl border-2 border-primary p-5"]: img == undefined,
         ["bg-secondary"]: number % 2 == 0,
         ["hidden lg:block"]: img,
