@@ -17,7 +17,7 @@ export const AboutItem = (props: IAboutItem) => {
         [" h-auto  relative bg-primary"]: true,
         ["rounded-2xl border-2 border-primary p-5"]: img == undefined,
         ["bg-secondary"]: number % 2 == 0,
-        ["hidden lg:block"]: img,
+        ["hidden min-[1100px]:block"]: img,
       })}
     >
       {img?.length ? (
@@ -42,7 +42,7 @@ export const AboutItem = (props: IAboutItem) => {
           </h2>
           <p
             className={cn({
-              ["xl:text-lg leading-9 xl:leading-10 text-secondary mt-5 text-wrap"]: true,
+              ["leading-8  text-secondary mt-5 text-wrap"]: true,
               [" text-primary"]: number % 2 == 0,
             })}
           >

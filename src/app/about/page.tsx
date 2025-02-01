@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <Container className="md:px-0">
+    <Container className="">
       <h1 className="font-medium text-7xl hidden lg:block">У Verdera есть</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:mt-20">
+      <div className="grid grid-cols-1 min-[1100px]:grid-cols-2 gap-10 lg:mt-20">
         {AboutItems.map((item, index) => (
           <AboutItem
             number={item.number ? item.number : 0}
