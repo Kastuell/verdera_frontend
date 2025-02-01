@@ -33,7 +33,7 @@ export const Header = () => {
       <BurgerMenu />
       <header
         className={clsx({
-          ["py-5 text-primary max-w-[1400px] min-[2000px]:max-w-[1800px] w-full px-5 mx-auto  z-10"]: true,
+          ["py-5 text-primary max-w-[1600px] min-[2000px]:max-w-[2000px] min-[2200px]:max-w-[2200px] min-[2500px]:max-w-[2500px] w-full px-5 mx-auto  z-10"]: true,
           ["absolute  text-secondary left-0 right-0"]: pathName == "/",
         })}
       >
