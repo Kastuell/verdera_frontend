@@ -40,8 +40,8 @@ export const IntroImage = () => {
           bg-introDesktopTest h-screen"
       >
         <div className="relative h-screen">
-        <Image src={verdera_img} className="absolute bottom-[50%] md:bottom-36 w-11/12 right-2 md:w-[40%] md:right-10" alt="" />
-        <Image src={stiraem_img} className="absolute bottom-[45%] md:bottom-14 w-11/12 right-2 md:w-[40%] md:right-10" alt="" />
+        <Image src={verdera_img} className="absolute bottom-[50%] md:bottom-36 w-11/12 right-2 md:w-[40%] md:right-8 xl:right-10 " alt="" />
+        <Image src={stiraem_img} className="absolute bottom-[45%] md:bottom-24 w-11/12 right-2 md:w-[40%] md:right-8 xl:right-10 xl:bottom-20 min-[1700px]:bottom-20 min-[2000px]:bottom-10" alt="" />
         </div>
       </div>
       {/* <div className="bg-introMobile h-[1080px] md:hidden bg-center bg-cover bg-no-repeat"></div>
