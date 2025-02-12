@@ -16,13 +16,13 @@ const buttonVariants = cva(
         modal:
           "bg-transparent text-primary text-xl xl:text-2xl border-2 border-primary hover:opacity-70 active:opacity-100",
         social_black:
-          "text-xl xl:text-3xl gap-8 border-2 border-secondary text-secondary bg-primary hover:invert",
+          "text-xl xl:text-2xl gap-8 border-2 border-secondary text-secondary bg-primary hover:invert",
         social_white:
-          "text-xl xl:text-3xl gap-8 border-2 border-primary text-primary bg-secondary hover:invert",
+          "text-xl xl:text-2xl gap-8 border-2 border-primary text-primary bg-secondary hover:invert",
         black:
-          "text-xl xl:text-3xl bg-primary border-2 border-primary text-secondary hover:bg-secondary hover:text-primary hover:border-primary active:text-secondary active:bg-primary",
+          "text-xl xl:text-2xl bg-primary border-2 border-primary text-secondary hover:bg-secondary hover:text-primary hover:border-primary active:text-secondary active:bg-primary",
         white:
-          "text-xl xl:text-3xl bg-secondary border-2 border-primary text-primary hover:bg-primary hover:text-secondary active:text-primary active:bg-secondary",
+          "text-xl xl:text-2xl bg-secondary border-2 border-primary text-primary hover:bg-primary hover:text-secondary active:text-primary active:bg-secondary",
         destructive:
           "bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90",
         outline:
