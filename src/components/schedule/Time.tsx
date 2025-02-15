@@ -44,8 +44,7 @@ export const Time = ({ time }: { time: ScheduleTimeT }) => {
               (status !== ScheduleTimeEnum.FREE &&
                 user.id !== studentId &&
                 user.id !== teacherId) ||
-              (status == ScheduleTimeEnum.FREE &&
-                user.role == EnumUserRoles.TEACHER) ||
+          
               status == ScheduleTimeEnum.END
             }
             className="w-full"
@@ -83,7 +82,7 @@ export const Time = ({ time }: { time: ScheduleTimeT }) => {
           </AlertDialogTrigger>
           <AlertDialogContent className="space-y-10">
             <>
-              {!(status == ScheduleTimeEnum.FREE) && user.id == studentId ? (
+              {!(status == ScheduleTimeEnum.FREE) && user.id == studentId && user.id !== teacherId  ? (
                 <>
                   <AlertDialogHeader className="space-y-10">
                     <AlertDialogTitle className="text-4xl text-center space-y-5">
