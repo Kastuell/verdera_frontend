@@ -26,7 +26,7 @@ export const IntroHello = () => {
           </Button>
           <Button
             onClick={() =>
-              push("/catalog/trenazher_s_polnocennoy_imitaciey_gub")
+              push("/catalog/trenazher_s_polnocennoy_imitaciey_gub_pro")
             }
             className="bg-lips bg-cover font-bold bg-opacity-20 relative hover:scale-105"
             size={"square"}
@@ -39,7 +39,7 @@ export const IntroHello = () => {
           </Button>
           <Button
             onClick={() =>
-              push("/catalog/trenazher_s_polnocennoy_imitaciey_gub_pro")
+              push("/catalog/konturnaya_plastika_gub")
             }
             className="bg-course bg-cover font-bold bg-opacity-20 relative hover:scale-105"
             size={"square"}
