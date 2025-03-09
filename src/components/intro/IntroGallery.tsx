@@ -64,7 +64,7 @@ export const IntroGallery = () => {
     ]
   );
 
-  const galleryItems = new Array(9).fill("/images/jpg/gallery/img");
+  const galleryItems = new Array(13).fill("/images/jpg/gallery/img");
   return (
     <>
       <div className="relative bg-primary p-20 xl:mt-32 mt-10">

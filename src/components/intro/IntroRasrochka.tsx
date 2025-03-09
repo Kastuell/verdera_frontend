@@ -55,7 +55,7 @@ export const IntroRasrochka = () => {
   // Чтобы оформить рассрочку авторизуйтесь ниже, далее перейдите в каталог вбыерите товар, добавиьте в корзину, и нажмите оформить заказ.
 
   return (
-    <Container className="xl:mt-5">
+    <Container className="mt-5 xl:mt-5">
       <Dialog>
         <DialogTrigger className="w-full rounded-2xl font-medium transition duration-300 xl:h-18 h-14 px-8 bg-violet text-secondary text-xl xl:text-2xl hover:opacity-70 active:opacity-100">
           Оформить рассрочку

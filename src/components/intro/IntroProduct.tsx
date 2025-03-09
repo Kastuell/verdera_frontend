@@ -20,7 +20,7 @@ export const IntroProduct = () => {
           <h3 className="hidden 2xl:block font-bold text-xl">
             Тренежер с полноценной имитацией губ
           </h3>
-          <p className="leading-[35px] md:text-lg py-5 md:leading-[37px] 2xl:pt-0">
+          <p className="leading-[23px] md:text-lg py-5 md:leading-[37px] 2xl:pt-0">
             Рады представить Вам первый в мире симуляционный тренажер с
             полноценной имитацией губ и их содержимого, позволяющий проводить
             инъекционные манипуляции с введением филлера непосредственно в

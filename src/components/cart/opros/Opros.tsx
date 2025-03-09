@@ -42,10 +42,10 @@ export const Opros = () => {
       <div className="mt-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <div className="py-5">
-            <h3 className="font-bold text-2xl lg:text-3xl">
+            <h3 className="font-bold text-2xl">
               Для комфортной и продуктивной работы Вам необходимо:
             </h3>
-            <ul className="list-decimal list-inside space-y-5 font-bold text-xl lg:text-2xl mt-5">
+            <ul className="list-decimal list-inside space-y-5 font-bold text-xl  mt-5">
               <li>
                 <span className="font-medium">Телефон с хорошей камерой;</span>
               </li>
@@ -65,6 +65,11 @@ export const Opros = () => {
                   рабочей областью, чтобы преподаватель мог видеть и
                   корректировать Вашу работу, а также, чтобы Вы могли видеть,
                   что на экране.
+                </span>
+              </li>
+              <li>
+                <span className="font-medium">
+                  Рекомендуем использовать последнюю версию браузера (например: яндекс, хром)
                 </span>
               </li>
             </ul>

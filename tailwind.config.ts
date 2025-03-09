@@ -13,8 +13,14 @@ const config: Config = {
       backgroundImage: {
         introDesktop: "url(/images/jpg/intro.jpg)",
         introDesktopTest: "url(/images/jpg/qwe.jpg)",
+        introDesktopTest2: "url(/images/jpg/main2.jpg)",
+        introDesktopTest2_mobile: "url(/images/jpg/main2_mobile.jpg)",
+        introDesktopTest3: "url(/images/jpg/main3.jpg)",
         introMobile: "url(/images/jpg/intro_mobile.jpg)",
         introTablet: "url(/images/jpg/intro_tablet.jpg)",
+        nabor: "url(/images/jpg/nabor.jpg)",
+        lips: "url(/images/jpg/catalog/simulator_1.jpg)",
+        course: "url(/images/jpg/qwe.jpg)",
       },
       // screens: {
       //   // "sm": "400px",
@@ -33,11 +39,11 @@ const config: Config = {
         },
         screens: {
           // "sm": "400px",
-          "md": "332px",
-          "lg": "588px",
-          "xl": "844px",
-          "2xl": "1100px"
-        }
+          md: "332px",
+          lg: "588px",
+          xl: "844px",
+          "2xl": "1100px",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

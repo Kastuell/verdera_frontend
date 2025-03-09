@@ -4,7 +4,7 @@ import { useCartStore } from "@/lib/cart-store";
 import { ProductT } from "@/types/product.types";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Button } from "../ui";
+import { Button, Dialog, DialogContent, DialogTrigger } from "../ui";
 
 export const ButtonWrapper = ({
   item,
@@ -31,8 +31,35 @@ export const ButtonWrapper = ({
             <Button onClick={() => push(`catalog/${item.slug}`)}>
               Подробнее
             </Button>
+          ) : item.stock == true ? (
+            <Button
+              onClick={() => {
+                addItem(item);
+                push("/cart");
+              }}
+            >
+              Купить
+            </Button>
           ) : (
-            <Button onClick={() =>{ addItem(item); push("/cart")}}>Купить</Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button>Предзаказ</Button>
+              </DialogTrigger>
+
+              <DialogContent className="sm:max-w-md">
+                Вы оформляете предзаказ, что означает что товар будет отправлен
+                к вам в указанные сроки, непозднее 5 апреля 2025 года.
+                <br /> Мы вас уведомим в течении дня после оплаты
+                <Button
+                  onClick={() => {
+                    addItem(item);
+                    push("/cart");
+                  }}
+                >
+                  Предзаказать
+                </Button>
+              </DialogContent>
+            </Dialog>
           )}
           {inCartItem(item) ? (
             <Button onClick={() => deleteItem(item)} variant={"black"}>

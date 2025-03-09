@@ -2,6 +2,7 @@ import {
   IntroCourse,
   IntroForm,
   IntroGallery,
+  IntroHello,
   IntroImage,
   IntroProduct,
   IntroPromo,
@@ -10,6 +11,7 @@ import {
   IntroTeahers,
   IntroVideo,
   IntroVideo2,
+  IntroVideo3,
 } from "@/components/intro";
 import { Metadata } from "next";
 
@@ -21,6 +23,8 @@ export default function Home() {
   return (
     <main>
       <IntroImage />
+      <IntroHello />
+      <IntroVideo3 />
       <IntroProduct />
       <IntroPromo />
       <IntroRasrochka />

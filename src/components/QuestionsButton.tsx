@@ -25,7 +25,7 @@ export const QuestionsButton = () => {
     upToTop && (
       <CircleHelp
         onClick={() => goToBlock()}
-        className="fixed right-6 bottom-6 xl:right-16 xl:bottom-16  bg-secondary text-primary z-[9999] mix-blend-difference rounded-full p-2 transition duration-300 hover:opacity-75 cursor-pointer animate-up-btn-up"
+        className="fixed right-6 bottom-6 xl:right-16 xl:bottom-16  bg-secondary text-primary z-[9999] rounded-full p-2 transition duration-300 hover:opacity-75 cursor-pointer animate-up-btn-up"
         size={50}
       />
     )

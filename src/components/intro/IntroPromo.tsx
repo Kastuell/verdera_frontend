@@ -53,7 +53,7 @@ export const IntroPromo = () => {
   return (
     <>
       {!data && (
-        <Container className="xl:mt-5">
+        <Container className="mt-5 xl:mt-5">
           <Dialog>
             <DialogTrigger className="w-full rounded-2xl font-medium transition duration-300 xl:h-18 h-14 px-8 bg-greenish text-secondary text-xl xl:text-2xl hover:opacity-70 active:opacity-100">
               Активировать промокод

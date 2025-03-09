@@ -14,6 +14,7 @@ export type ProductT = {
     slug: string;
   };
   description: DescriptionT;
+  stock: boolean;
 };
 
 type DescriptionT = {
