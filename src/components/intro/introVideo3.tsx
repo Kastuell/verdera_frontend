@@ -38,34 +38,34 @@ export const IntroVideo3 = () => {
 
   return (
     <div className="bg-primary text-secondary mt-20">
-      <div className="2xl:flex  2xl:flex-row px-5 2xl:px-20 py-5">
-        <div className="mt-10 basis-1/2">
+      <div className="lg:flex lg:flex-row px-5 lg:px-20 py-5 gap-6">
+        <div className="mt-10 basis-1/2 xl:basis-2/3">
           <div>
-            <h2 className="xl:text-4xl text-2xl font-semibold">
+            <h2 className="lg:text-3xl text-xl font-semibold">
               Самый реалистичные хирургические тренажеры кожи с сосудами и кишки
               с брыжейкой!
             </h2>
-            <p className="mt-5 2xl:text-lg text-base ">
+            <p className="mt-5 lg:text-lg text-base ">
               Отработка навыков никогда не была настолько близка к реальности!
               Тренажеры созданы специально для хирургов и студентов медицинских
               вузов, чтобы практиковать операции в условиях,{" "}
               <b>максимально приближенных к настоящим.</b>
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-3 2xl:gap-5 mt-5">
+          <div className="grid grid-cols-2 gap-3 lg:gap-5 mt-5">
             {items.map((item, idx) => (
               <IntroSquares description={item.description} idx={idx} title={item.title} key={item.title} />
             ))}
           </div>
         </div>
-        <div className="relative h-screen basis-1/2">
+        <div className="relative h-screen basis-1/2 xl:basis-1/3">
           <video
             autoPlay
             muted
             loop
             preload="metadata"
             playsInline
-            className="mt-8 h-[90%] left-0 right-0 m-auto 2xl:left-auto absolute 2xl:right-[10%] rounded-xl"
+            className="mt-8 h-[90%] left-0 right-0 m-auto lg:left-auto absolute rounded-xl"
           >
             <source src="/videos/main4.mp4" type="video/mp4" />
             {/* <source src="/videos/main.mp4" type="video/mp4" /> */}

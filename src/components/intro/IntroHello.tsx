@@ -16,7 +16,7 @@ export const IntroHello = () => {
         <br /> наивно полагающих, что сможем изменить мир к лучшему!
       </Head>
       <div className="mt-10 text-lg">
-        <div className="flex flex-col justify-between items-center gap-6 mt-10 xl:flex-row">
+        <div className="flex flex-col justify-between items-center gap-6 mt-10 lg:flex-row">
           <Button
             onClick={() => {
               push("/catalog/trenazher_'kishka_s_bryzheykoy'");
