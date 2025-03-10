@@ -1,11 +1,13 @@
 "use client";
 
+import { IntroSquares } from "./introSquares";
+
 export const IntroVideo3 = () => {
   const items = [
     {
       title: "Анатомически верны",
       description:
-        "Послойная структура, сосуды брыжейки, текстура, плотность, волосяной покров, тургор( без излишней эластичности как у конкурентов ) - идеально имитируется в наших тренажёрах.",
+        "Послойная структура, сосуды брыжейки, текстура, плотность, волосяной покров, тургор (без излишней эластичности как у конкурентов) - идеально имитируется в наших тренажёрах.",
     },
     {
       title: "Кровоточащие сосуды кожи",
@@ -36,32 +38,23 @@ export const IntroVideo3 = () => {
 
   return (
     <div className="bg-primary text-secondary mt-20">
-      <div className="xl:flex  xl:flex-row px-5 xl:px-20 py-5">
+      <div className="2xl:flex  2xl:flex-row px-5 2xl:px-20 py-5">
         <div className="mt-10 basis-1/2">
           <div>
             <h2 className="xl:text-4xl text-2xl font-semibold">
               Самый реалистичные хирургические тренажеры кожи с сосудами и кишки
               с брыжейкой!
             </h2>
-            <p className="mt-5 xl:text-lg text-base ">
+            <p className="mt-5 2xl:text-lg text-base ">
               Отработка навыков никогда не была настолько близка к реальности!
               Тренажеры созданы специально для хирургов и студентов медицинских
               вузов, чтобы практиковать операции в условиях,{" "}
               <b>максимально приближенных к настоящим.</b>
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-3 xl:gap-5 mt-5">
+          <div className="grid grid-cols-2 gap-3 2xl:gap-5 mt-5">
             {items.map((item, idx) => (
-              <div key={item.description} className="bg-greenish rounded-2xl p-3 xl:pr-5 xl:min-h-48">
-                <div className="text-secondary font-bold text-sm xl:text-xl">
-                  {idx + 1}. {item.title}
-                </div>
-                <div>
-                  <div className="xl:text-base text-xs leading-3 xl:leading-8 text-secondary mt-2">
-                    {item.description}
-                  </div>
-                </div>
-              </div>
+              <IntroSquares description={item.description} idx={idx} title={item.title} key={item.title} />
             ))}
           </div>
         </div>
@@ -72,7 +65,7 @@ export const IntroVideo3 = () => {
             loop
             preload="metadata"
             playsInline
-            className="mt-8 h-[90%] left-0 right-0 m-auto xl:left-auto absolute xl:right-[10%] rounded-xl"
+            className="mt-8 h-[90%] left-0 right-0 m-auto 2xl:left-auto absolute 2xl:right-[10%] rounded-xl"
           >
             <source src="/videos/main4.mp4" type="video/mp4" />
             {/* <source src="/videos/main.mp4" type="video/mp4" /> */}
