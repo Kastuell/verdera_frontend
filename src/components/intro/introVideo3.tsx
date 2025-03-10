@@ -39,13 +39,13 @@ export const IntroVideo3 = () => {
   return (
     <div className="bg-primary text-secondary mt-20">
       <div className="lg:flex lg:flex-row px-5 lg:px-20 py-5 gap-6">
-        <div className="mt-10 basis-1/2 xl:basis-2/3">
+        <div className="mt-10 basis-1/2 lg:basis-2/3">
           <div>
-            <h2 className="lg:text-3xl text-xl font-semibold">
+            <h2 className="xl:text-3xl text-xl font-semibold">
               Самый реалистичные хирургические тренажеры кожи с сосудами и кишки
               с брыжейкой!
             </h2>
-            <p className="mt-5 lg:text-lg text-base ">
+            <p className="mt-5 xl:text-lg text-base ">
               Отработка навыков никогда не была настолько близка к реальности!
               Тренажеры созданы специально для хирургов и студентов медицинских
               вузов, чтобы практиковать операции в условиях,{" "}
@@ -58,7 +58,7 @@ export const IntroVideo3 = () => {
             ))}
           </div>
         </div>
-        <div className="relative h-screen basis-1/2 xl:basis-1/3">
+        <div className="relative h-screen basis-1/2 lg:basis-1/3">
           <video
             autoPlay
             muted
