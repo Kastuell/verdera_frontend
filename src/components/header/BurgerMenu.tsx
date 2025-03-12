@@ -1,6 +1,5 @@
 "use client";
 
-import { useLogout } from "@/hooks/useLogout";
 import { useProfile } from "@/hooks/useProfile";
 import { useBurgerMenuStore } from "@/lib/burgerMenu-store";
 import { cn } from "@/lib/utils";
@@ -21,14 +20,12 @@ export const BurgerMenu = () => {
 
   const { changeOpen } = useBurgerMenuStore();
 
-  const { mutate } = useLogout();
-
-  const { data, error, isLoading } = useProfile();
+  const { data } = useProfile();
 
   return (
     <div
       className={cn(
-        "h-full absolute z-50 bg-primary top-0 w-full -translate-x-full transition duration-300",
+        "h-full absolute z-[2000] bg-primary top-0 w-full -translate-x-full transition duration-300",
         {
           ["translate-x-0"]: isOpen,
         }

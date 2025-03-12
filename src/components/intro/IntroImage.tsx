@@ -37,7 +37,7 @@ export const IntroImage = () => {
         bg-introDesktopTest2_mobile
           lg:bg-introDesktopTest3 h-screen"
       >
-        <div className="relative h-screen z-50">
+        <div className="relative h-screen">
           <Image
             src={verdera_img}
             className="absolute bottom-[50%] md:bottom-36 w-11/12 right-2 md:w-[40%] md:right-8 xl:right-10 "

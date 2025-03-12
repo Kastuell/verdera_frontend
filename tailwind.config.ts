@@ -19,7 +19,7 @@ const config: Config = {
         introMobile: "url(/images/jpg/intro_mobile.jpg)",
         introTablet: "url(/images/jpg/intro_tablet.jpg)",
         nabor: "url(/images/jpg/nabor.jpg)",
-        lips: "url(/images/jpg/catalog/simulator_1.jpg)",
+        lips: "url(/images/jpg/simulator.jpg)",
         course: "url(/images/jpg/qwe.jpg)",
       },
       // screens: {

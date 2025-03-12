@@ -15,12 +15,20 @@ export const Footer = () => {
       {
         src: "/images/svg/media/vk.svg",
         alt: "VK",
+        alt2: "Косметология",
         href: "https://vk.com/verdera_cosmetology",
       },
       {
         src: "/images/svg/media/tg.svg",
         alt: "TG",
+        alt2: "Телеграм",
         href: "https://t.me/verdera_cosmetology",
+      },
+      {
+        src: "/images/svg/media/vk.svg",
+        alt: "VK",
+        alt2: "Хирургия",
+        href: "https://vk.com/verdera_surgery",
       },
     ],
   };
@@ -46,13 +54,19 @@ export const Footer = () => {
           ))}
         </div>
         <div className="flex flex-col xl:gap-6 gap-3 items-center mt-10 md:mt-0">
-          <p className="xl:text-2xl">© Verdera2024</p>
-          <ul className="flex xl:gap-12 gap-6 items-center">
+          <p className="xl:text-2xl">© Verdera2025</p>
+          <ul className="flex xl:gap-12 gap-6 items-center justify-center">
             {footerItems.right.map((item) => (
-              <Link key={item.href} href={item.href} target="_blank">
+              <Link
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                className="flex flex-col items-center"
+              >
                 <div className="relative xl:w-[70px] w-[50px] h-[50px]">
                   <Image fill src={item.src} alt={item.alt} />
                 </div>
+                <p className="text-sm">{item.alt2}</p>
               </Link>
             ))}
           </ul>

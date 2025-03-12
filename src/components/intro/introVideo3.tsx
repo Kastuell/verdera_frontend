@@ -38,14 +38,14 @@ export const IntroVideo3 = () => {
 
   return (
     <div className="bg-primary text-secondary mt-20">
-      <div className="lg:flex lg:flex-row px-5 lg:px-20 py-5 gap-6">
-        <div className="mt-10 basis-1/2 lg:basis-2/3">
+      <div className="lg:flex lg:flex-row px-5 lg:px-20 py-5 gap-6 items-start content-stretch">
+        <div className="mt-10 basis-1/2 lg:basis-2/3 min-[1900px]:basis-1/2">
           <div>
-            <h2 className="xl:text-3xl text-xl font-semibold">
+            <h2 className="xl:text-3xl text-xl font-semibold min-[1900px]:text-5xl">
               Самый реалистичные хирургические тренажеры кожи с сосудами и кишки
               с брыжейкой!
             </h2>
-            <p className="mt-5 xl:text-lg text-base ">
+            <p className="mt-5 xl:text-lg text-base min-[1900px]:text-2xl">
               Отработка навыков никогда не была настолько близка к реальности!
               Тренажеры созданы специально для хирургов и студентов медицинских
               вузов, чтобы практиковать операции в условиях,{" "}
@@ -54,18 +54,23 @@ export const IntroVideo3 = () => {
           </div>
           <div className="grid grid-cols-2 gap-3 lg:gap-5 mt-5">
             {items.map((item, idx) => (
-              <IntroSquares description={item.description} idx={idx} title={item.title} key={item.title} />
+              <IntroSquares
+                description={item.description}
+                idx={idx}
+                title={item.title}
+                key={item.title}
+              />
             ))}
           </div>
         </div>
-        <div className="relative h-screen basis-1/2 lg:basis-1/3">
+        <div className="relative flex basis-1/2 lg:basis-1/3 self-stretch min-[1900px]:basis-1/2 mt-8 lg:mt-0">
           <video
             autoPlay
             muted
             loop
             preload="metadata"
             playsInline
-            className="mt-8 h-[90%] left-0 right-0 m-auto lg:left-auto absolute rounded-xl"
+            className="m-auto rounded-2xl h-[90%]"
           >
             <source src="/videos/main4.mp4" type="video/mp4" />
             {/* <source src="/videos/main.mp4" type="video/mp4" /> */}

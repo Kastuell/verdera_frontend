@@ -22,10 +22,9 @@ export const IntroHello = () => {
               push("/catalog/trenazher_'kishka_s_bryzheykoy'");
               setSelected({ name: "Тренажёры", slug: "trenazhery" });
             }}
-            className="bg-nabor bg-cover font-bold bg-opacity-20 relative hover:scale-105"
+            className="bg-nabor bg-cover font-bold hover:scale-105"
             size={"square"}
           >
-            <div className="absolute top-0 bg-black opacity-40 size-full rounded-2xl z-10" />
             <p className="z-50 cursor-pointer">
               Хирургический
               <br /> набор
@@ -36,10 +35,9 @@ export const IntroHello = () => {
               push("/catalog/trenazher_s_polnocennoy_imitaciey_gub_pro");
               setSelected({ name: "Тренажёры", slug: "trenazhery" });
             }}
-            className="bg-lips bg-cover font-bold bg-opacity-20 relative hover:scale-105"
+            className="bg-lips bg-cover font-bold hover:scale-105"
             size={"square"}
           >
-            <div className="absolute top-0 bg-black opacity-40 size-full rounded-2xl z-10" />
             <p className="z-50 cursor-pointer">
               Тренажёр губы
               <br /> PRO
@@ -50,10 +48,9 @@ export const IntroHello = () => {
               push("/catalog/konturnaya_plastika_gub");
               setSelected({ name: "Курсы", slug: "kursy" });
             }}
-            className="bg-course bg-cover font-bold bg-opacity-20 relative hover:scale-105"
+            className="bg-course bg-cover font-bold  hover:scale-105"
             size={"square"}
           >
-            <div className="absolute top-0 bg-black opacity-15 size-full rounded-2xl z-10" />
             <p className="z-50 cursor-pointer">
               Обучающий курс
               <br /> КП

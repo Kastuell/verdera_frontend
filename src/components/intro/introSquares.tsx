@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { useState } from "react";
 
 export const IntroSquares = (props: {
   description: string;
@@ -7,25 +6,25 @@ export const IntroSquares = (props: {
   title: string;
 }) => {
   const { description, idx, title } = props;
-  const [showMore, setShowMore] = useState(false);
+  // const [showMore, setShowMore] = useState(false);
 
   return (
     <div
-      onClick={() => setShowMore(!showMore)}
+      // onClick={() => setShowMore(!showMore)}
       className="bg-greenish rounded-2xl p-3 px-0 cursor-pointer relative"
     >
-      <div className="text-secondary font-bold text-sm xl:text-xl px-3">
+      <div className="text-secondary font-bold text-sm xl:text-xl px-3 min-[1900px]:text-3xl">
         {idx + 1}. {title}
       </div>
       <div>
         <div
           className={clsx({
-            ["xl:text-base text-xs leading-3 xl:leading-7 text-secondary mt-2 px-3 mb-4"]:
+            ["xl:text-base text-xs min-[1900px]:text-2xl leading-3 xl:leading-7 text-secondary mt-2 px-3 mb-4"]:
               true,
           })}
         >
-          <div className="hidden md:block">{description}</div>
-          <div className="md:hidden">
+          <div className="">{description}</div>
+          {/* <div className="md:hidden">
             {showMore ? (
               description
             ) : (
@@ -39,7 +38,7 @@ export const IntroSquares = (props: {
                 <span className="font-light text-grayish">...показать</span>
               </div>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
       {/* <div className="z-10 flex text-primary justify-center bg-gradient-to-b from-transparent via-secondary to-secondary absolute bottom-0 w-full  rounded-b-2xl">
