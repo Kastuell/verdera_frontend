@@ -13,13 +13,13 @@ export const IntroSquares = (props: {
       // onClick={() => setShowMore(!showMore)}
       className="bg-greenish rounded-2xl p-3 px-0 cursor-pointer relative"
     >
-      <div className="text-secondary font-bold text-sm xl:text-xl px-3 min-[1900px]:text-3xl">
+      <div className="text-secondary font-bold text-sm xl:text-xl px-3 min-[1900px]:text-3xl h-10 min-[566px]:h-auto">
         {idx + 1}. {title}
       </div>
       <div>
         <div
           className={clsx({
-            ["xl:text-base text-xs min-[1900px]:text-2xl leading-3 xl:leading-7 text-secondary mt-2 px-3 mb-4"]:
+            ["xl:text-base text-xs min-[1900px]:text-2xl leading-[14px] xl:leading-7 text-secondary mt-2 px-3 mb-4"]:
               true,
           })}
         >

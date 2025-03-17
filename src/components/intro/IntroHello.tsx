@@ -13,13 +13,13 @@ export const IntroHello = () => {
     <Container>
       <Head className="font-normal">
         Мы — команда молодых энтузиастов,
-        <br /> наивно полагающих, что сможем изменить мир к лучшему!
+        <br /> искренне верящих, что их идеи смогут изменить мир к лучшему!
       </Head>
       <div className="mt-10 text-lg">
         <div className="flex flex-col justify-between items-center gap-6 mt-10 lg:flex-row">
           <Button
             onClick={() => {
-              push("/catalog/trenazher_'kishka_s_bryzheykoy'");
+              push("/catalog/nabor_verdera_surgical_kit_(kishka_s_bryzzheykoy_+_kozha_s_sosudami_+_podstavka)");
               setSelected({ name: "Тренажёры", slug: "trenazhery" });
             }}
             className="bg-nabor bg-cover font-bold hover:scale-105"

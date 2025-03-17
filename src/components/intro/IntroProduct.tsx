@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const IntroProduct = () => {
   return (
-    <div className="container lg:mt-10">
+    <div className="container lg:mt-20">
       <div className="grid grid-cols-1 2xl:grid-cols-2 text-center 2xl:text-start 2xl:gap-10">
         <h3 className="2xl:hidden font-bold text-lg py-5 md:py-7 min-[588px]:text-3xl">
           Тренежёр с полноценной имитацией губ
