@@ -39,7 +39,6 @@ import {
 } from "../ui";
 import { PasswordInput } from "./PasswordInput";
 
-
 export const Register = () => {
   const { push, refresh } = useRouter();
 
@@ -311,7 +310,18 @@ export const Register = () => {
           </div>
         </form>
       </Form>
-      <div className="text-center lg:mt-16 mt-8 text-lg">
+      <p className="text-center text-sm leading-8 mt-2">
+        Нажимая на кнопку «Зарегистрироваться», вы принимаете условия
+        <a
+          target="_blank"
+          href="/pdf/oferta.pdf"
+          className="text-greenish cursor-pointer"
+        >
+          {" "}
+          Публичной оферты
+        </a>
+      </p>
+      <div className="text-center mt-8 text-lg">
         <p>У вас уже есть аккаунт?</p>
         <p className="text-greenish mt-4 hover:underline">
           <Link href={"/auth/login"} scroll>

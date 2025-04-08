@@ -11,7 +11,7 @@ import { numberFormat } from "@/utils/numberFormat";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check } from "lucide-react";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -32,8 +32,6 @@ import {
 
 export const ComfirmingForm = ({ data }: { data: UserT }) => {
   const { replace } = useRouter();
-  const qwe = usePathname();
-  console.log(qwe);
 
   const form = useForm<z.infer<typeof confirmingSchema>>({
     resolver: zodResolver(confirmingSchema),
@@ -134,6 +132,8 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
 
   const { mutate } = useCreateOrder();
 
+  console.log(process.env.NEXT_PUBLIC_DOMAIN)
+
   function onSubmit(data: z.infer<typeof confirmingSchema>) {
     if (items.find((item) => item.product.category.name == "Курсы")) {
       const qwe: PlaceOrderT = {
@@ -153,7 +153,7 @@ export const ComfirmingForm = ({ data }: { data: UserT }) => {
           ""
         );
       }
-      replace("https://verdera.ru/cart/" + link);
+      replace(process.env.NEXT_PUBLIC_DOMAIN + "/cart/" + link);
     } else {
       const temp: OrderItemDto[] = items.map((it) => {
         return {

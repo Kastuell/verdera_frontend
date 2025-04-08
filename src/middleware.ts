@@ -19,7 +19,6 @@ export async function middleware(request: NextRequest, response: NextResponse) {
     if (isProfilePage || isConfirmingPage || isCoursesPage || isSchedulePage) {
       let url = new URL("/auth", request.url);
       url.searchParams.set("from", request.nextUrl.pathname);
-      console.log("!access");
       return NextResponse.redirect(url);
     }
   } else {

@@ -3,7 +3,7 @@
 import { useProductBySlug } from "@/hooks/useProduct";
 import { useCartStore } from "@/lib/cart-store";
 import { useRouter } from "next/navigation";
-import { Button, Dialog, DialogContent, DialogTrigger } from "../ui";
+import { Button } from "../ui";
 import { IntroSquares } from "./introSquares";
 
 export const IntroVideo3 = () => {
@@ -31,7 +31,7 @@ export const IntroVideo3 = () => {
         "Легирование сосудов, кишечный шов, анастомозы, энтеротомии, формирование резервуаров, все виды кожного шва, шва ПЖК, сосудистого шва.",
     },
     {
-      title: "Безопастный",
+      title: "Безопасный",
       description:
         "Гипоаллергенный материал без токсичных примесей и запаха. В отличие от реальных органокомплексов - не требует особых условий хранения.",
     },
@@ -73,8 +73,9 @@ export const IntroVideo3 = () => {
                   key={item.title}
                 />
               ))}
-              <Button className="col-span-2 md:col-span-1" variant={"social_white"}>Подробнее о товаре</Button>
-              <Dialog>
+              <Button className="col-span-2" variant={"social_white"}>Подробнее о товаре</Button>
+              {/* <Button className="col-span-2 md:col-span-1 w-full rounded-2xl font-medium transition duration-300 xl:h-18 h-14 px-8 bg-violet text-secondary text-xl xl:text-2xl hover:opacity-70 active:opacity-100">Купить</Button> */}
+              {/* <Dialog>
                 <DialogTrigger className="col-span-2 md:col-span-1" asChild>
                   <Button className={"w-full rounded-2xl font-medium transition duration-300 xl:h-18 h-14 px-8 bg-violet text-secondary text-xl xl:text-2xl hover:opacity-70 active:opacity-100"}>Предзаказ</Button>
                 </DialogTrigger>
@@ -95,7 +96,7 @@ export const IntroVideo3 = () => {
                     </Button>
                   )}
                 </DialogContent>
-              </Dialog>
+              </Dialog> */}
             </div>
           </div>
           <div className="relative flex basis-1/2 lg:basis-1/3 self-stretch min-[1900px]:basis-1/2 mt-8 lg:mt-0">
