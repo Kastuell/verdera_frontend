@@ -54,7 +54,7 @@ export const IntroVideo3 = () => {
           <div className="mt-10 basis-1/2 lg:basis-2/3 min-[1900px]:basis-1/2">
             <div>
               <h2 className="xl:text-3xl text-xl font-semibold min-[1900px]:text-5xl">
-                Самый реалистичные хирургические тренажеры кожи с сосудами и
+                Самые реалистичные хирургические тренажеры кожи с сосудами и
                 кишки с брыжейкой!
               </h2>
               <p className="mt-5 xl:text-lg text-base min-[1900px]:text-2xl">
