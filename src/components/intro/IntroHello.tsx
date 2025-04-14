@@ -13,7 +13,7 @@ export const IntroHello = () => {
     <Container>
       <Head className="font-normal">
         Мы — команда молодых энтузиастов,
-        <br /> искренне верящих, что их идеи смогут изменить мир к лучшему!
+        <br /> искренне верящих, что наши идеи смогут изменить мир к лучшему!
       </Head>
       <div className="mt-10 text-lg">
         <div className="flex flex-col justify-between items-center gap-6 mt-10 lg:flex-row">
