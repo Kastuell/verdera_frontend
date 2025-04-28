@@ -54,8 +54,8 @@ export const IntroHello = () => {
             size={"square"}
           >
             <p className="z-50 cursor-pointer">
-              Курс "Контурная<br />  пластика
-              губ"
+              Курс &quot;Контурная<br />  пластика
+              губ&quot;
             </p>
           </Button>
         </div>
