@@ -18,7 +18,7 @@ export const CatalogBody = (props: ICatalogBody) => {
         <div className="flex flex-row justify-center gap-5 sm:gap-20">
           <Button
             onClick={() => {
-              push("?simulator_category=hirurgiya");
+              push("?trenajery_category=hirurgiya");
             }}
             className="bg-nabor bg-cover font-bold hover:scale-105 size-[140px] sm:size-[200px] lg:size-[280px]"
           >
@@ -29,7 +29,7 @@ export const CatalogBody = (props: ICatalogBody) => {
           </Button>
           <Button
             onClick={() => {
-              push("?simulator_category=kosmetologiya");
+              push("?trenajery_category=kosmetologiya");
             }}
             className="bg-lips bg-cover font-bold hover:scale-105 size-[140px] sm:size-[200px] lg:size-[280px]"
           >
@@ -40,7 +40,7 @@ export const CatalogBody = (props: ICatalogBody) => {
           </Button>
         </div>
       ) : null}
-      {searchParams.get("simulator_category") ? null : <h2 className="text-2xl font-bold">Весь ассортимент</h2>}
+      {searchParams.get("trenajery_category") ? null : <h2 className="text-2xl font-bold">Весь ассортимент</h2>}
 
       {props.products?.map((item) => (
         <CatalogCard key={item.img} item={item} />

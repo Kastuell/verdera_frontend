@@ -10,7 +10,7 @@ export const CatalogWrapper = ({ products }: { products: ProductT[] }) => {
   const { selected } = useCatalogNavBarStore();
 
   const searchParams = useSearchParams()
-  const simulator_category = searchParams.get('simulator_category')
+  const simulator_category = searchParams.get('trenajery_category')
 
   const selectedProducts = products
     .filter((item) => item.category.name == selected.name)
