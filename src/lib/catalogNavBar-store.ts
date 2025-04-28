@@ -9,18 +9,26 @@ export type SelectedT = {
 interface ICatalogNavBarStore {
   selected: SelectedT;
   setSelected: (data: SelectedT) => void;
+  selectedSimulators: string,
+  setSelectedSimulators: (value: string) => void
 }
 
 export const useCatalogNavBarStore = create<ICatalogNavBarStore>()(
   devtools((set) => ({
     selected: {
-      name: "Курсы",
-      slug: "kursy",
+      name: "Тренажёры",
+      slug: "trenazhery",
     },
+    selectedSimulators: "",
     setSelected: (data: SelectedT) => {
       set(() => ({
         selected: data,
       }));
     },
+    setSelectedSimulators: (value) => {
+      set(() => ({
+        selectedSimulators: value
+      }))
+    }
   }))
 );

@@ -20,4 +20,5 @@ export * from "./Thanks";
 export * from "./ui";
 export * from "./UnderlineText";
 export * from "./UpButton";
+export * from "./vk_pixel";
 

@@ -15,6 +15,10 @@ export type ProductT = {
   };
   description: DescriptionT;
   stock: boolean;
+  simulatorCategory: {
+    name: string;
+    slug: string;
+  };
 };
 
 type DescriptionT = {

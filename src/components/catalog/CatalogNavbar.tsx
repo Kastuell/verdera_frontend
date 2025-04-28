@@ -2,13 +2,11 @@
 import { categoryItems } from "@/app/catalog/category-items";
 import { useCatalogNavBarStore } from "@/lib/catalogNavBar-store";
 import clsx from "clsx";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { UnderlineText } from "../UnderlineText";
 
 export const CatalogNavbar = () => {
   const { selected, setSelected } = useCatalogNavBarStore();
-
-  const pathname = usePathname();
 
   const { push } = useRouter();
 
@@ -21,7 +19,7 @@ export const CatalogNavbar = () => {
               name: item.name,
               slug: item.slug,
             });
-            pathname.length !== 8 && push("/catalog");
+            push("/catalog");
           }}
           className={clsx({
             ["lg:text-3xl md:text-2xl text-base cursor-pointer border border-primary p-5 rounded-xl"]:

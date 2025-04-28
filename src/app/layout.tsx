@@ -4,6 +4,7 @@ import {
   Metrika,
   QuestionsButton,
   UpButton,
+  VkMetrika,
 } from "@/components";
 import { SITE_NAME } from "@/constants/seo.constants";
 import { cn } from "@/lib/utils";
@@ -98,6 +99,9 @@ export default function RootLayout(props: Ilayout) {
         <Toaster theme="dark" position="bottom-right" duration={5000} />
         <Suspense>
           <Metrika />
+        </Suspense>
+        <Suspense>
+          <VkMetrika />
         </Suspense>
       </body>
     </html>

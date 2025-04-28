@@ -19,41 +19,43 @@ export const IntroHello = () => {
         <div className="flex flex-col justify-between items-center gap-6 mt-10 lg:flex-row">
           <Button
             onClick={() => {
-              push("/catalog/nabor_verdera_surgical_kit_(kishka_s_bryzzheykoy_+_kozha_s_sosudami_+_podstavka)");
+              push(
+                "/catalog/trenazhery/nabor_verdera_surgical_kit_(kishka_s_bryzzheykoy_+_kozha_s_sosudami_+_podstavka)"
+              );
               setSelected({ name: "Тренажёры", slug: "trenazhery" });
             }}
             className="bg-nabor bg-cover font-bold hover:scale-105"
             size={"square"}
           >
             <p className="z-50 cursor-pointer">
-              Хирургический
-              <br /> набор
+              Тренажёры для
+              <br /> хирургов
             </p>
           </Button>
           <Button
             onClick={() => {
-              push("/catalog/trenazher_s_polnocennoy_imitaciey_gub_pro");
+              push("/catalog/trenazhery/trenazher_s_polnocennoy_imitaciey_gub_pro");
               setSelected({ name: "Тренажёры", slug: "trenazhery" });
             }}
             className="bg-lips bg-cover font-bold hover:scale-105"
             size={"square"}
           >
             <p className="z-50 cursor-pointer">
-              Тренажёр губы
-              <br /> PRO
+              Тренажёры для
+              <br /> косметологов
             </p>
           </Button>
           <Button
             onClick={() => {
-              push("/catalog/konturnaya_plastika_gub");
+              push("/catalog/kursy/konturnaya_plastika_gub");
               setSelected({ name: "Курсы", slug: "kursy" });
             }}
             className="bg-course bg-cover font-bold  hover:scale-105"
             size={"square"}
           >
             <p className="z-50 cursor-pointer">
-              Обучающий курс
-              <br /> КП
+              Курс "Контурная<br />  пластика
+              губ"
             </p>
           </Button>
         </div>
