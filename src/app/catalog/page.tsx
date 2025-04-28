@@ -1,6 +1,7 @@
 import { CatalogWrapper, Container } from "@/components";
 import { ProductT } from "@/types/product.types";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Каталог",
@@ -16,7 +17,9 @@ export default async function Page() {
 
   return (
     <Container>
-      <CatalogWrapper products={products} />
+      <Suspense fallback={<div></div>}>
+        <CatalogWrapper products={products} />
+      </Suspense>
     </Container>
   );
 }
