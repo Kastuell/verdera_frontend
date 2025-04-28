@@ -20,7 +20,7 @@ export const IntroHello = () => {
           <Button
             onClick={() => {
               push(
-                "/catalog/trenazhery/nabor_verdera_surgical_kit_(kishka_s_bryzzheykoy_+_kozha_s_sosudami_+_podstavka)"
+                "/catalog/nabor_verdera_surgical_kit_(kishka_s_bryzzheykoy_+_kozha_s_sosudami_+_podstavka)"
               );
               setSelected({ name: "Тренажёры", slug: "trenazhery" });
             }}
@@ -34,7 +34,7 @@ export const IntroHello = () => {
           </Button>
           <Button
             onClick={() => {
-              push("/catalog/trenazhery/trenazher_s_polnocennoy_imitaciey_gub_pro");
+              push("/catalog/trenazher_s_polnocennoy_imitaciey_gub_pro");
               setSelected({ name: "Тренажёры", slug: "trenazhery" });
             }}
             className="bg-lips bg-cover font-bold hover:scale-105"
@@ -47,7 +47,7 @@ export const IntroHello = () => {
           </Button>
           <Button
             onClick={() => {
-              push("/catalog/kursy/konturnaya_plastika_gub");
+              push("/catalog/konturnaya_plastika_gub");
               setSelected({ name: "Курсы", slug: "kursy" });
             }}
             className="bg-course bg-cover font-bold  hover:scale-105"

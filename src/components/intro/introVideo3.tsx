@@ -73,7 +73,17 @@ export const IntroVideo3 = () => {
                   key={item.title}
                 />
               ))}
-              <Button className="col-span-2" variant={"social_white"}>Подробнее о товаре</Button>
+              <Button
+                onClick={() => {
+                  push(
+                    "/catalog?simulator_category=hirurgiya"
+                  );
+                }}
+                className="col-span-2"
+                variant={"social_white"}
+              >
+                Подробнее о товарах
+              </Button>
               {/* <Button className="col-span-2 md:col-span-1 w-full rounded-2xl font-medium transition duration-300 xl:h-18 h-14 px-8 bg-violet text-secondary text-xl xl:text-2xl hover:opacity-70 active:opacity-100">Купить</Button> */}
               {/* <Dialog>
                 <DialogTrigger className="col-span-2 md:col-span-1" asChild>

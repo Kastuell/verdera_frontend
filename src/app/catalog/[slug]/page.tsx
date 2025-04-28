@@ -17,9 +17,9 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const slug = params.slug;
+  const { slug } = params;
 
-  const product = await productService.getBySlug(params.slug);
+  const product = await productService.getBySlug(slug);
 
   return {
     title: product.name,

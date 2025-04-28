@@ -28,7 +28,7 @@ export const IntroCourse = () => {
             />
           ))}
         </ul>
-        <Link href={"catalog/kursy/konturnaya_plastika_gub"}>
+        <Link href={"catalog/konturnaya_plastika_gub"}>
           <Button className="mt-5" variant={"transparent"} size={"lg"}>
             Подробнее о курсе
           </Button>
